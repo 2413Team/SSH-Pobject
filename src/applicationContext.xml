@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+									 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+									 http://www.springframework.org/schema/tx 
+									 http://www.springframework.org/schema/tx/spring-tx.xsd
+									 http://www.springframework.org/schema/aop 
+									 http://www.springframework.org/schema/aop/spring-aop-4.0.xsd" 
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306"></property>
+		<property name="username" value="root"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/sshpobject/model/Shuoshuo.hbm.xml</value>
+				<value>com/sshpobject/model/UserStatus.hbm.xml</value>
+				<value>com/sshpobject/model/UserGroup.hbm.xml</value>
+				<value>
+					com/sshpobject/model/UserOrganization.hbm.xml
+				</value>
+				<value>com/sshpobject/model/User.hbm.xml</value>
+				<value>com/sshpobject/model/Sixin.hbm.xml</value>
+				<value>com/sshpobject/model/Organization.hbm.xml</value>
+				<value>com/sshpobject/model/Liuyan.hbm.xml</value>
+				<value>
+					com/sshpobject/model/OrganizationType.hbm.xml
+				</value>
+				<value>
+					com/sshpobject/model/OrganizationRequest.hbm.xml
+				</value></list>
+		</property></bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- 下面开始配置bean -->
+	<bean id="userDao" class="com.sshpobject.daoimpl.UserDaoImpl" >
+	    <property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userService" class="com.sshpobject.service.UserService">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="userAction" class="com.sshpobject.action.UserAction">
+	    <property name="userService" ref="userService"></property>
+	</bean>
+	
+	</beans>
