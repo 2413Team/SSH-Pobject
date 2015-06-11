@@ -1,5 +1,7 @@
 package com.sshpobject.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,13 +30,11 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean doLogin(User user) {
+	public List<User> doLogin(User user) {
 		getSession();
-		String sql="FROM User WHERE email='"+user.getEmail()+"' AND password='"+user.getPassword()+"'";
+		String sql="FROM User WHERE email='"+user.getEmail()+"' AND password='"+user.getPassword()+"' AND userStatus.id=1";
 		Query query=sess.createQuery(sql);
-		if(!query.list().isEmpty())
-			return true;
-		return false;
+		return query.list();
 	}
 	
 	public void getSession(){

@@ -1,5 +1,7 @@
 package com.sshpobject.service;
 
+import java.util.List;
+
 import com.sshpobject.daoimpl.UserDaoImpl;
 import com.sshpobject.model.User;
 
@@ -12,7 +14,7 @@ public class UserService {
 	/*
 	 * 登陆操作，返回是否登陆成功
 	 */
-	public boolean doLogin(User user){
+	public List<User> doLogin(User user){
 		return userDao.doLogin(user);
 	}
 

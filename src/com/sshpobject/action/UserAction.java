@@ -3,7 +3,10 @@ package com.sshpobject.action;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.User;
 import com.sshpobject.service.UserService;
@@ -14,17 +17,23 @@ public class UserAction extends ActionSupport {
 	private User user;
 
 	public String doLogin() throws Exception{
-		if(userService.doLogin(user))
+		List<User> userlist=userService.doLogin(user);
+		Map session=ActionContext.getContext().getSession();
+		if(!userlist.isEmpty()){
+			user=userlist.get(0);
+			DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd"); 
+			String birthday=fmt.format(user.getBirthday());
+			Date date = fmt.parse(birthday);
+			System.out.println(date.toString());
+			user.setBirthday(date);
+			session.put("user", user);
 			return SUCCESS;
-		return "cantlogin";
+		}
+		else
+	    	return "cantlogin";
 	}
 	
 	public String doRegister() throws Exception{
-		System.out.println("doregister");
-		System.out.println(user.getEmail()+","+user.getName()+","+user.getPassword()+","+user.getSex());
-		System.out.println("Birthday："+birthday);
-		System.out.print("改正后："+birthday.replace(",", "-").replace(" ", "").replace("月", ""));
-		birthday=birthday.replace(",", "-").replace(" ", "").replace("月", "");
 		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd"); 
 		Date date = fmt.parse(birthday);
 		user.setBirthday(date);
