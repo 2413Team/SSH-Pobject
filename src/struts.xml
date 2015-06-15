@@ -10,7 +10,7 @@
             <result name="success">/success.jsp</result>
         </action>
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
-    		<result name="success">/loginsuccess.jsp</result>
+    		<result name="success">/success.jsp</result>
     	</action>
    </package>
 </struts>    

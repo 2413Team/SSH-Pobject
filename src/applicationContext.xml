@@ -57,7 +57,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<!-- 下面开始配置bean -->
-	<!-- 用户相关 -->
+
 	<bean id="userDao" class="com.sshpobject.daoimpl.UserDaoImpl" >
 	    <property name="sf" ref="sessionFactory"></property>
 	</bean>
@@ -68,15 +68,14 @@
 	    <property name="userService" ref="userService"></property>
 	</bean>
 	
-	<!-- 组织相关 -->
-	<bean id="OrganizationDao" class="com.sshpobject.daoimpl.OrganizationDaoImpl">
+	<bean id="organizationDao" class="com.sshpobject.daoimpl.OrganizationDaoImpl">
 		<property name="sf" ref="sessionFactory"></property>
 	</bean>
-	<bean id="OrganizationService" class="com.sshpobject.service.OrganizationService">
-		<property name="organizationDao" ref="OrganizationDao"></property>
+	<bean id="organizationService" class="com.sshpobject.service.OrganizationService">
+		<property name="organizationDao" ref="organizationDao"></property>
 	</bean>
-	<bean id="OrganizationAction" class="com.sshpobject.action.OrganizationAction">
-		<property name="organizationService"  ref="OrganizationService"></property>
+	<bean id="organizationAction" class="com.sshpobject.action.OrganizationAction">
+		<property name="organizationService"  ref="organizationService"></property>
 	</bean>
 	
 	</beans>

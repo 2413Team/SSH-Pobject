@@ -5,13 +5,18 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.sshpobject.model.Organization;
+import com.sshpobject.model.OrganizationType;
 
 public class OrganizationDaoImpl extends Organization {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
 	public void addOrganization(Organization organization){
-		
+		System.out.println("Ω¯»Î¡Àdao");
+		organization.setMembercount(1);
+		getSession();
+		sess.save(organization);
+		distroy();
 	}
 	public void getSession(){
 		sess=sf.openSession();

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <s:form>
+    <s:form action="addOrganization.action" method="post">
     	<s:textfield label="组织名字" labelposition="left" name="organization.name"/>
     	<s:select list="#{1:'班级',2:'部门'}" label="组织类型" labelposition="left" name="typeid"/>
     	<s:submit value="提交"/>
