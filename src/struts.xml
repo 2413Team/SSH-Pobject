@@ -9,5 +9,8 @@
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
             <result name="success">/success.jsp</result>
         </action>
+    	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
+    		<result name="success">/loginsuccess.jsp</result>
+    	</action>
    </package>
 </struts>    

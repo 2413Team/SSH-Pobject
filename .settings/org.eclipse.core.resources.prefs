@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//WebRoot/organization_add.jsp=UTF-8
 encoding//WebRoot/user_register.jsp=UTF-8
+encoding//src/com/sshpobject/action/UserAction.java=UTF-8

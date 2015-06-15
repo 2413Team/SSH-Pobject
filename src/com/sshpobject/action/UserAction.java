@@ -16,7 +16,7 @@ public class UserAction extends ActionSupport {
 	private String birthday;
 	private User user;
 
-	public String doLogin() throws Exception{
+	public String doLogin() throws Exception{		
 		List<User> userlist=userService.doLogin(user);
 		Map session=ActionContext.getContext().getSession();
 		if(!userlist.isEmpty()){
@@ -34,6 +34,8 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String doRegister() throws Exception{
+		birthday=birthday.replace(",", "-").replace(" ", "").replace("月", "");
+		System.out.println(birthday);
 		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd"); 
 		Date date = fmt.parse(birthday);
 		user.setBirthday(date);
