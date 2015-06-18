@@ -2,6 +2,7 @@ package com.sshpobject.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -26,8 +27,10 @@ public class OrganizationDaoImpl implements OrganizationDao {
 	}
 	
 	public List<Organization> searchOrganization(String key){
-		
-		return null;
+		getSession();
+		String sql="FROM Organization WHERE name like '%"+key+"%'";
+		Query query=sess.createQuery(sql);
+		return query.list();
 	}
 	
 	public void getSession(){

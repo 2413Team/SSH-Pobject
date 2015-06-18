@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.sshpobject.daoimpl.OrganizationDaoImpl;
 import com.sshpobject.model.Organization;
@@ -24,9 +25,11 @@ public class OrganizationService {
 			e.printStackTrace();
 		}
 	}
-	public void test(){
-		System.out.println("test");
+	
+	public List<Organization> searchOrganization(String key){
+		return organizationDao.searchOrganization(key);
 	}
+	
 	public OrganizationDaoImpl getOrganizationDao() {
 		return organizationDao;
 	}

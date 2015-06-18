@@ -1,5 +1,6 @@
 package com.sshpobject.action;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -13,6 +14,7 @@ import com.sshpobject.service.OrganizationService;
 public class OrganizationAction extends ActionSupport {
 	private OrganizationService organizationService;
 	private Organization organization;
+	private List<Organization> organizationList;
 	private int typeid;
 	
 	public String addOrganization() throws Exception{
@@ -30,11 +32,8 @@ public class OrganizationAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	
-	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("Ω¯»Î¡Àaction");
+	public String searchOrganization() throws Exception{
+		organizationList=organizationService.searchOrganization(organization.getName());
 		return SUCCESS;
 	}
 
@@ -57,6 +56,14 @@ public class OrganizationAction extends ActionSupport {
 	}
 	public void setTypeid(int typeid) {
 		this.typeid = typeid;
+	}
+
+	public List<Organization> getOrganizationList() {
+		return organizationList;
+	}
+
+	public void setOrganizationList(List<Organization> organizationList) {
+		this.organizationList = organizationList;
 	}
 	
 }

@@ -12,5 +12,8 @@
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
     		<result name="success">/success.jsp</result>
     	</action>
+    	<action name="searchOrganization" class="com.sshpobject.action.OrganizationAction" method="searchOrganization">
+    		<result name="success">/organization_search.jsp</result>
+    	</action>
    </package>
 </struts>    

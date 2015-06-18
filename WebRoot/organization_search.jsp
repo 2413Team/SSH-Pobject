@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <s:form>
-    	<s:textfield label="搜索组织" labelposition="left" name="key"/>
+    <s:form action="searchOrganization.action" method="post">
+    	<s:textfield label="搜索组织" labelposition="left" name="organization.name"/>
     	<s:submit value="提交"/>
     </s:form>
   </body>
@@ -35,18 +35,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 	<th>OrganizationId</th>
    	 	<th>OrganizationName</th>
    	 	<th>MemberCount</th>
-   	 	<th>TypeId</th>
-   	 	<th>CreaterId</th>
+   	 	<th>Type</th>
+   	 	<th>Creater</th>
    	 	<th>CreatDate</th>
    	</tr>
-   	 <s:iterator value="list"  id="a">
+   	 <s:iterator value="organizationList"  id="list">
    	 	<tr>
-   	 		<td></td>
-   	 		<td></td>
-   	 		<td></td>
-   	 		<td></td>
-   	 		<td></td>
-   	 		<td></td>
+   	 		<td><s:property value="#list.getId()"/></td>
+   	 		<td><s:property value="#list.getName()"/></td>
+   	 		<td><s:property value="#list.getMembercount()"/></td>
+   	 		<td><s:property value="#list.getOrganizationType().getValue()"/></td>
+   	 		<td><s:property value="#list.getUser().getName()"/></td>
+   	 		<td><s:property value="#list.getCreatdate()"/></td>
    	 	</tr>
    	 </s:iterator>
    	</table>
