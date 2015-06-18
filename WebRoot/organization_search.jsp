@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,6 +24,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <s:form>
+    	<s:textfield label="搜索组织" labelposition="left" name="key"/>
+    	<s:submit value="提交"/>
+    </s:form>
   </body>
+  
+  <table border="1" cellpadding="1" cellspacing="1">
+  	<tr>
+   	 	<th>OrganizationId</th>
+   	 	<th>OrganizationName</th>
+   	 	<th>MemberCount</th>
+   	 	<th>TypeId</th>
+   	 	<th>CreaterId</th>
+   	 	<th>CreatDate</th>
+   	</tr>
+   	 <s:iterator value="list"  id="a">
+   	 	<tr>
+   	 		<td></td>
+   	 		<td></td>
+   	 		<td></td>
+   	 		<td></td>
+   	 		<td></td>
+   	 		<td></td>
+   	 	</tr>
+   	 </s:iterator>
+   	</table>
+  
 </html>
