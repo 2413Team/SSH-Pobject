@@ -1,14 +1,16 @@
 package com.sshpobject.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.sshpobject.dao.OrganizationDao;
 import com.sshpobject.model.Organization;
-import com.sshpobject.model.OrganizationType;
 import com.sshpobject.model.UserOrganization;
 
-public class OrganizationDaoImpl extends Organization {
+public class OrganizationDaoImpl implements OrganizationDao {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
@@ -22,6 +24,12 @@ public class OrganizationDaoImpl extends Organization {
 		sess.save(uo);
 		distroy();
 	}
+	
+	public List<Organization> searchOrganization(String key){
+		
+		return null;
+	}
+	
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();
