@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.Organization;
 import com.sshpobject.model.OrganizationType;
 import com.sshpobject.model.User;
+import com.sshpobject.model.UserOrganization;
 import com.sshpobject.service.OrganizationService;
 
 public class OrganizationAction extends ActionSupport {
@@ -15,21 +16,17 @@ public class OrganizationAction extends ActionSupport {
 	private int typeid;
 	
 	public String addOrganization() throws Exception{
-		System.out.println("进入了");
 		Map session=ActionContext.getContext().getSession();
-		System.out.println("进入了2");
 		User user=(User)session.get("user");
-		System.out.println("进入了3");
 		organization.setUser(user);
-		System.out.println("进入了4");
 		OrganizationType type=new OrganizationType();
-		System.out.println("进入了5");
 		type.setId(typeid);
-		System.out.println("进入了6");
 		organization.setOrganizationType(type);
-		System.out.println("进入了7");
-		System.out.println(organization.getName());
-		organizationService.addOrganization(organization);
+		UserOrganization uo=new UserOrganization();
+		uo.setIsadmin(1);
+		uo.setOrganization(organization);
+		uo.setUser(user);
+		organizationService.addOrganization(organization,uo);
 		return SUCCESS;
 	}
 	

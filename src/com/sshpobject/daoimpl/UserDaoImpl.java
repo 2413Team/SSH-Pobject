@@ -45,7 +45,6 @@ public class UserDaoImpl implements UserDao {
 	public void distroy(){
 		tx.commit();
 		sess.close();
-		sf.close();
 	}
 
 	public SessionFactory getSf() {

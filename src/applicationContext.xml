@@ -15,7 +15,9 @@
 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="url" value="jdbc:mysql://localhost:3306"></property>
+		<property name="url" >
+			<value>jdbc:mysql://127.0.0.1:3306?useUnicode=true&amp;characterEncoding=UTF-8</value>
+		</property>
 		<property name="username" value="root"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
@@ -48,16 +50,18 @@
 				</value>
 				<value>
 					com/sshpobject/model/OrganizationRequest.hbm.xml
-				</value></list>
+				</value>
+				<value>com/sshpobject/model/UserLog.hbm.xml</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
+	<aop:aspectj-autoproxy/>	
 	<!-- 下面开始配置bean -->
-
+	<bean id="userAspect" class="com.sshpobject.aspect.UserAspect" />
+	
 	<bean id="userDao" class="com.sshpobject.daoimpl.UserDaoImpl" >
 	    <property name="sf" ref="sessionFactory"></property>
 	</bean>
@@ -66,6 +70,12 @@
 	</bean>
 	<bean id="userAction" class="com.sshpobject.action.UserAction">
 	    <property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="userLogDao" class="com.sshpobject.daoimpl.UserLogDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userLogService" class="com.sshpobject.service.UserLogService">
+		<property name="dao" ref="userLogDao"></property>
 	</bean>
 	
 	<bean id="organizationDao" class="com.sshpobject.daoimpl.OrganizationDaoImpl">
@@ -77,5 +87,7 @@
 	<bean id="organizationAction" class="com.sshpobject.action.OrganizationAction">
 		<property name="organizationService"  ref="organizationService"></property>
 	</bean>
+	
+	
 	
 	</beans>

@@ -4,24 +4,21 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.sshpobject.model.Organization;
-import com.sshpobject.model.OrganizationType;
-import com.sshpobject.model.UserOrganization;
+import com.sshpobject.dao.UserLogDao;
+import com.sshpobject.model.UserLog;
 
-public class OrganizationDaoImpl extends Organization {
+public class UserLogDaoImpl implements UserLogDao {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
-	public void addOrganization(Organization organization,UserOrganization  uo){
-		System.out.println("Ω¯»Î¡Àdao");
-		organization.setMembercount(1);
+	
+	@Override
+	public void addLog(UserLog log) {
 		getSession();
-		sess.save(organization);
-		distroy();
-		getSession();
-		sess.save(uo);
+		sess.save(log);
 		distroy();
 	}
+	
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();
@@ -31,6 +28,7 @@ public class OrganizationDaoImpl extends Organization {
 		tx.commit();
 		sess.close();
 	}
+
 	public SessionFactory getSf() {
 		return sf;
 	}
@@ -38,4 +36,6 @@ public class OrganizationDaoImpl extends Organization {
 		this.sf = sf;
 	}
 	
+	
+
 }
