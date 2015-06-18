@@ -3,6 +3,10 @@ package com.sshpobject.action;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.Organization;
@@ -15,6 +19,7 @@ public class OrganizationAction extends ActionSupport {
 	private OrganizationService organizationService;
 	private Organization organization;
 	private List<Organization> organizationList;
+	private List<UserOrganization> userList;
 	private int typeid;
 	
 	public String addOrganization() throws Exception{
@@ -37,6 +42,14 @@ public class OrganizationAction extends ActionSupport {
 		return SUCCESS;
 	}
 
+	public String detailOrganization() throws Exception {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int organizationid=Integer.parseInt(request.getParameter("organizationid"));
+		organization=organizationService.detailOrganization(organizationid);
+		userList=organizationService.detailOrganizationUser(organizationid);
+		return SUCCESS;
+	}
+	
 
 	public OrganizationService getOrganizationService() {
 		return organizationService;
@@ -64,6 +77,14 @@ public class OrganizationAction extends ActionSupport {
 
 	public void setOrganizationList(List<Organization> organizationList) {
 		this.organizationList = organizationList;
+	}
+
+	public List<UserOrganization> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<UserOrganization> userList) {
+		this.userList = userList;
 	}
 	
 }

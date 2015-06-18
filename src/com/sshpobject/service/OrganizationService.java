@@ -30,6 +30,17 @@ public class OrganizationService {
 		return organizationDao.searchOrganization(key);
 	}
 	
+	public Organization detailOrganization(int organizationid){
+		return organizationDao.detailOrganization(organizationid);
+	}
+	
+	public List<UserOrganization> detailOrganizationUser(int organizationid){
+		return organizationDao.detailOrganizationUser(organizationid);
+	}
+	
+	
+	
+	
 	public OrganizationDaoImpl getOrganizationDao() {
 		return organizationDao;
 	}

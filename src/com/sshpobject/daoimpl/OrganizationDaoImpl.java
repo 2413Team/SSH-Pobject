@@ -32,7 +32,25 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		Query query=sess.createQuery(sql);
 		return query.list();
 	}
+		
+	@Override
+	public Organization detailOrganization(int organizationid) {
+		getSession();
+		String sql="FROM Organization WHERE id ="+organizationid;
+		Query query=sess.createQuery(sql);
+		Organization organization=(Organization)query.list().get(0);
+		return organization;
+	}
 	
+	@Override
+	public List<UserOrganization> detailOrganizationUser(int organizationid) {
+		getSession();
+		String sql="FROM UserOrganization WHERE organization.id="+organizationid;
+		Query query=sess.createQuery(sql);
+		List<UserOrganization> list=query.list();
+		return list;
+	}
+
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();

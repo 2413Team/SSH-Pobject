@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 <s:iterator value="organizationList"  id="list">
    	 	<tr>
    	 		<td><s:property value="#list.getId()"/></td>
-   	 		<td><s:property value="#list.getName()"/></td>
+   	 		<td><a href="detailOrganization.action?organizationid=${list.id}"><s:property value="#list.getName()"/></a></td>
    	 		<td><s:property value="#list.getMembercount()"/></td>
    	 		<td><s:property value="#list.getOrganizationType().getValue()"/></td>
    	 		<td><s:property value="#list.getUser().getName()"/></td>
