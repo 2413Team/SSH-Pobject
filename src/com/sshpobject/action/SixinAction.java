@@ -1,5 +1,6 @@
 package com.sshpobject.action;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -11,12 +12,19 @@ import com.sshpobject.service.SixinService;
 public class SixinAction extends ActionSupport {
 	private Sixin sixin;
 	private SixinService sixinService;
+	private List<Sixin> sixinList;
 	
 	public String sendSixin() throws Exception{
 		Map session=ActionContext.getContext().getSession();
 		User user=(User)session.get("user");
-		System.out.println(sixin.toString()+user.toString());
 		sixinService.sendSixin(sixin, user);
+		return SUCCESS;
+	}
+	
+	public String getSixinS() throws Exception{
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		sixinList=sixinService.getSixin(user);
 		return SUCCESS;
 	}
 
@@ -36,5 +44,14 @@ public class SixinAction extends ActionSupport {
 		this.sixinService = sixinService;
 	}
 
+	public List<Sixin> getSixinList() {
+		return sixinList;
+	}
+
+	public void setSixinList(List<Sixin> sixinList) {
+		this.sixinList = sixinList;
+	}
+
+	
 	
 }

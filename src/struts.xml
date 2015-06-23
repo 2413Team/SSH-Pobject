@@ -22,7 +22,10 @@
     	</action>
         <!-- 私信相关 -->
         <action name="sendSixin" class="com.sshpobject.action.SixinAction" method="sendSixin">
-        	<result name="success">/sixin_get.jsp</result>        
+        	<result name="success"  type="redirectAction">getSixinS</result>        
+        </action>
+        <action name="getSixinS" class="com.sshpobject.action.SixinAction" method="getSixinS">
+        	<result name="success">/sixin_get.jsp</result>
         </action>
    </package>
 </struts>    

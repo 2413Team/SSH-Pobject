@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -39,9 +40,13 @@ public class SixinDaoImpl implements SixinDao {
 
 	@Override
 	public List<Sixin> getSixin(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		getSession();
+		String sql="FROM Sixin WHERE userBySetuserid.id="+user.getId()+" OR userByGetuserid.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		List<Sixin> list=query.list();
+		return list;
 	}
+	
 	
 	public void getSession(){
 		sess=sf.openSession();
