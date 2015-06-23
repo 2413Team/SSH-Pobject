@@ -12,7 +12,7 @@ public class Shuoshuo implements java.io.Serializable {
 
 	private Integer id;
 	private User user;
-	private String values;
+	private String value;
 	private Date creatdate;
 
 	// Constructors
@@ -22,9 +22,9 @@ public class Shuoshuo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Shuoshuo(User user, String values, Date creatdate) {
+	public Shuoshuo(User user, String value, Date creatdate) {
 		this.user = user;
-		this.values = values;
+		this.value = value;
 		this.creatdate = creatdate;
 	}
 
@@ -46,12 +46,12 @@ public class Shuoshuo implements java.io.Serializable {
 		this.user = user;
 	}
 
-	public String getValues() {
-		return this.values;
+	public String getValue() {
+		return this.value;
 	}
 
-	public void setValues(String values) {
-		this.values = values;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public Date getCreatdate() {

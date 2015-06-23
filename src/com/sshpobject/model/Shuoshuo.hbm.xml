@@ -13,8 +13,8 @@
         <many-to-one name="user" class="com.sshpobject.model.User" fetch="select">
             <column name="userid" not-null="true" />
         </many-to-one>
-        <property name="values" type="java.lang.String">
-            <column name="values" length="100" not-null="true" />
+        <property name="value" type="java.lang.String">
+            <column name="value" length="100" not-null="true" />
         </property>
         <property name="creatdate" type="java.util.Date">
             <column name="creatdate" length="10" not-null="true" />
