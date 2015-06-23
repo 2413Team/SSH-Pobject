@@ -88,6 +88,15 @@
 		<property name="organizationService"  ref="organizationService"></property>
 	</bean>
 	
+	<bean id="sixinDao" class="com.sshpobject.daoimpl.SixinDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sixinService" class="com.sshpobject.service.SixinService">
+		<property name="dao" ref="sixinDao"></property>
+	</bean>
+	<bean id="sixinAction" class="com.sshpobject.action.SixinAction">
+		<property name="dao" ref="sixinService"></property>
+	</bean>
 	
 	
 	</beans>

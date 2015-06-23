@@ -2,6 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
    <package name="default"  extends="struts-default">
+   		<!-- 用户相关 -->
         <action name="doLogin" class="com.sshpobject.action.UserAction" method="doLogin">
             <result name="success">/loginsuccess.jsp</result>
             <result name="cantlogin">/user_login.jsp</result>
@@ -9,6 +10,7 @@
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
             <result name="success">/success.jsp</result>
         </action>
+        <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
     		<result name="success">/success.jsp</result>
     	</action>
@@ -18,5 +20,9 @@
     	<action name="detailOrganization" class="com.sshpobject.action.OrganizationAction" method="detailOrganization">
     		<result name="success">/organization_detail.jsp</result>
     	</action>
+        <!-- 私信相关 -->
+        <action name="sendSixin" class="com.sshpobject.action.SixinAction" method="sendSixin">
+        	<result name="success">/sixin_get.jsp</result>        
+        </action>
    </package>
 </struts>    
