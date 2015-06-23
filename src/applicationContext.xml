@@ -98,5 +98,15 @@
 		<property name="sixinService" ref="sixinService"></property>
 	</bean>
 	
+	<bean id="shuoshuoDao" class="com.sshpobject.daoimpl.ShuoshuoDaoimpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="shuoshuoService" class="com.sshpobject.service.ShuoshuoService">
+		<property name="shuoshuoDao" ref="shuoshuoDao"></property>	
+	</bean>
+	<bean id="shuoshuoAction" class="com.sshpobject.action.ShuoshuoAction">
+		<property name="shuoshuoService" ref="shuoshuoService"></property>
+	</bean>
+	
 	
 	</beans>

@@ -27,5 +27,9 @@
         <action name="getSixinS" class="com.sshpobject.action.SixinAction" method="getSixinS">
         	<result name="success">/sixin_get.jsp</result>
         </action>
+        <!-- 说说相关 -->
+        <action name="addShuoshuo"  class="com.sshpobject.action.ShuoshuoAction" method="addShuoshuo">
+        	<result name="success">/shuoshuo_send.jsp</result>
+        </action>
    </package>
 </struts>    

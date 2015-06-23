@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<s:form>
+  	<s:form action="addShuoshuo.action"  method="post">
   		<s:textarea name="shuoshuo.value" label="说说内容" labelposition="left" rows="15" cols="30"/>
   		<s:submit value="发送"/>
   	</s:form>
