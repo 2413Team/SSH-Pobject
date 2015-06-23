@@ -1,15 +1,22 @@
 package com.sshpobject.action;
 
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.Sixin;
+import com.sshpobject.model.User;
 import com.sshpobject.service.SixinService;
 
 public class SixinAction extends ActionSupport {
 	private Sixin sixin;
-	private SixinService dao;
+	private SixinService sixinService;
 	
 	public String sendSixin() throws Exception{
-		System.out.println("·¢ËÍÕßID£º"+sixin.getUserByGetuserid().getId()+"ÄÚÈÝ£º"+sixin.getValues());
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		System.out.println(sixin.toString()+user.toString());
+		sixinService.sendSixin(sixin, user);
 		return SUCCESS;
 	}
 
@@ -17,19 +24,17 @@ public class SixinAction extends ActionSupport {
 		return sixin;
 	}
 
-	public void setSixin(Sixin sixin) {
+	public void setSixin(Sixin sixin){
 		this.sixin = sixin;
 	}
 
-	public SixinService getDao() {
-		return dao;
+	public SixinService getSixinService() {
+		return sixinService;
 	}
 
-	public void setDao(SixinService dao) {
-		this.dao = dao;
+	public void setSixinService(SixinService sixinService) {
+		this.sixinService = sixinService;
 	}
-	
-	
-	
+
 	
 }

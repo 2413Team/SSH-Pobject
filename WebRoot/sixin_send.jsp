@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <s:form action="sendSixin.action">
     	<s:textfield label="接收者ID" labelposition="left" name="sixin.userByGetuserid.id"/>
-    	<s:textarea label="私信内容" labelposition="left" name="sixin.values" rows="15"/>
+    	<s:textarea label="私信内容" labelposition="left" name="sixin.value" rows="15"/>
     	<s:submit value="发送"/>
     </s:form>
   </body>

@@ -92,10 +92,10 @@
 		<property name="sf" ref="sessionFactory"></property>
 	</bean>
 	<bean id="sixinService" class="com.sshpobject.service.SixinService">
-		<property name="dao" ref="sixinDao"></property>
+		<property name="sixinDao" ref="sixinDao"></property>
 	</bean>
 	<bean id="sixinAction" class="com.sshpobject.action.SixinAction">
-		<property name="dao" ref="sixinService"></property>
+		<property name="sixinService" ref="sixinService"></property>
 	</bean>
 	
 	

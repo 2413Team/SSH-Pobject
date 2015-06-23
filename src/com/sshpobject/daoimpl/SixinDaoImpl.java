@@ -1,5 +1,9 @@
 package com.sshpobject.daoimpl;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,9 +19,22 @@ public class SixinDaoImpl implements SixinDao {
 	private Session sess;
 	private Transaction tx;
 	@Override
-	public void sendSixin(Sixin sixin) {
+	public void sendSixin(Sixin sixin,User user) {
 		// TODO Auto-generated method stub
-
+		Date date=null;
+		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String strDate=fmt.format(new Date());
+		try {
+			date = fmt.parse(strDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sixin.setCreatdate(date);
+		sixin.setUserBySetuserid(user);
+		getSession();
+		sess.save(sixin);
+		distroy();
 	}
 
 	@Override

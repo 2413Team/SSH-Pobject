@@ -13,7 +13,7 @@ public class Sixin implements java.io.Serializable {
 	private Integer id;
 	private User userByGetuserid;
 	private User userBySetuserid;
-	private String values;
+	private String value;
 	private Date creatdate;
 
 	// Constructors
@@ -23,11 +23,11 @@ public class Sixin implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Sixin(User userByGetuserid, User userBySetuserid, String values,
+	public Sixin(User userByGetuserid, User userBySetuserid, String value,
 			Date creatdate) {
 		this.userByGetuserid = userByGetuserid;
 		this.userBySetuserid = userBySetuserid;
-		this.values = values;
+		this.value = value;
 		this.creatdate = creatdate;
 	}
 
@@ -57,12 +57,12 @@ public class Sixin implements java.io.Serializable {
 		this.userBySetuserid = userBySetuserid;
 	}
 
-	public String getValues() {
-		return this.values;
+	public String getValue() {
+		return this.value;
 	}
 
-	public void setValues(String values) {
-		this.values = values;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public Date getCreatdate() {

@@ -1,16 +1,22 @@
 package com.sshpobject.service;
 
 import com.sshpobject.daoimpl.SixinDaoImpl;
+import com.sshpobject.model.Sixin;
+import com.sshpobject.model.User;
 
 public class SixinService {
-	private SixinDaoImpl dao;
-
-	public SixinDaoImpl getDao() {
-		return dao;
-	}
-
-	public void setDao(SixinDaoImpl dao) {
-		this.dao = dao;
-	}
+	private SixinDaoImpl sixinDao;
 	
+	public void sendSixin(Sixin sixin,User user){
+		sixinDao.sendSixin(sixin, user);
+	}
+
+	public SixinDaoImpl getSixinDao() {
+		return sixinDao;
+	}
+
+	public void setSixinDao(SixinDaoImpl sixinDao) {
+		this.sixinDao = sixinDao;
+	}
+
 }
