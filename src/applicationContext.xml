@@ -108,5 +108,14 @@
 		<property name="shuoshuoService" ref="shuoshuoService"></property>
 	</bean>
 	
+	<bean id="organizationRequestDao" class="com.sshpobject.daoimpl.OrganizationRequestDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="organizationRequestSerivce" class="com.sshpobject.service.OrganizationRequestService">
+		<property name="dao" ref="organizationRequestDao"></property>
+	</bean>
+	<bean id="organizationRequestAction" class="com.sshpobject.action.OrganizationRequestAction">
+		<property name="dao" ref="organizationRequestSerivce"></property>
+	</bean>
 	
 	</beans>

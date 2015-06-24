@@ -53,7 +53,7 @@ public class ShuoshuoDaoimpl  implements ShuoshuoDao  {
 	}
 	
 	//获得现在登陆的用户所在的所有组织
-	public List<UserOrganization> getUserOrganization(User user){
+	private List<UserOrganization> getUserOrganization(User user){
 		List<UserOrganization> list=new ArrayList<UserOrganization>();
 		String sql="FROM UserOrganization WHERE user.id="+user.getId();
 		Query query=sess.createQuery(sql);
@@ -61,7 +61,7 @@ public class ShuoshuoDaoimpl  implements ShuoshuoDao  {
 		return list;
 	}
 	//得到现在登陆用户所在组织的所有用户
-	public List<UserOrganization> getUserUser(List<UserOrganization> list){
+	private List<UserOrganization> getUserUser(List<UserOrganization> list){
 		List<UserOrganization> userList=new ArrayList<UserOrganization>();
 		for(int i=0;i<list.size();i++){
 			String sql="FROM UserOrganization WHERE organization.id="+list.get(i).getOrganization().getId();
@@ -82,7 +82,7 @@ public class ShuoshuoDaoimpl  implements ShuoshuoDao  {
 		return userList;
 	}	
 	//获得组织对应的所有用户
-	public  List<Shuoshuo> getManyShuoshuo(List<UserOrganization> list){
+	private  List<Shuoshuo> getManyShuoshuo(List<UserOrganization> list){
 		List<Shuoshuo> shuoList=new ArrayList<Shuoshuo>();
 		String sql="";
 		if(list.size()>0)
