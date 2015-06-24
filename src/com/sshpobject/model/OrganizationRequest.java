@@ -10,7 +10,8 @@ public class OrganizationRequest implements java.io.Serializable {
 
 	private Integer id;
 	private Organization organization;
-	private String value;
+	private Integer userid;
+	private Integer agree;
 
 	// Constructors
 
@@ -19,9 +20,11 @@ public class OrganizationRequest implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public OrganizationRequest(Organization organization, String value) {
+	public OrganizationRequest(Organization organization, Integer userid,
+			Integer agree) {
 		this.organization = organization;
-		this.value = value;
+		this.userid = userid;
+		this.agree = agree;
 	}
 
 	// Property accessors
@@ -42,12 +45,20 @@ public class OrganizationRequest implements java.io.Serializable {
 		this.organization = organization;
 	}
 
-	public String getValue() {
-		return this.value;
+	public Integer getUserid() {
+		return this.userid;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
+
+	public Integer getAgree() {
+		return this.agree;
+	}
+
+	public void setAgree(Integer agree) {
+		this.agree = agree;
 	}
 
 }

@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 	<th>Type</th>
    	 	<th>Creater</th>
    	 	<th>CreatDate</th>
+   	 	<th>Join</th>
    	</tr>
    	 <s:iterator value="organizationList"  id="list">
    	 	<tr>
@@ -47,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 		<td><s:property value="#list.getOrganizationType().getValue()"/></td>
    	 		<td><s:property value="#list.getUser().getName()"/></td>
    	 		<td><s:property value="#list.getCreatdate()"/></td>
+   	 		<td><a href="#">加入</a></td>
    	 	</tr>
    	 </s:iterator>
    	</table>

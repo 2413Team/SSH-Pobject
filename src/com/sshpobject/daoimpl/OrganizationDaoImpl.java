@@ -30,7 +30,13 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		getSession();
 		String sql="FROM Organization WHERE name like '%"+key+"%'";
 		Query query=sess.createQuery(sql);
-		return query.list();
+		List<Organization> list=query.list();
+		for(int i=0;i<list.size();i++){
+			String test=list.get(i).getOrganizationType().getValue();
+			test=list.get(i).getUser().getName();
+		}
+		sess.close();
+		return list;
 	}
 		
 	@Override
@@ -39,6 +45,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		String sql="FROM Organization WHERE id ="+organizationid;
 		Query query=sess.createQuery(sql);
 		Organization organization=(Organization)query.list().get(0);
+		distroy();
 		return organization;
 	}
 	
@@ -48,6 +55,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		String sql="FROM UserOrganization WHERE organization.id="+organizationid;
 		Query query=sess.createQuery(sql);
 		List<UserOrganization> list=query.list();
+		distroy();
 		return list;
 	}
 
@@ -59,6 +67,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
 	public void distroy(){
 		tx.commit();
 		sess.close();
+		sf.close();
 	}
 	public SessionFactory getSf() {
 		return sf;

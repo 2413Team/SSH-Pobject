@@ -13,8 +13,11 @@
         <many-to-one name="organization" class="com.sshpobject.model.Organization" fetch="select">
             <column name="organizationid" not-null="true" />
         </many-to-one>
-        <property name="value" type="java.lang.String">
-            <column name="value" length="200" not-null="true" />
+        <property name="userid" type="java.lang.Integer">
+            <column name="userid" not-null="true" />
+        </property>
+        <property name="agree" type="java.lang.Integer">
+            <column name="agree" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
