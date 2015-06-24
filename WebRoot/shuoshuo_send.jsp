@@ -30,8 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</s:form>
   	
   	<ul>
-		<s:iterator value="shuoshuoList" id="list">
+		<s:iterator value="shuoList" id="list">
 			<li><s:property value="#list.getValue()"/></li>
+			<li><s:property value="#list.getUser().getName()"/></li>
 		</s:iterator>
 	</ul>
   </body>

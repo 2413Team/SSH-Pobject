@@ -29,5 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<s:textfield label="√‹¬Î" labelposition="left" name="user.password"/>
     	<s:submit value="Ã·Ωª"/>
     </s:form>
+    <a href="getShuoshuos.action">≤È—Ø</a>
   </body>
 </html>

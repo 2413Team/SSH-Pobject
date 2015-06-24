@@ -1,5 +1,6 @@
 package com.sshpobject.action;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -12,11 +13,19 @@ public class ShuoshuoAction extends ActionSupport {
 	private ShuoshuoService shuoshuoService;
 	private Shuoshuo shuoshuo;
 	private User user;
+	private List<Shuoshuo> shuoList;
 	
 	public String addShuoshuo() throws Exception{
 		Map session=ActionContext.getContext().getSession();
 		User user=(User)session.get("user");
 		shuoshuoService.addShuoshuo(shuoshuo, user);
+		return SUCCESS;
+	}
+	
+	public String getShuoshuos() throws Exception{
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		shuoList=shuoshuoService.getShuoshuos(user);
 		return SUCCESS;
 	}
 
@@ -42,6 +51,14 @@ public class ShuoshuoAction extends ActionSupport {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Shuoshuo> getShuoList() {
+		return shuoList;
+	}
+
+	public void setShuoList(List<Shuoshuo> shuoList) {
+		this.shuoList = shuoList;
 	}
 	
 	

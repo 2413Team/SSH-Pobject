@@ -29,6 +29,9 @@
         </action>
         <!-- 说说相关 -->
         <action name="addShuoshuo"  class="com.sshpobject.action.ShuoshuoAction" method="addShuoshuo">
+        	<result name="success" type="redirectAction">getShuoshuos</result>
+        </action>
+        <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
         	<result name="success">/shuoshuo_send.jsp</result>
         </action>
    </package>
