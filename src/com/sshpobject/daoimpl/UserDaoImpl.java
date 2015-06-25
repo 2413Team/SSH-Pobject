@@ -37,6 +37,14 @@ public class UserDaoImpl implements UserDao {
 		return query.list();
 	}
 	
+	@Override
+	public List<User> detailUser(User user) {
+		getSession();
+		String sql="FROM User WHERE id="+user.getId();
+		Query query=sess.createQuery(sql);
+		return query.list();
+	}
+
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();

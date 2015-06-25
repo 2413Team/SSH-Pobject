@@ -40,7 +40,6 @@ public class SixinDaoImpl implements SixinDao {
 
 	@Override
 	public List<Sixin> getSixin(User user) {
-		System.out.println("进入了系统");
 		getSession();
 		String sql="FROM Sixin WHERE  userByGetuserid.id="+user.getId();
 		Query query=sess.createQuery(sql);
@@ -48,7 +47,6 @@ public class SixinDaoImpl implements SixinDao {
 		for(int i=0;i<list.size();i++){
 			String test=list.get(i).getUserBySetuserid().getName();
 			Date date=list.get(i).getCreatdate();
-			System.out.println(test+date);
 		}
 		distroy();
 		return list;

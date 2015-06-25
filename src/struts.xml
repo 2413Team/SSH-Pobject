@@ -10,6 +10,9 @@
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
             <result name="success">/success.jsp</result>
         </action>
+        <action name="detailUser" class="com.sshpobject.action.UserAction" method="detailUser">
+        	<result name="success">/user_detail.jsp</result>
+        </action>
         <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
     		<result name="success">/success.jsp</result>

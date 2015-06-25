@@ -17,6 +17,10 @@ public class UserService {
 	public List<User> doLogin(User user){
 		return userDao.doLogin(user);
 	}
+	
+	public List<User> detailUser(User user){
+		return userDao.detailUser(user);
+	}
 
 	public UserDaoImpl getUserDao() {
 		return userDao;

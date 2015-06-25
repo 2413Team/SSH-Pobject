@@ -31,7 +31,6 @@ public class OrganizationRequestAction extends ActionSupport {
 		or=new OrganizationRequest();
 		or.setOrganization(organization);
 		or.setUser(user);
-		System.out.println(organizationRequestService.toString());
 		organizationRequestService.sendRequest(or);
 		return SUCCESS;
 	}
@@ -46,7 +45,6 @@ public class OrganizationRequestAction extends ActionSupport {
 	public String agreeRequest() throws Exception{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Organization organization=new Organization();
-		System.out.println(Integer.parseInt(request.getParameter("organizationid")));
 		organization=organizationService.detailOrganization(Integer.parseInt(request.getParameter("organizationid")));
 		User user=new User();
 		user.setId(Integer.parseInt(request.getParameter("userid")));
@@ -61,11 +59,9 @@ public class OrganizationRequestAction extends ActionSupport {
 	public String disagreeRequest() throws Exception{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Organization organization=new Organization();
-		System.out.println(Integer.parseInt(request.getParameter("organizationid")));
 		organization=organizationService.detailOrganization(Integer.parseInt(request.getParameter("organizationid")));
 		User user=new User();
 		user.setId(Integer.parseInt(request.getParameter("userid")));
-		System.out.println("×éÖ¯Ãû:"+organization.getName());
 		or=new OrganizationRequest();
 		or.setId(Integer.parseInt(request.getParameter("orid")));
 		or.setOrganization(organization);

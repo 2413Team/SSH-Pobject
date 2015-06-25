@@ -16,7 +16,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
 	private Session sess;
 	private Transaction tx;
 	public void addOrganization(Organization organization,UserOrganization  uo){
-		System.out.println("进入了dao");
 		organization.setMembercount(1);
 		getSession();
 		sess.save(organization);
@@ -41,7 +40,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		
 	@Override
 	public Organization detailOrganization(int organizationid) {
-		System.out.println("进入了这个方法");
 		getSession();
 		String sql="FROM Organization WHERE id ="+organizationid;
 		Query query=sess.createQuery(sql);

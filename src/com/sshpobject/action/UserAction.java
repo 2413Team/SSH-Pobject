@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.User;
@@ -15,6 +19,7 @@ public class UserAction extends ActionSupport {
 	private UserService userService;
 	private String birthday;
 	private User user;
+	private List<User> userlist;
 
 	public String doLogin() throws Exception{		
 		List<User> userlist=userService.doLogin(user);
@@ -24,7 +29,6 @@ public class UserAction extends ActionSupport {
 			DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd"); 
 			String birthday=fmt.format(user.getBirthday());
 			Date date = fmt.parse(birthday);
-			System.out.println(date.toString());
 			user.setBirthday(date);
 			session.put("user", user);
 			return SUCCESS;
@@ -35,11 +39,18 @@ public class UserAction extends ActionSupport {
 	
 	public String doRegister() throws Exception{
 		birthday=birthday.replace(",", "-").replace(" ", "").replace("月", "");
-		System.out.println(birthday);
 		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd"); 
 		Date date = fmt.parse(birthday);
 		user.setBirthday(date);
 		userService.doRegister(user);
+		return SUCCESS;
+	}
+	
+	public String detailUser() throws Exception{
+		user=new User();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		user.setId(Integer.parseInt(request.getParameter("userid")));
+		userlist=userService.detailUser(user);
 		return SUCCESS;
 	}
 
@@ -67,5 +78,14 @@ public class UserAction extends ActionSupport {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+
+	public List<User> getUserlist() {
+		return userlist;
+	}
+
+	public void setUserlist(List<User> userlist) {
+		this.userlist = userlist;
+	}
+	
 	
 }

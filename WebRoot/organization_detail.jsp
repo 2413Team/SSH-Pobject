@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <td><s:property value="#list.getUser().getAddress()" /></td>
 			    <td><s:property value="#list.getUser().getPhone()" /></td>
 			    <td><a href="sixin_send.jsp?getterid=${list.user.id}">发送私信</a></td>
-			    <td><a href="">查看详细信息</a></td>
+			    <td><a href="detailUser.action?userid=${list.user.id }">查看详细信息</a></td>
 			</tr>
 		</s:iterator>	
 	</table>
