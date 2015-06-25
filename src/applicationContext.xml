@@ -110,6 +110,7 @@
 	
 	<bean id="organizationRequestDao" class="com.sshpobject.daoimpl.OrganizationRequestDaoImpl">
 		<property name="sf" ref="sessionFactory"></property>
+		<property name="sixinDao" ref="sixinDao"></property>
 	</bean>
 	<bean id="organizationRequestService" class="com.sshpobject.service.OrganizationRequestService">
 		<property name="organizationRequestDao" ref="organizationRequestDao"></property>

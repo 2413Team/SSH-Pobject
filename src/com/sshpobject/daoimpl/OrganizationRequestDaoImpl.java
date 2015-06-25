@@ -17,6 +17,7 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
+	private SixinDaoImpl sixinDao;
 	//发送加入组织请求
 	@Override
 	public void sendRequest(OrganizationRequest organizationRequest) {
@@ -41,7 +42,6 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 		String sql="FROM UserOrganization WHERE user.id="+user.getId()+" AND isadmin=1";
 		Query query=sess.createQuery(sql);
 		list=query.list();
-		System.out.println("第一个方法的list.size():"+list.size());
 		return list;
 	}
 	
@@ -62,7 +62,11 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	
 	@Override
 	public void agreeRequest(OrganizationRequest organizationRequest) {
-		
+		getSessions();
+		addAgreeUser(organizationRequest);
+		setAgreeToOk(organizationRequest);
+		sendAgreeSixin(organizationRequest);
+		distroy();
 	}
 	
 	//把申请者写入UserOrganization表
@@ -71,13 +75,14 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 		userOrganization.setIsadmin(0);
 		userOrganization.setOrganization(organizationRequest.getOrganization());
 		userOrganization.setUser(organizationRequest.getUser());
-		getSessions();
-		
+		sess.save(userOrganization);
 	}
 	
 	//修改申请表agree字段为1
 	private void setAgreeToOk(OrganizationRequest organizationRequest){
-		
+		String sql="UPDATE OrganizationRequest SET agree=1  WHERE id="+organizationRequest.getId();
+		Query query=sess.createQuery(sql);
+		sess.update(query);
 	}
 
 	//发送私信给申请者-你加入某组织的申请已经被同意了
@@ -107,6 +112,14 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
+	public SixinDaoImpl getSixinDao() {
+		return sixinDao;
+	}
+	public void setSixinDao(SixinDaoImpl sixinDao) {
+		this.sixinDao = sixinDao;
+	}
+	
+	
 	
 	
 
