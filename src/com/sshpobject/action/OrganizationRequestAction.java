@@ -13,11 +13,13 @@ import com.sshpobject.model.Organization;
 import com.sshpobject.model.OrganizationRequest;
 import com.sshpobject.model.User;
 import com.sshpobject.service.OrganizationRequestService;
+import com.sshpobject.service.OrganizationService;
 
 public class OrganizationRequestAction extends ActionSupport {
 	private OrganizationRequestService organizationRequestService;
 	private OrganizationRequest or;
 	private List<OrganizationRequest> orList;
+	private OrganizationService organizationService;
 	
 	public String sendRequest() throws Exception{
 		Map session=ActionContext.getContext().getSession();
@@ -44,9 +46,11 @@ public class OrganizationRequestAction extends ActionSupport {
 	public String agreeRequest() throws Exception{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Organization organization=new Organization();
-		organization.setId(Integer.parseInt(request.getParameter("organizationid")));
+		System.out.println(Integer.parseInt(request.getParameter("organizationid")));
+		organization=organizationService.detailOrganization(Integer.parseInt(request.getParameter("organizationid")));
 		User user=new User();
 		user.setId(Integer.parseInt(request.getParameter("userid")));
+		System.out.println("组织名:"+organization.getName());
 		or=new OrganizationRequest();
 		or.setId(Integer.parseInt(request.getParameter("orid")));
 		or.setOrganization(organization);
@@ -54,6 +58,23 @@ public class OrganizationRequestAction extends ActionSupport {
 		organizationRequestService.agreeRequest(or);
 		return SUCCESS;
 	}
+	
+	public String disagreeRequest() throws Exception{
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Organization organization=new Organization();
+		System.out.println(Integer.parseInt(request.getParameter("organizationid")));
+		organization=organizationService.detailOrganization(Integer.parseInt(request.getParameter("organizationid")));
+		User user=new User();
+		user.setId(Integer.parseInt(request.getParameter("userid")));
+		System.out.println("组织名:"+organization.getName());
+		or=new OrganizationRequest();
+		or.setId(Integer.parseInt(request.getParameter("orid")));
+		or.setOrganization(organization);
+		or.setUser(user);
+		organizationRequestService.disagreeRequest(or);
+		return SUCCESS;
+	}
+	
 
 	public OrganizationRequestService getOrganizationRequestService() {
 		return organizationRequestService;
@@ -72,5 +93,14 @@ public class OrganizationRequestAction extends ActionSupport {
 		this.orList = orList;
 	}
 
+	public OrganizationService getOrganizationService() {
+		return organizationService;
+	}
+
+	public void setOrganizationService(OrganizationService organizationService) {
+		this.organizationService = organizationService;
+	}
+
+	
 	
 }

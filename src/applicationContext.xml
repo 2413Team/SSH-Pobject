@@ -117,6 +117,7 @@
 	</bean>
 	<bean id="organizationRequestAction" class="com.sshpobject.action.OrganizationRequestAction">
 		<property name="organizationRequestService" ref="organizationRequestService"></property>
+		<property name="organizationService" ref="organizationService"></property>
 	</bean>
 	
 	</beans>

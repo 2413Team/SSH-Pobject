@@ -68,11 +68,8 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	@Override
 	public void agreeRequest(OrganizationRequest organizationRequest) {
 		getSessions();
-		System.out.println("第一阶段");
 		addAgreeUser(organizationRequest);
-		System.out.println("第二阶段");
 		setAgreeToOk(organizationRequest);
-		System.out.println("第三阶段");
 		sendAgreeSixin(organizationRequest);
 		distroy();
 	}
@@ -88,17 +85,13 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	
 	//修改申请表agree字段为1
 	private void setAgreeToOk(OrganizationRequest organizationRequest){
-		System.out.println("1");
 		String sql="UPDATE OrganizationRequest SET agree=1  WHERE id="+organizationRequest.getId();
-		System.out.println("2");
 		Query query=sess.createQuery(sql);
-		System.out.println("3");
 		query.executeUpdate();
 	}
 
 	//发送私信给申请者-你加入某组织的申请已经被同意了
 	private void sendAgreeSixin(OrganizationRequest organizationRequest){
-		System.out.println("1");
 		Sixin sixin=new Sixin();
 		User system=new User();
 		system.setId(9);
@@ -112,20 +105,48 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 			e.printStackTrace();
 		}
 		sixin.setCreatdate(date);
-		System.out.println("2");
 		sixin.setUserBySetuserid(system);
-		System.out.println("3");
 		sixin.setUserByGetuserid(organizationRequest.getUser());
-		System.out.println("4");
-		sixin.setValue("您加入"+organizationRequest.getOrganization().getName()+"的请求已被同意");
+		sixin.setValue("您加入【"+organizationRequest.getOrganization().getName()+"】的请求已被同意");
 		sess.save(sixin);
 	}
 	
 	@Override
 	public void disagreeRequest(OrganizationRequest organizationRequest) {
-		// TODO Auto-generated method stub
-		
+		getSessions();
+		setAgreeToNo(organizationRequest);
+		sendDisagreeSixin(organizationRequest);
+		distroy();
 	}
+	
+	//修改申请表agree字段为1
+	private void setAgreeToNo(OrganizationRequest organizationRequest){
+		String sql="UPDATE OrganizationRequest SET agree=2  WHERE id="+organizationRequest.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+
+	//发送私信给申请者-你加入某组织的申请已经被同意了
+	private void sendDisagreeSixin(OrganizationRequest organizationRequest){
+		Sixin sixin=new Sixin();
+		User system=new User();
+		system.setId(9);
+		Date date=null;
+		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String strDate=fmt.format(new Date());
+		try {
+			date = fmt.parse(strDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sixin.setCreatdate(date);
+		sixin.setUserBySetuserid(system);
+		sixin.setUserByGetuserid(organizationRequest.getUser());
+		sixin.setValue("您加入【"+organizationRequest.getOrganization().getName()+"】的请求已被拒绝");
+		sess.save(sixin);
+	}
+	
 	public void getSessions(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();

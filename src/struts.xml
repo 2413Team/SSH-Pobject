@@ -44,5 +44,8 @@
         <action name="agreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="agreeRequest">
         	<result name="success">/loginsuccess.jsp</result>
         </action>
+        <action name="disagreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="disagreeRequest">
+        	<result name="success">/loginsuccess.jsp</result>
+        </action>
    </package>
 </struts>    

@@ -20,6 +20,9 @@ public class OrganizationRequestService {
 		organizationRequestDao.agreeRequest(organizationRequest);
 	}
 
+	public void disagreeRequest(OrganizationRequest organizationRequest){
+		organizationRequestDao.disagreeRequest(organizationRequest);
+	}
 	public OrganizationRequestDaoImpl getOrganizationRequestDao() {
 		return organizationRequestDao;
 	}
