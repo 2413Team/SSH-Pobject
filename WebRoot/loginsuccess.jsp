@@ -35,5 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	    <li><s:property value="#session.user.address"/></li>
     	    <li><s:property value="#session.user.phone"/></li>
     	</ul>
+    	
+    	<a href="haveRequest.action">查看请求</a>
+    	<a href="getSixinS.action">查看私信</a>
   </body>
 </html>

@@ -10,12 +10,12 @@
             <column name="id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="user" class="com.sshpobject.model.User" fetch="select">
+            <column name="userid" not-null="true" />
+        </many-to-one>
         <many-to-one name="organization" class="com.sshpobject.model.Organization" fetch="select">
             <column name="organizationid" not-null="true" />
         </many-to-one>
-        <property name="userid" type="java.lang.Integer">
-            <column name="userid" not-null="true" />
-        </property>
         <property name="agree" type="java.lang.Integer">
             <column name="agree" not-null="true" />
         </property>

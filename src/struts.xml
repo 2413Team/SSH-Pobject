@@ -34,5 +34,12 @@
         <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
         	<result name="success">/shuoshuo_send.jsp</result>
         </action>
+        <!-- 组织请求相关 -->
+        <action name="sendRequest" class="com.sshpobject.action.OrganizationRequestAction" method="sendRequest">
+        	<result name="success">/loginsuccess.jsp</result>
+        </action>
+        <action name="haveRequest" class="com.sshpobject.action.OrganizationRequestAction" method="haveRequest">
+        	<result name="success">/organizationRequest_get.jsp</result>
+        </action>
    </package>
 </struts>    

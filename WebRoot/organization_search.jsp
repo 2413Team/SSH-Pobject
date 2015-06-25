@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	 		<td><s:property value="#list.getOrganizationType().getValue()"/></td>
    	 		<td><s:property value="#list.getUser().getName()"/></td>
    	 		<td><s:property value="#list.getCreatdate()"/></td>
-   	 		<td><a href="#">加入</a></td>
+   	 		<td><a href="sendRequest.action?organziationid=${list.id}">加入</a></td>
    	 	</tr>
    	 </s:iterator>
    	</table>

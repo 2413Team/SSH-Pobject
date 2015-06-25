@@ -7,21 +7,23 @@ import com.sshpobject.model.OrganizationRequest;
 import com.sshpobject.model.User;
 
 public class OrganizationRequestService {
-	private OrganizationRequestDaoImpl dao;
+	private OrganizationRequestDaoImpl organizationRequestDao;
 	public void sendRequest(OrganizationRequest organizationRequest){
-		dao.sendRequest(organizationRequest);
+		organizationRequestDao.sendRequest(organizationRequest);
 	}
 	
 	public List<OrganizationRequest> haveRequest(User user){
-		return dao.haveRequest(user);
+		return organizationRequestDao.haveRequest(user);
 	}
 
-	public OrganizationRequestDaoImpl getDao() {
-		return dao;
+	public OrganizationRequestDaoImpl getOrganizationRequestDao() {
+		return organizationRequestDao;
 	}
 
-	public void setDao(OrganizationRequestDaoImpl dao) {
-		this.dao = dao;
+	public void setOrganizationRequestDao(
+			OrganizationRequestDaoImpl organizationRequestDao) {
+		this.organizationRequestDao = organizationRequestDao;
 	}
+	
 	
 }
