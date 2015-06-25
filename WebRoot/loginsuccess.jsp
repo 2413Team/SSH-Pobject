@@ -38,5 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	
     	<a href="haveRequest.action">查看请求</a>
     	<a href="getSixinS.action">查看私信</a>
+    	<a href="organization_search.jsp">组织搜索</a>
   </body>
 </html>

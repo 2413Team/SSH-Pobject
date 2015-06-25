@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
@@ -26,7 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<ul>
 		<s:iterator value="sixinList" id="list">
-			<li><s:property value="#list.getValue()"/></li>
+			<li>来自：<s:property value="#list.getUserBySetuserid().getName()"/></li>
+			<li>内容：<s:property value="#list.getValue()"/></li>
 		</s:iterator>
 	</ul>
 </body>

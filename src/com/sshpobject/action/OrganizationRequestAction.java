@@ -50,7 +50,6 @@ public class OrganizationRequestAction extends ActionSupport {
 		organization=organizationService.detailOrganization(Integer.parseInt(request.getParameter("organizationid")));
 		User user=new User();
 		user.setId(Integer.parseInt(request.getParameter("userid")));
-		System.out.println("×éÖ¯Ãû:"+organization.getName());
 		or=new OrganizationRequest();
 		or.setId(Integer.parseInt(request.getParameter("orid")));
 		or.setOrganization(organization);

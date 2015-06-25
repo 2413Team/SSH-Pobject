@@ -56,6 +56,9 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		String sql="FROM UserOrganization WHERE organization.id="+organizationid;
 		Query query=sess.createQuery(sql);
 		List<UserOrganization> list=query.list();
+		for(int i=0;i<list.size();i++){
+			String test=list.get(i).getUser().getName();
+		}
 		distroy();
 		return list;
 	}

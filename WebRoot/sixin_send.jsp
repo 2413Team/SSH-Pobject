@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.opensymphony.xwork2.ActionContext;" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
@@ -24,8 +24,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <%
+	String getterid=request.getParameter("getterid");
+	ActionContext.getContext().getValueStack().set("getterid",getterid);
+	%>
     <s:form action="sendSixin.action">
-    	<s:textfield label="接收者ID" labelposition="left" name="sixin.userByGetuserid.id"/>
+    	<input type="text" name="sixin.userByGetuserid.id" value="<%=request.getParameter("getterid")%>"/>
     	<s:textarea label="私信内容" labelposition="left" name="sixin.value" rows="15"/>
     	<s:submit value="发送"/>
     </s:form>
