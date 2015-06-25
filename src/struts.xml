@@ -41,5 +41,8 @@
         <action name="haveRequest" class="com.sshpobject.action.OrganizationRequestAction" method="haveRequest">
         	<result name="success">/organizationRequest_get.jsp</result>
         </action>
+        <action name="agreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="agreeRequest">
+        	<result name="success">/loginsuccess.jsp</result>
+        </action>
    </package>
 </struts>    

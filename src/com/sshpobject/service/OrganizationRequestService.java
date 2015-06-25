@@ -15,6 +15,10 @@ public class OrganizationRequestService {
 	public List<OrganizationRequest> haveRequest(User user){
 		return organizationRequestDao.haveRequest(user);
 	}
+	
+	public void agreeRequest(OrganizationRequest organizationRequest){
+		organizationRequestDao.agreeRequest(organizationRequest);
+	}
 
 	public OrganizationRequestDaoImpl getOrganizationRequestDao() {
 		return organizationRequestDao;

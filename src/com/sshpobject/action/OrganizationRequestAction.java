@@ -40,6 +40,20 @@ public class OrganizationRequestAction extends ActionSupport {
 		orList=organizationRequestService.haveRequest(user);
 		return SUCCESS;
 	}
+	
+	public String agreeRequest() throws Exception{
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Organization organization=new Organization();
+		organization.setId(Integer.parseInt(request.getParameter("organizationid")));
+		User user=new User();
+		user.setId(Integer.parseInt(request.getParameter("userid")));
+		or=new OrganizationRequest();
+		or.setId(Integer.parseInt(request.getParameter("orid")));
+		or.setOrganization(organization);
+		or.setUser(user);
+		organizationRequestService.agreeRequest(or);
+		return SUCCESS;
+	}
 
 	public OrganizationRequestService getOrganizationRequestService() {
 		return organizationRequestService;

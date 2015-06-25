@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<s:iterator value="orList" id="list">
 			<li>申请人：<s:property value="#list.getUser().getName()"/><br/>
 				   申请组织：<s:property value="#list.getOrganization().getName()" /><br/>
-				   <a href="">同意</a>
+				   <a href="agreeRequest.action?organizationid=${list.organization.id}&userid=${list.user.id}&orid=${list.id}">同意</a>
 				   <a href="">拒绝</a>
 			</li>
 		</s:iterator>

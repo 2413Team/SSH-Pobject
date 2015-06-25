@@ -1,6 +1,10 @@
 package com.sshpobject.daoimpl;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -10,6 +14,7 @@ import org.hibernate.Transaction;
 
 import com.sshpobject.dao.OrganizationRequestDao;
 import com.sshpobject.model.OrganizationRequest;
+import com.sshpobject.model.Sixin;
 import com.sshpobject.model.User;
 import com.sshpobject.model.UserOrganization;
 
@@ -63,8 +68,11 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	@Override
 	public void agreeRequest(OrganizationRequest organizationRequest) {
 		getSessions();
+		System.out.println("第一阶段");
 		addAgreeUser(organizationRequest);
+		System.out.println("第二阶段");
 		setAgreeToOk(organizationRequest);
+		System.out.println("第三阶段");
 		sendAgreeSixin(organizationRequest);
 		distroy();
 	}
@@ -80,14 +88,37 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	
 	//修改申请表agree字段为1
 	private void setAgreeToOk(OrganizationRequest organizationRequest){
+		System.out.println("1");
 		String sql="UPDATE OrganizationRequest SET agree=1  WHERE id="+organizationRequest.getId();
+		System.out.println("2");
 		Query query=sess.createQuery(sql);
-		sess.update(query);
+		System.out.println("3");
+		query.executeUpdate();
 	}
 
 	//发送私信给申请者-你加入某组织的申请已经被同意了
 	private void sendAgreeSixin(OrganizationRequest organizationRequest){
-		
+		System.out.println("1");
+		Sixin sixin=new Sixin();
+		User system=new User();
+		system.setId(9);
+		Date date=null;
+		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String strDate=fmt.format(new Date());
+		try {
+			date = fmt.parse(strDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sixin.setCreatdate(date);
+		System.out.println("2");
+		sixin.setUserBySetuserid(system);
+		System.out.println("3");
+		sixin.setUserByGetuserid(organizationRequest.getUser());
+		System.out.println("4");
+		sixin.setValue("您加入"+organizationRequest.getOrganization().getName()+"的请求已被同意");
+		sess.save(sixin);
 	}
 	
 	@Override
