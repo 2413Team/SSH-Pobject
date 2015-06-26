@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<%@ include file="header.jsp" %>
+<%@ include file="header.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,10 +15,11 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-<link rel="stylesheet" type="text/css" href="css/team_jr.css">
+<link rel="stylesheet" type="text/css" href="css/sixin.css">
 
 
 </head>
+
 <body>
 	<div class="content">
 		<div class="k"></div>
@@ -43,30 +44,28 @@
 				</ul>
 			</div>
 			<div class="detail_k">
-				<a href='#' class="first"><img src="pic/fanhui.png" /></a> <a
-					href="#" class="fanhui">返回我的组织</a>
-				<form action="searchOrganization.action" method="post">
-					<input type="text" name="organization.name" class="text" /> <input
-						type="submit" class="submit" value="搜 索" />
-				</form>
-				<table border="1" cellspacing="0" cellpadding="0"
-					bordercolor="#d3d3d3" width="730px;">
-					<tr>
-						<td>组织名</td>
-						<td>创建人</td>
-						<td>人员数</td>
-						<td>组织类型</td>
-						<td></td>
-					</tr>
-					<s:iterator value="organizationList" id="list">
-						<tr>
-							<td><a href="detailOrganization.action?organizationid=${list.id}"><s:property value="#list.getName()"/></a></td>
-							<td><s:property value="#list.getUser().getName()"/></td>
-							<td><s:property value="#list.getMembercount()"/></td>
-							<td><a href="sendRequest.action?organziationid=${list.id}">申请加入</a></td>
-						</tr>
-					</s:iterator>
-				</table>
+				<s:iterator value="orList" id="list">
+					<div class="k1">
+						<div class="name_k2">
+							<img alt="" src="pic/tx.jpg"><br>
+							<p>系统</p>
+						</div>
+						<div class="gray_k">
+							<div class="text_k">
+								<p><s:property value="#list.getUser().getName()"/>申请加入您创建的组织【<s:property value="#list.getOrganization().getName()" />】，是否接受？</p>
+							</div>
+
+							<div class="a_k">
+								<a href="agreeRequest.action?organizationid=${list.organization.id}&userid=${list.user.id}&orid=${list.id}">接受</a>
+								<a href="disagreeRequest.action?organizationid=${list.organization.id}&userid=${list.user.id}&orid=${list.id}">拒绝</a>
+							</div>
+
+							<div class="time_k">
+								<span>2015-6-12 10:37</span>
+							</div>
+						</div>
+					</div>
+				</s:iterator>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+*{margin:0;padding:0}
+body{font-size: 18px;  }
+a{text-decoration: none;}
+ul{ list-style:none;}
+
+.login_top{ width:1280px;height:133px;background:#73ddff;margin:0 auto;border-bottom:solid 2px #ffffff;margin-top:130px;}
+.login{ width:1280px;height:405px;background:#25ef41;margin:0 auto;}
+
+.login .logo img{margin:64px 0 0 109px;float:left;display:block;width:212px;height:249px;}
+
+.login  .p{padding-top:120px;}
+.login  .p p{font-size: 36px; font-family:"华文彩云" ;color:white; line-height:60px;text-indent:-20px;}
+.login  .p .p2{text-indent:90px;}
+
+.login form input{font-size:18px; color:#171717}
+.login form{width:400px;  font-size:24px; margin-left: 800px; margin-top:-140px;}
+.login form input#shuru{text-indent:3px; width:307px; height:50px; margin-top:30px}
+.login form input.button{width:112px;height:43px; margin-top:20px; background:url(../pic/register_bt.jpg);  color:#fff; font-size:18px;
+                                              float:right;;margin-right:93px;}
+.login form a{color:white;font-size:16px; }
+
+.login_bottom{ width:1280px;height:120px;background:#73ddff;margin:0 auto;border-top:solid 2px #ffffff;}

@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ page language="java" import="java.util.*,com.opensymphony.xwork2.ActionContext;" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'success.jsp' starting page</title>
+    <title>My JSP 'sixin_send.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,6 +24,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is success page. <br>
+  <%
+	String getterid=request.getParameter("getterid");
+	ActionContext.getContext().getValueStack().set("getterid",getterid);
+	%>
+    <s:form action="sendSixin.action">
+    	<input type="text" name="sixin.userByGetuserid.id" value="<%=request.getParameter("getterid")%>"/>
+    	<s:textarea label="私信内容" labelposition="left" name="sixin.value" rows="15"/>
+    	<s:submit value="发送"/>
+    </s:form>
   </body>
 </html>

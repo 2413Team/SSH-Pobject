@@ -4,11 +4,11 @@
    <package name="default"  extends="struts-default">
    		<!-- 用户相关 -->
         <action name="doLogin" class="com.sshpobject.action.UserAction" method="doLogin">
-            <result name="success">/loginsuccess.jsp</result>
+            <result name="success">/user_index.jsp</result>
             <result name="cantlogin">/user_login.jsp</result>
         </action>
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
-            <result name="success">/success.jsp</result>
+            <result name="success">/user_login.jsp</result>
         </action>
         <action name="detailUser" class="com.sshpobject.action.UserAction" method="detailUser">
         	<result name="success">/user_detail.jsp</result>
