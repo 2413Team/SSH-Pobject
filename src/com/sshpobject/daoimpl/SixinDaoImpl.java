@@ -3,6 +3,7 @@ package com.sshpobject.daoimpl;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,8 +49,13 @@ public class SixinDaoImpl implements SixinDao {
 			String test=list.get(i).getUserBySetuserid().getName();
 			Date date=list.get(i).getCreatdate();
 		}
+		List<Sixin> newList=new ArrayList<Sixin>();
+		for(int i=list.size()-1;i>=0;i--)
+		{
+			newList.add(list.get(i));
+		}
 		distroy();
-		return list;
+		return newList;
 	}
 	
 	

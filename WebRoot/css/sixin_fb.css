@@ -31,4 +31,6 @@ ul{ list-style:none;}
 .content .detail  .list_k ul li a:hover{background:#6ae670; }
 
 
-.content .detail  .detail_k{width:730px;height:490px;float:left;border:solid 1px #d3d3d3;overflow:auto;}
+.content .detail .detail_k{width:730px;height:490px;float:left;border:solid 1px #d3d3d3;overflow:auto;}
+.content .detail .detail_bdm{width:400px; height:300px; margin: 0 auto; margin-top:60px;}
+.content .detail .submit{background:url(../pic/fb.jpg); width:79px; height:27px;color:#fff;font-size:14px;}

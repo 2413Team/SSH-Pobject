@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.sshpobject.daoimpl.OrganizationDaoImpl;
 import com.sshpobject.model.Organization;
+import com.sshpobject.model.User;
 import com.sshpobject.model.UserOrganization;
 
 public class OrganizationService {
@@ -36,6 +37,10 @@ public class OrganizationService {
 	
 	public List<UserOrganization> detailOrganizationUser(int organizationid){
 		return organizationDao.detailOrganizationUser(organizationid);
+	}
+	
+	public List<UserOrganization> getMyOrganization(User user){
+		return organizationDao.getMyOrganization(user);
 	}
 	
 	

@@ -1,5 +1,6 @@
 package com.sshpobject.daoimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -9,6 +10,7 @@ import org.hibernate.Transaction;
 
 import com.sshpobject.dao.OrganizationDao;
 import com.sshpobject.model.Organization;
+import com.sshpobject.model.User;
 import com.sshpobject.model.UserOrganization;
 
 public class OrganizationDaoImpl implements OrganizationDao {
@@ -56,6 +58,22 @@ public class OrganizationDaoImpl implements OrganizationDao {
 		List<UserOrganization> list=query.list();
 		for(int i=0;i<list.size();i++){
 			String test=list.get(i).getUser().getName();
+		}
+		distroy();
+		return list;
+	}
+	
+	@Override
+	public List<UserOrganization> getMyOrganization(User user){
+		List<UserOrganization> list=new ArrayList<UserOrganization>();
+		getSession();
+		System.out.println(user.getId());
+		String sql="FROM UserOrganization WHERE user.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		list=query.list();
+		for(int i=0;i<list.size();i++){
+			String test=list.get(i).getUser().getName();
+			test=list.get(i).getOrganization().getName();
 		}
 		distroy();
 		return list;

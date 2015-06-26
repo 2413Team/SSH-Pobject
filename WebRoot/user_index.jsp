@@ -5,7 +5,7 @@
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>欢迎来到校友网</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -35,8 +35,8 @@
                            <div class="list_k">
 			                     <ul>
 			                      <li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
-			                      <li><a href="team.jsp">我 的 组 织</a></li>
-			                      <li><a href="user_ziliao.jsp">个 人 资 料</a></li>
+			                      <li><a href="getMyOrganization.action">我 的 组 织</a></li>
+			                      <li><a href="detailMe.action">个 人 资 料</a></li>
 			                      <li><a href="haveRequest.action">我 的 请 求</a></li>
 			                      <li><a href="getSixinS.action">我 的 私 信</a></li>
 			                     </ul>

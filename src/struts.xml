@@ -13,6 +13,9 @@
         <action name="detailUser" class="com.sshpobject.action.UserAction" method="detailUser">
         	<result name="success">/user_detail.jsp</result>
         </action>
+        <action name="detailMe" class="com.sshpobject.action.UserAction" method="detailMe">
+        	<result name="success">/user_ziliao.jsp</result>
+        </action>
         <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
     		<result name="success">/success.jsp</result>
@@ -22,6 +25,10 @@
     	</action>
     	<action name="detailOrganization" class="com.sshpobject.action.OrganizationAction" method="detailOrganization">
     		<result name="success">/organization_detail.jsp</result>
+    	</action>
+    	<action name="getMyOrganization" class="com.sshpobject.action.OrganizationAction" method="getMyOrganization">
+    		<result name="success">/organization_have.jsp</result>
+    		<result name="no">/organization_donthave.jsp</result>
     	</action>
         <!-- 私信相关 -->
         <action name="sendSixin" class="com.sshpobject.action.SixinAction" method="sendSixin">
@@ -42,13 +49,13 @@
         	<result name="success">/loginsuccess.jsp</result>
         </action>
         <action name="haveRequest" class="com.sshpobject.action.OrganizationRequestAction" method="haveRequest">
-        	<result name="success">/organizationRequest_get.jsp</result>
+        	<result name="success">/sixin_request.jsp</result>
         </action>
         <action name="agreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="agreeRequest">
-        	<result name="success">/loginsuccess.jsp</result>
+        	<result name="success">/sixin_request.jsp</result>
         </action>
         <action name="disagreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="disagreeRequest">
-        	<result name="success">/loginsuccess.jsp</result>
+        	<result name="success">/sixin_request.jsp</result>
         </action>
    </package>
 </struts>    

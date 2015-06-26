@@ -31,8 +31,8 @@ ul{ list-style:none;}
 .content .detail  .detail_k{width:730px;height:490px;border:solid 1px #d3d3d3;float:left;background:#fafafa;font-size:24px;}
 .content .detail  .detail_k a.fanhui{font-size:14px;color:#828282;line-height:12px;float:left;margin-top:35px;margin-bottom:24px;font-weight:bolder;}
 .content .detail  .detail_k a.first{margin:30px 0px 0 0;display:block;height:19px;width:17px;float:left;margin-left:573px;}
-.content .detail  .detail_k .cj{width:382px;height:302px;margin:104px 0 0 190px;font-size:18px;color:#a4a4a4;}
-.content .detail  .detail_k .cj form .text{width:240px; height:40px;font-size:18px;margin-bottom:46px;}
-.content .detail  .detail_k .cj form label{margin-left:18px;font-size:18px;color:#a4a4a4;margin-top:20px;;}
-.content .detail  .detail_k .cj form .submit{width:127px;height:48px;background:url("../pic/bt_cj2.png");color:white;font-size:18px;font-weight:bolder;margin:70px 0 0 133px;}
-.content .detail  .detail_k .cj form .fenlei{width:382px;float:left margin-top:46px;}
+.content .detail  .detail_k .cy_detail{width:658px;height:380px;border-top:1px dashed #828282;margin:110px 0 0 32px;overflow: auto;}
+.content .detail  .detail_k .cy_detail .cy{width:651px;height:101px;background:#f1f1f1;margin:18px 0 0 6px;font-size:14px;color:#828282;float:left;}
+.content .detail  .detail_k .cy_detail .cy .tx{width:70px;height:70px;border:1px solid #828282;margin-left:6px;float:left;margin-top:13px;}
+.content .detail  .detail_k .cy_detail .cy span{margin:20px 0 0 18px;float:left;}
+.content .detail  .detail_k .cy_detail .cy a{margin:60px 0 0 26px;float:left;color:#828282;text-decoration: underline;;}

@@ -50,6 +50,16 @@ public class OrganizationAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	public String getMyOrganization() throws Exception{
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		userList=organizationService.getMyOrganization(user);
+		if(userList.size()!=0)
+			return SUCCESS;
+		else
+			return "no";
+	}
+	
 
 	public OrganizationService getOrganizationService() {
 		return organizationService;

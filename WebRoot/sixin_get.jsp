@@ -7,7 +7,7 @@
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'team.jsp' starting page</title>
+    <title>收到的私信</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">

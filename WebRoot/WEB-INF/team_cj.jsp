@@ -1,6 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -14,7 +17,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 
-	<link rel="stylesheet" type="text/css" href="css/team_no.css">
+	<link rel="stylesheet" type="text/css" href="CSS/team_cj.css">
 
 
   </head>
@@ -34,18 +37,27 @@
                                     <input type="submit" value=" 发  表" class="button" >
                            </div>
                            <div class="list_k">
-			                	 <ul>
-			                      <li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
-			                      <li><a href="team.jsp">我 的 组 织</a></li>
-			                      <li><a href="user_ziliao.jsp">个 人 资 料</a></li>
-			                      <li><a href="haveRequest.action">我 的 请 求</a></li>
-			                      <li><a href="getSixinS.action">我 的 私 信</a></li>
+			                      <ul>
+			                      <li  ><a href="index.jsp" class="first">所 有 动 态</a></li>
+			                      <li><a href="#">我 的 组 织</a></li>
+			                      <li><a href="mine.jsp">我 的 动 态</a></li>
+			                      <li><a href="ziliao.jsp">个 人 资 料</a></li>
+			                      <li><a href="sixin.jsp">我 的 私 信</a></li>
 			                     </ul>
+         
                            </div>
                            <div class="detail_k">
-                           			<p>尚未加入组织，是否要：</p>
-                           			<a href="organization_cj.jsp"  class="first"><img src="pic/bt_cj.png"/></a>
-                           			<a href="organization_search.jsp" ><img src="pic/bt_jr.png"/></a>
+								<a href='#' class="first"><img src="pic/fanhui.png"/></a>
+								<a href="#" class="fanhui">返回我的组织</a>
+								<div class="cj">
+										<form action="" method="post">
+									            <label>组织名</label>：<input type="text" class="text"/>
+									            <div class="fenlei">
+									          		  <s:radio  name="fenlei" label="所属分类" labelposition="top" list="{'班级','部门'}" />
+									            </div>
+									            <input type="submit" class="submit" value="创 建"/>      
+										</form>
+								</div>
                            </div>
                  </div>
            </div>

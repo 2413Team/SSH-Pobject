@@ -53,6 +53,22 @@ public class UserAction extends ActionSupport {
 		userlist=userService.detailUser(user);
 		return SUCCESS;
 	}
+	
+	public String detailMe() throws Exception{
+		Map session=ActionContext.getContext().getSession();
+		if(session.get("user")!=null)
+			user=(User)session.get("user");
+		else
+			throw new Exception("请先登录");
+		userlist=userService.detailUser(user);
+		user=(User)userlist.get(0);
+		if(user.getSex().equals("M"))
+			user.setSex("男");
+		else
+			user.setSex("女");
+		userlist.set(0, user);
+		return SUCCESS;
+	}
 
 
 	public UserService getUserService() {

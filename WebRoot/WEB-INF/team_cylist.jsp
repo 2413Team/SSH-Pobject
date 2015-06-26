@@ -1,9 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="header.jsp" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+    <base href="<%=basePath%>">
+    
     <title>My JSP 'team.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -12,7 +17,7 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 
-	<link rel="stylesheet" type="text/css" href="css/team_cj.css">
+	<link rel="stylesheet" type="text/css" href="CSS/team_cylist.css">
 
 
   </head>
@@ -41,18 +46,47 @@
 			                     </ul>
          
                            </div>
-                           <div class="detail_k">
-								<a href='#' class="first"><img src="pic/fanhui.png"/></a>
-								<a href="#" class="fanhui">返回我的组织</a>
-								<div class="cj">
-										<form action="addOrganization.action" method="post">
-									            <label>组织名</label>：<input type="text" class="text" name="organization.name"/>
-									            <div class="fenlei">
-									          		  <s:radio  name="typeid" label="所属分类" labelposition="top" list="#{1:'班级',2:'部门'}" />
-									            </div>
-									            <input type="submit" class="submit" value="创 建"/>      
-										</form>
-								</div>
+                           <div class="detail_k">              	 	 
+										<a href='#' class="first"><img src="pic/fanhui.png"/></a>
+										<a href="#" class="fanhui">返回我的组织</a>
+										<div class="cy_detail">
+											<div class="cy">
+												<div class="tx">
+													
+												</div>
+												<span>姓名：姜维川</span>
+												<span>手机号码：12345678901</span>
+												<a href="#">发送私信</a>
+												<a href="#">查看详细资料</a>
+											</div>
+											<div class="cy">
+												<div class="tx">
+													
+												</div>
+												<span>姓名：姜维川</span>
+												<span>手机号码：12345678901</span>
+												<a href="#">发送私信</a>
+												<a href="#">查看详细资料</a>
+											</div>
+											<div class="cy">
+												<div class="tx">
+													
+												</div>
+												<span>姓名：姜维川</span>
+												<span>手机号码：12345678901</span>
+												<a href="#">发送私信</a>
+												<a href="#">查看详细资料</a>
+											</div>
+											<div class="cy">
+												<div class="tx">
+													
+												</div>
+												<span>姓名：姜维川</span>
+												<span>手机号码：12345678901</span>
+												<a href="#">发送私信</a>
+												<a href="#">查看详细资料</a>
+											</div>
+										</div>
                            </div>
                  </div>
            </div>
