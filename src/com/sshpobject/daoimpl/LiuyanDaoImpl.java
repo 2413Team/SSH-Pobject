@@ -50,6 +50,7 @@ public class LiuyanDaoImpl implements LiuyanDao {
 		for(int i=0;i<list.size();i++){
 			String test=list.get(i).getOrganization().getName();
 			test=list.get(i).getUser().getName();
+			test=list.get(i).getValue();
 		}
 		return list;
 	}

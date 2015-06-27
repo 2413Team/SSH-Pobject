@@ -46,20 +46,17 @@
 					href="#" class="fanhui">返回我的组织</a>
 				<div class="liuyan_k">
 					<div class="liuyan">
-						<ul>
-							<li class="first">姜维川</li>
-							<li class="second">time</li>
-							<li class="third">发送的消息</li>
-						</ul>
-						<ul>
-							<li class="first">姜维川</li>
-							<li class="second">time</li>
-							<li class="third">发送的消息</li>
-						</ul>
+						<s:iterator value="liuyanList" id="list">
+							<ul>
+								<li class="first"><s:property value="#list.getUser().getName()"/></li>
+								<li class="second"><s:property value="#list.getCreatdate()"/></li>
+								<li class="third"><s:property value="#list.getValue()"/></li>
+							</ul>
+						</s:iterator>
 					</div>
 					<div class="fasong">
-						<form action="" method="post">
-							<textarea rows="10" cols="3" class="text" style="overflow:hidden"></textarea>
+						<form action="addLiuyan.action" method="post">
+							<textarea rows="10" cols="3" class="text" style="overflow:hidden" name="liuyan.value" ></textarea>
 							<input type="submit" class="submit" value="发 送" />
 						</form>
 					</div>

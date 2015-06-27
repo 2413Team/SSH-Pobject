@@ -57,5 +57,12 @@
         <action name="disagreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="disagreeRequest">
         	<result name="success">/sixin_request.jsp</result>
         </action>
+         <!-- 组织留言板相关 -->
+         <action name="addLiuyan" class="com.sshpobject.action.LiuyanAction" method="addLiuyan">
+         	<result name="success" type="redirectAction">getAllLiuyan</result>
+         </action>
+         <action name="getAllLiuyan" class="com.sshpobject.action.LiuyanAction" method="getAllLiuyan">
+         	<result name="success">/organization_ly.jsp</result>
+         </action>
    </package>
 </struts>    

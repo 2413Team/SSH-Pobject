@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ include file="header.jsp" %>
@@ -47,7 +54,7 @@
 				 <a href="organization_search.jsp" class="underline2">加入更多组织</a>
 				<s:iterator value="userList" id="list">
 					<div class="detail_team">
-						<h1>- <s:property value="#list.getOrganization().getName()"/></h1>
+						<h1>-组织名</h1>
 						<a href="#">退出组织</a>
 						<ul class="first">
 							<li>组织名：</li>
@@ -60,7 +67,7 @@
 							<li><s:property value="#list.getOrganization().getMembercount()"/></li>
 						</ul>
 						<a href="detailOrganization.action?organizationid=${list.organization.id}" class="chakan">查看所有成员</a> 
-						<a href="#" class="underline">查看组织留言板</a>
+						<a href="getAllLiuyan.action?organizationid=${list.organization.id}" class="underline">查看组织留言板</a>
 					</div>
 				</s:iterator>
 			</div>

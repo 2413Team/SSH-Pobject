@@ -120,4 +120,13 @@
 		<property name="organizationService" ref="organizationService"></property>
 	</bean>
 	
+	<bean id="liuyanDao" class="com.sshpobject.daoimpl.LiuyanDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="liuyanService" class="com.sshpobject.service.LiuyanService">
+		<property name="liuyanDao" ref="liuyanDao"></property>
+	</bean>
+	<bean id="liuyanAction" class="com.sshpobject.action.LiuyanAction">
+		<property name="liuyanService" ref="liuyanService"></property>
+	</bean>
 	</beans>

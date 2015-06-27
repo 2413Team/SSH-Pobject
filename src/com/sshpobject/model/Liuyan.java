@@ -13,7 +13,7 @@ public class Liuyan implements java.io.Serializable {
 	private Integer id;
 	private User user;
 	private Organization organization;
-	private String values;
+	private String value;
 	private Date creatdate;
 
 	// Constructors
@@ -23,11 +23,11 @@ public class Liuyan implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Liuyan(User user, Organization organization, String values,
+	public Liuyan(User user, Organization organization, String value,
 			Date creatdate) {
 		this.user = user;
 		this.organization = organization;
-		this.values = values;
+		this.value = value;
 		this.creatdate = creatdate;
 	}
 
@@ -57,12 +57,12 @@ public class Liuyan implements java.io.Serializable {
 		this.organization = organization;
 	}
 
-	public String getValues() {
-		return this.values;
+	public String getValue() {
+		return this.value;
 	}
 
-	public void setValues(String values) {
-		this.values = values;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public Date getCreatdate() {
