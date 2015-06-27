@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//WebRoot/yuanshi_register.jsp=UTF-8
-encoding//WebRoot/yuanshiorganization_add.jsp=UTF-8
-encoding//WebRoot/yuanshishuoshuo_send.jsp=UTF-8
+encoding//WebRoot/oldpage/yuanshi_register.jsp=UTF-8
+encoding//WebRoot/oldpage/yuanshiorganization_add.jsp=UTF-8
+encoding//WebRoot/oldpage/yuanshishuoshuo_send.jsp=UTF-8
 encoding//src/com/sshpobject/action/UserAction.java=UTF-8
