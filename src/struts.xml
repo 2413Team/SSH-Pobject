@@ -4,7 +4,7 @@
    <package name="default"  extends="struts-default">
    		<!-- 用户相关 -->
         <action name="doLogin" class="com.sshpobject.action.UserAction" method="doLogin">
-            <result name="success">/user_index.jsp</result>
+            <result name="success" type="redirectAction">getShuoshuos</result>
             <result name="cantlogin">/user_login.jsp</result>
         </action>
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
@@ -42,7 +42,7 @@
         	<result name="success" type="redirectAction">getShuoshuos</result>
         </action>
         <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
-        	<result name="success">/shuoshuo_send.jsp</result>
+        	<result name="success">/user_index.jsp</result>
         </action>
         <!-- 组织请求相关 -->
         <action name="sendRequest" class="com.sshpobject.action.OrganizationRequestAction" method="sendRequest">

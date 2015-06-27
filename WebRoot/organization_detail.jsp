@@ -36,13 +36,12 @@
 			</div>
 			<div class="list_k">
 				<ul>
-					<li><a href="index.jsp" class="first">所 有 动 态</a></li>
-					<li><a href="#">我 的 组 织</a></li>
-					<li><a href="mine.jsp">我 的 动 态</a></li>
-					<li><a href="ziliao.jsp">个 人 资 料</a></li>
-					<li><a href="sixin.jsp">我 的 私 信</a></li>
+					<li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
+					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
+					<li><a href="detailMe.action">个 人 资 料</a></li>
+					<li><a href="haveRequest.action">我 的 请 求</a></li>
+					<li><a href="getSixinS.action">我 的 私 信</a></li>
 				</ul>
-
 			</div>
 			<div class="detail_k">
 				<a href='#' class="first"><img src="pic/fanhui.png" /></a> <a

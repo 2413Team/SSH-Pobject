@@ -70,6 +70,7 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 		getSessions();
 		addAgreeUser(organizationRequest);
 		setAgreeToOk(organizationRequest);
+		addMembercount(organizationRequest);
 		sendAgreeSixin(organizationRequest);
 		distroy();
 	}
@@ -86,6 +87,12 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 	//修改申请表agree字段为1
 	private void setAgreeToOk(OrganizationRequest organizationRequest){
 		String sql="UPDATE OrganizationRequest SET agree=1  WHERE id="+organizationRequest.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	//成员数+1
+	private  void addMembercount(OrganizationRequest organizationRequest){
+		String sql="UPDATE Organization SET membercount=membercount+1 WHERE id="+organizationRequest.getOrganization().getId();
 		Query query=sess.createQuery(sql);
 		query.executeUpdate();
 	}
