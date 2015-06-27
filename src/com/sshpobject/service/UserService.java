@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sshpobject.daoimpl.UserDaoImpl;
 import com.sshpobject.model.User;
+import com.sshpobject.model.UserOrganization;
 
 public class UserService {
 	private UserDaoImpl userDao;
@@ -18,8 +19,12 @@ public class UserService {
 		return userDao.doLogin(user);
 	}
 	
-	public List<User> detailUser(User user){
+	public List<UserOrganization> detailUser(User user){
 		return userDao.detailUser(user);
+	}
+	
+	public List<User> detailMe(User user){
+		return userDao.detailMe(user);
 	}
 
 	public UserDaoImpl getUserDao() {

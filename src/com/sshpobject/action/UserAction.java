@@ -2,6 +2,7 @@ package com.sshpobject.action;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.User;
+import com.sshpobject.model.UserOrganization;
 import com.sshpobject.service.UserService;
 
 public class UserAction extends ActionSupport {
@@ -20,6 +22,7 @@ public class UserAction extends ActionSupport {
 	private String birthday;
 	private User user;
 	private List<User> userlist;
+	private List<UserOrganization> uoList;
 
 	public String doLogin() throws Exception{		
 		List<User> userlist=userService.doLogin(user);
@@ -50,7 +53,9 @@ public class UserAction extends ActionSupport {
 		user=new User();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		user.setId(Integer.parseInt(request.getParameter("userid")));
-		userlist=userService.detailUser(user);
+		uoList=userService.detailUser(user);
+		userlist=new ArrayList<User>();
+		userlist.add(uoList.get(0).getUser());
 		return SUCCESS;
 	}
 	
@@ -60,7 +65,7 @@ public class UserAction extends ActionSupport {
 			user=(User)session.get("user");
 		else
 			throw new Exception("请先登录");
-		userlist=userService.detailUser(user);
+		userlist=userService.detailMe(user);
 		user=(User)userlist.get(0);
 		if(user.getSex().equals("M"))
 			user.setSex("男");
@@ -102,6 +107,15 @@ public class UserAction extends ActionSupport {
 	public void setUserlist(List<User> userlist) {
 		this.userlist = userlist;
 	}
+
+	public List<UserOrganization> getUoList() {
+		return uoList;
+	}
+
+	public void setUoList(List<UserOrganization> uoList) {
+		this.uoList = uoList;
+	}
+	
 	
 	
 }

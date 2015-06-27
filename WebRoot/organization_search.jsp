@@ -7,7 +7,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'team.jsp' starting page</title>
+<title>搜索组织</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -25,7 +25,7 @@
 		<div class="detail">
 			<div class="name_k">
 				<img alt="" src="pic/tx.jpg"><br>
-				<p>杨奇</p>
+				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
 				<textarea name="Description" cols="75" rows="8"></textarea>
@@ -35,7 +35,7 @@
 			</div>
 			<div class="list_k">
 				<ul>
-					<li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
+					<li><a href="getShuoshuos.action" class="first">所 有 动 态</a></li>
 					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
 					<li><a href="detailMe.action">个 人 资 料</a></li>
 					<li><a href="haveRequest.action">我 的 请 求</a></li>
@@ -63,6 +63,7 @@
 							<td><a href="detailOrganization.action?organizationid=${list.id}"><s:property value="#list.getName()"/></a></td>
 							<td><s:property value="#list.getUser().getName()"/></td>
 							<td><s:property value="#list.getMembercount()"/></td>
+							<td><s:property value="#list.getOrganizationType().getValue()"/></td>
 							<td><a href="sendRequest.action?organziationid=${list.id}">申请加入</a></td>
 						</tr>
 					</s:iterator>

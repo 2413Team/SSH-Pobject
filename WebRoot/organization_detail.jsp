@@ -7,7 +7,7 @@
 <html>
 <head>
 
-<title>My JSP 'team.jsp' starting page</title>
+<title>组织详情</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -26,7 +26,7 @@
 		<div class="detail">
 			<div class="name_k">
 				<img alt="" src="pic/tx.jpg"><br>
-				<p>杨奇</p>
+				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
 				<textarea name="Description" cols="75" rows="8"></textarea>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="list_k">
 				<ul>
-					<li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
+					<li><a href="getShuoshuos.action" class="first">所 有 动 态</a></li>
 					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
 					<li><a href="detailMe.action">个 人 资 料</a></li>
 					<li><a href="haveRequest.action">我 的 请 求</a></li>
@@ -44,8 +44,8 @@
 				</ul>
 			</div>
 			<div class="detail_k">
-				<a href='#' class="first"><img src="pic/fanhui.png" /></a> <a
-					href="#" class="fanhui">返回我的组织</a>
+				<a href='#' class="first"><img src="pic/fanhui.png" /></a>
+				 <a href="getMyOrganization.action" class="fanhui">返回我的组织</a>
 				<div class="cy_detail">
 					<s:iterator value="userList" id="list">
 						<div class="cy">
@@ -53,7 +53,7 @@
 							<span>姓名：<s:property value="#list.getUser().getName()" /></span> 
 							<span>手机号码：<s:property value="#list.getUser().getPhone()" /></span> 
 							<a href="sixin_send.jsp?getterid=${list.user.id}">发送私信</a>
-							<a href="#">查看详细资料</a>
+							<a href="detailUser.action?userid=${list.user.id}">查看详细资料</a>
 						</div>
 					</s:iterator>
 				</div>

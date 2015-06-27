@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="detail">
 			<div class="name_k">
 				<img alt="" src="pic/tx.jpg"><br>
-				<p>杨奇</p>
+				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
 				<textarea name="Description" cols="75" rows="8"></textarea>
@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="list_k">
 				<ul>
-					<li><a href="user_index.jsp" class="first">所 有 动 态</a></li>
+					<li><a href="getShuoshuos.action" class="first">所 有 动 态</a></li>
 					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
 					<li><a href="detailMe.action">个 人 资 料</a></li>
 					<li><a href="haveRequest.action">我 的 请 求</a></li>
