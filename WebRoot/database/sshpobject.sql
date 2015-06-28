@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2015-06-25 16:28:18
+Date: 2015-06-28 16:30:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `liuyan`;
 CREATE TABLE `liuyan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `values` varchar(100) NOT NULL,
+  `value` varchar(100) NOT NULL,
   `setuserid` int(11) NOT NULL,
   `organizationid` int(11) NOT NULL,
   `creatdate` date NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `liuyan` (
   KEY `organizationid` (`organizationid`),
   CONSTRAINT `liuyan_ibfk_1` FOREIGN KEY (`setuserid`) REFERENCES `user` (`id`),
   CONSTRAINT `liuyan_ibfk_2` FOREIGN KEY (`organizationid`) REFERENCES `organization` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of liuyan
@@ -52,17 +52,14 @@ CREATE TABLE `organization` (
   KEY `createrid` (`createrid`),
   CONSTRAINT `organization_ibfk_1` FOREIGN KEY (`typeid`) REFERENCES `organization_type` (`id`),
   CONSTRAINT `organization_ibfk_2` FOREIGN KEY (`createrid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of organization
 -- ----------------------------
-INSERT INTO `organization` VALUES ('3', '地球中文测试', '1', '2', '3', '2015-06-15');
-INSERT INTO `organization` VALUES ('4', '地球村中文测试', '1', '2', '3', '2015-06-15');
-INSERT INTO `organization` VALUES ('5', '地球村二号', '1', '1', '3', '2015-06-15');
-INSERT INTO `organization` VALUES ('6', '天堂', '1', '2', '3', '2015-06-18');
-INSERT INTO `organization` VALUES ('7', '地球村三号', '1', '2', '3', '2015-06-18');
-INSERT INTO `organization` VALUES ('8', 'test', '1', '1', '5', '2015-06-23');
+INSERT INTO `organization` VALUES ('13', '软件测试测试', '2', '1', '3', '2015-06-28');
+INSERT INTO `organization` VALUES ('14', '多用户同时测试阶段', '2', '2', '3', '2015-06-28');
+INSERT INTO `organization` VALUES ('15', '多用户同时测试阶段', '1', '1', '3', '2015-06-28');
 
 -- ----------------------------
 -- Table structure for `organization_request`
@@ -78,21 +75,13 @@ CREATE TABLE `organization_request` (
   KEY `userid` (`userid`),
   CONSTRAINT `organization_request_ibfk_1` FOREIGN KEY (`organizationid`) REFERENCES `organization` (`id`),
   CONSTRAINT `organization_request_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of organization_request
 -- ----------------------------
-INSERT INTO `organization_request` VALUES ('1', '3', '3', '0');
-INSERT INTO `organization_request` VALUES ('2', '5', '6', '1');
-INSERT INTO `organization_request` VALUES ('4', '4', '7', '1');
-INSERT INTO `organization_request` VALUES ('5', '5', '5', '1');
-INSERT INTO `organization_request` VALUES ('6', '5', '7', '1');
-INSERT INTO `organization_request` VALUES ('7', '4', '6', '1');
-INSERT INTO `organization_request` VALUES ('8', '5', '6', '1');
-INSERT INTO `organization_request` VALUES ('9', '5', '7', '1');
-INSERT INTO `organization_request` VALUES ('10', '5', '7', '2');
-INSERT INTO `organization_request` VALUES ('11', '5', '7', '1');
+INSERT INTO `organization_request` VALUES ('16', '5', '13', '1');
+INSERT INTO `organization_request` VALUES ('17', '5', '14', '1');
 
 -- ----------------------------
 -- Table structure for `organization_type`
@@ -122,76 +111,16 @@ CREATE TABLE `shuoshuo` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`),
   CONSTRAINT `shuoshuo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shuoshuo
 -- ----------------------------
-INSERT INTO `shuoshuo` VALUES ('1', '这是我的第一条说说！', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('2', 'hello!world\r\n', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('3', 'hello!!!!', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('4', 'hello!!!', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('5', 'hello', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('6', 'heeafdsdf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('7', 'dkasfjklsdf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('8', 'hello!world!', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('9', 'helljasd f', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('10', 'dsfdasfdsf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('11', 'a\'s\'d\'f\'da\'s\'f', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('12', 'adsfadf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('13', 'test的说说', '5', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('14', 'admin的说说', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('15', 'asdfdasffsd', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('16', 'asdfdsf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('17', 'asdfdsaf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('18', '最后一条说说', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('19', '你好我是', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('20', '这是BDM的第一条说说！', '4', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('21', 'adsfdasf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('22', 'asdfdsaf', '3', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('23', '这是BDM的第二条说说', '4', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('24', '这是BDM的第三条说说！', '4', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('25', '这是BDM的第四条说说', '4', '2015-06-23');
-INSERT INTO `shuoshuo` VALUES ('26', '今天天气不错', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('27', '今天天气不太好', '4', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('28', '是的', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('29', '这是我的第二条说说', '5', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('45', '连续第一条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('46', '连续第二条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('47', '连续第三条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('48', '再发一条 ', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('50', '发送一条说说', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('51', '发送', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('52', '再次发送', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('53', '再次发送', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('54', '很好', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('55', '不错', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('56', '连续第一条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('57', '连续第二条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('58', '连续第三条啊啊啊', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('59', '连续四条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('60', '第五条！', '4', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('61', '第六条！', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('62', '我来一条', '4', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('63', '连续第一条\r\n', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('64', '连续第二条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('65', '', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('66', '连续第一条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('67', '连续第二条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('68', '连续第三条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('69', '再来几条试试', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('70', '连续第二条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('71', '连续第三条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('72', 'ADMIN的一条\r\n', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('73', 'bdm的一条', '4', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('74', '连续一条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('75', '连续一条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('76', '连续两条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('77', '连续三条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('78', '连续第条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('79', '连续四条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('80', '连续五条', '3', '2015-06-24');
-INSERT INTO `shuoshuo` VALUES ('81', '连续六条', '3', '2015-06-24');
+INSERT INTO `shuoshuo` VALUES ('85', '我今天在校友网注册了！', '3', '2015-06-28');
+INSERT INTO `shuoshuo` VALUES ('86', '我来发条说说', '3', '2015-06-28');
+INSERT INTO `shuoshuo` VALUES ('87', '在不同页面完成发说说', '3', '2015-06-28');
+INSERT INTO `shuoshuo` VALUES ('88', '', '5', '2015-06-28');
+INSERT INTO `shuoshuo` VALUES ('89', '', '5', '2015-06-28');
 
 -- ----------------------------
 -- Table structure for `sixin`
@@ -208,7 +137,7 @@ CREATE TABLE `sixin` (
   KEY `getuserid` (`getuserid`),
   CONSTRAINT `sixin_ibfk_1` FOREIGN KEY (`setuserid`) REFERENCES `user` (`id`),
   CONSTRAINT `sixin_ibfk_2` FOREIGN KEY (`getuserid`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sixin
@@ -220,6 +149,14 @@ INSERT INTO `sixin` VALUES ('12', '你好！我是test', '5', '3', '2015-06-25')
 INSERT INTO `sixin` VALUES ('13', '你好，我是admin', '3', '5', '2015-06-25');
 INSERT INTO `sixin` VALUES ('14', '今天的天气真好啊', '3', '5', '2015-06-25');
 INSERT INTO `sixin` VALUES ('15', '您加入【地球村三号】的请求已被同意', '9', '5', '2015-06-25');
+INSERT INTO `sixin` VALUES ('16', '您加入【天堂】的请求已被拒绝', '9', '3', '2015-06-26');
+INSERT INTO `sixin` VALUES ('17', '这是我的第一条私信', '3', '5', '2015-06-26');
+INSERT INTO `sixin` VALUES ('18', '这是新样式的第二条私信！', '3', '5', '2015-06-26');
+INSERT INTO `sixin` VALUES ('19', '您加入【出门倒拐的那家锅盔店】的请求已被同意', '9', '3', '2015-06-27');
+INSERT INTO `sixin` VALUES ('20', '您加入【2013软件一班】的请求已被同意', '9', '5', '2015-06-28');
+INSERT INTO `sixin` VALUES ('21', '您加入【软件测试测试】的请求已被同意', '9', '5', '2015-06-28');
+INSERT INTO `sixin` VALUES ('22', '您加入【软件测试测试】的请求已被同意', '9', '5', '2015-06-28');
+INSERT INTO `sixin` VALUES ('23', '您加入【多用户同时测试阶段】的请求已被同意', '9', '5', '2015-06-28');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -241,7 +178,7 @@ CREATE TABLE `user` (
   KEY `groupid` (`groupid`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`statusid`) REFERENCES `user_status` (`id`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`groupid`) REFERENCES `user_group` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
@@ -253,7 +190,10 @@ INSERT INTO `user` VALUES ('5', 'test', 'test', 'test', 'M', '1995-01-01', '1', 
 INSERT INTO `user` VALUES ('6', 'demo', 'demo', '中文测试', 'M', '1995-01-01', '1', '1', '地球村', '123123');
 INSERT INTO `user` VALUES ('7', 'demo2', 'demo2', '中文测试', 'M', '1995-01-01', '1', '1', '地球村', '123123');
 INSERT INTO `user` VALUES ('8', 'blackdogman', 'blackdogman', 'blackdogman', 'M', '1995-04-04', '1', '1', '地球村', '189999999999');
-INSERT INTO `user` VALUES ('9', 'SYSTEM', 'superboy123', '校友网系统', 'FM', '2016-01-01', '1', '3', 'com.system', '12345678');
+INSERT INTO `user` VALUES ('9', 'SYSTEM', 'superboy123', '系统', 'FM', '2016-01-01', '1', '3', 'com.system', '12345678');
+INSERT INTO `user` VALUES ('10', 'test2', 'test2', 'test2', 'M', '2015-06-10', '1', '1', '123132', '123123123');
+INSERT INTO `user` VALUES ('11', 'test3', 'test3', 'test3', 'F', '2015-06-16', '1', '1', '地球村', '123456789');
+INSERT INTO `user` VALUES ('12', 'blackdogman', 'blackdogman', 'blackdogman', 'M', '2003-01-21', '1', '1', '四川温江', '18900000000');
 
 -- ----------------------------
 -- Table structure for `user_group`
@@ -282,7 +222,7 @@ CREATE TABLE `user_log` (
   `vaule` varchar(100) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=228 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=437 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -514,6 +454,215 @@ INSERT INTO `user_log` VALUES ('224', 'detailUser', '[Ljava.lang.Object;@45f5a5e
 INSERT INTO `user_log` VALUES ('225', 'detailUser', '[Ljava.lang.Object;@1d7b4ab6', '2015-06-25');
 INSERT INTO `user_log` VALUES ('226', 'detailUser', '[Ljava.lang.Object;@7e98a7fa', '2015-06-25');
 INSERT INTO `user_log` VALUES ('227', 'detailUser', '[Ljava.lang.Object;@270c4a26', '2015-06-25');
+INSERT INTO `user_log` VALUES ('228', 'doRegister', '[Ljava.lang.Object;@51c15348', '2015-06-26');
+INSERT INTO `user_log` VALUES ('229', 'doRegister', '[Ljava.lang.Object;@659eda51', '2015-06-26');
+INSERT INTO `user_log` VALUES ('230', 'doLogin', '[Ljava.lang.Object;@1760655f', '2015-06-26');
+INSERT INTO `user_log` VALUES ('231', 'doLogin', '[Ljava.lang.Object;@43a8d66b', '2015-06-26');
+INSERT INTO `user_log` VALUES ('232', 'doLogin', '[Ljava.lang.Object;@23987721', '2015-06-26');
+INSERT INTO `user_log` VALUES ('233', 'doLogin', '[Ljava.lang.Object;@29c134e1', '2015-06-26');
+INSERT INTO `user_log` VALUES ('234', 'doLogin', '[Ljava.lang.Object;@49330197', '2015-06-26');
+INSERT INTO `user_log` VALUES ('235', 'doLogin', '[Ljava.lang.Object;@48979a83', '2015-06-26');
+INSERT INTO `user_log` VALUES ('236', 'doLogin', '[Ljava.lang.Object;@36e24280', '2015-06-26');
+INSERT INTO `user_log` VALUES ('237', 'doLogin', '[Ljava.lang.Object;@471aebdd', '2015-06-26');
+INSERT INTO `user_log` VALUES ('238', 'doLogin', '[Ljava.lang.Object;@1f82ffc7', '2015-06-26');
+INSERT INTO `user_log` VALUES ('239', 'doLogin', '[Ljava.lang.Object;@32aef70', '2015-06-26');
+INSERT INTO `user_log` VALUES ('240', 'doLogin', '[Ljava.lang.Object;@36318936', '2015-06-26');
+INSERT INTO `user_log` VALUES ('241', 'doLogin', '[Ljava.lang.Object;@3a34f1ed', '2015-06-26');
+INSERT INTO `user_log` VALUES ('242', 'doLogin', '[Ljava.lang.Object;@49f06d8a', '2015-06-26');
+INSERT INTO `user_log` VALUES ('243', 'doLogin', '[Ljava.lang.Object;@2ede05f4', '2015-06-26');
+INSERT INTO `user_log` VALUES ('244', 'doLogin', '[Ljava.lang.Object;@5366311c', '2015-06-26');
+INSERT INTO `user_log` VALUES ('245', 'doLogin', '[Ljava.lang.Object;@7eec5136', '2015-06-26');
+INSERT INTO `user_log` VALUES ('246', 'doLogin', '[Ljava.lang.Object;@4141865f', '2015-06-26');
+INSERT INTO `user_log` VALUES ('247', 'detailUser', '[Ljava.lang.Object;@3035d696', '2015-06-26');
+INSERT INTO `user_log` VALUES ('248', 'doLogin', '[Ljava.lang.Object;@57b78fe7', '2015-06-26');
+INSERT INTO `user_log` VALUES ('249', 'detailUser', '[Ljava.lang.Object;@d374f1c', '2015-06-26');
+INSERT INTO `user_log` VALUES ('250', 'doLogin', '[Ljava.lang.Object;@52ef517b', '2015-06-26');
+INSERT INTO `user_log` VALUES ('251', 'detailUser', '[Ljava.lang.Object;@2f282fa9', '2015-06-26');
+INSERT INTO `user_log` VALUES ('252', 'doLogin', '[Ljava.lang.Object;@73073b53', '2015-06-26');
+INSERT INTO `user_log` VALUES ('253', 'detailUser', '[Ljava.lang.Object;@344476f1', '2015-06-26');
+INSERT INTO `user_log` VALUES ('254', 'doLogin', '[Ljava.lang.Object;@5b7fb110', '2015-06-26');
+INSERT INTO `user_log` VALUES ('255', 'detailUser', '[Ljava.lang.Object;@5aca499a', '2015-06-26');
+INSERT INTO `user_log` VALUES ('256', 'doLogin', '[Ljava.lang.Object;@3fa0c52a', '2015-06-26');
+INSERT INTO `user_log` VALUES ('257', 'detailUser', '[Ljava.lang.Object;@12aab346', '2015-06-26');
+INSERT INTO `user_log` VALUES ('258', 'doLogin', '[Ljava.lang.Object;@1c678f5', '2015-06-26');
+INSERT INTO `user_log` VALUES ('259', 'doLogin', '[Ljava.lang.Object;@2180a743', '2015-06-26');
+INSERT INTO `user_log` VALUES ('260', 'doLogin', '[Ljava.lang.Object;@265f9b34', '2015-06-26');
+INSERT INTO `user_log` VALUES ('261', 'doLogin', '[Ljava.lang.Object;@7cf14e8e', '2015-06-26');
+INSERT INTO `user_log` VALUES ('262', 'doLogin', '[Ljava.lang.Object;@7b741d68', '2015-06-26');
+INSERT INTO `user_log` VALUES ('263', 'detailUser', '[Ljava.lang.Object;@1809e56', '2015-06-26');
+INSERT INTO `user_log` VALUES ('264', 'doLogin', '[Ljava.lang.Object;@660972fb', '2015-06-26');
+INSERT INTO `user_log` VALUES ('265', 'doLogin', '[Ljava.lang.Object;@3887c4c7', '2015-06-26');
+INSERT INTO `user_log` VALUES ('266', 'doLogin', '[Ljava.lang.Object;@58717f69', '2015-06-26');
+INSERT INTO `user_log` VALUES ('267', 'doLogin', '[Ljava.lang.Object;@17bf6625', '2015-06-26');
+INSERT INTO `user_log` VALUES ('268', 'doLogin', '[Ljava.lang.Object;@390e9ebe', '2015-06-26');
+INSERT INTO `user_log` VALUES ('269', 'detailUser', '[Ljava.lang.Object;@29868e1', '2015-06-26');
+INSERT INTO `user_log` VALUES ('270', 'doLogin', '[Ljava.lang.Object;@5c9acf0d', '2015-06-26');
+INSERT INTO `user_log` VALUES ('271', 'doLogin', '[Ljava.lang.Object;@364f608d', '2015-06-26');
+INSERT INTO `user_log` VALUES ('272', 'doLogin', '[Ljava.lang.Object;@79036e19', '2015-06-26');
+INSERT INTO `user_log` VALUES ('273', 'doLogin', '[Ljava.lang.Object;@17b84a4b', '2015-06-26');
+INSERT INTO `user_log` VALUES ('274', 'doLogin', '[Ljava.lang.Object;@a932c41', '2015-06-26');
+INSERT INTO `user_log` VALUES ('275', 'doLogin', '[Ljava.lang.Object;@b5f3022', '2015-06-26');
+INSERT INTO `user_log` VALUES ('276', 'doLogin', '[Ljava.lang.Object;@2fe14ce7', '2015-06-26');
+INSERT INTO `user_log` VALUES ('277', 'detailUser', '[Ljava.lang.Object;@241dccf9', '2015-06-26');
+INSERT INTO `user_log` VALUES ('278', 'detailUser', '[Ljava.lang.Object;@41cd9e0f', '2015-06-26');
+INSERT INTO `user_log` VALUES ('279', 'doRegister', '[Ljava.lang.Object;@32dc92e7', '2015-06-27');
+INSERT INTO `user_log` VALUES ('280', 'doLogin', '[Ljava.lang.Object;@3822f963', '2015-06-27');
+INSERT INTO `user_log` VALUES ('281', 'doLogin', '[Ljava.lang.Object;@61253a12', '2015-06-27');
+INSERT INTO `user_log` VALUES ('282', 'doLogin', '[Ljava.lang.Object;@487f575', '2015-06-27');
+INSERT INTO `user_log` VALUES ('283', 'doLogin', '[Ljava.lang.Object;@7aaeec34', '2015-06-27');
+INSERT INTO `user_log` VALUES ('284', 'doLogin', '[Ljava.lang.Object;@70b220a2', '2015-06-27');
+INSERT INTO `user_log` VALUES ('285', 'doLogin', '[Ljava.lang.Object;@2ace4445', '2015-06-27');
+INSERT INTO `user_log` VALUES ('286', 'detailUser', '[Ljava.lang.Object;@40a5ad71', '2015-06-27');
+INSERT INTO `user_log` VALUES ('287', 'doLogin', '[Ljava.lang.Object;@5cc6a0b4', '2015-06-27');
+INSERT INTO `user_log` VALUES ('288', 'detailUser', '[Ljava.lang.Object;@503e0edf', '2015-06-27');
+INSERT INTO `user_log` VALUES ('289', 'doLogin', '[Ljava.lang.Object;@3f641183', '2015-06-27');
+INSERT INTO `user_log` VALUES ('290', 'detailUser', '[Ljava.lang.Object;@7424a9b4', '2015-06-27');
+INSERT INTO `user_log` VALUES ('291', 'doLogin', '[Ljava.lang.Object;@78dc3b09', '2015-06-27');
+INSERT INTO `user_log` VALUES ('292', 'doLogin', '[Ljava.lang.Object;@2ef9e6a5', '2015-06-27');
+INSERT INTO `user_log` VALUES ('293', 'doLogin', '[Ljava.lang.Object;@46ec9937', '2015-06-27');
+INSERT INTO `user_log` VALUES ('294', 'doLogin', '[Ljava.lang.Object;@3694d7f5', '2015-06-27');
+INSERT INTO `user_log` VALUES ('295', 'doLogin', '[Ljava.lang.Object;@3d73cd56', '2015-06-27');
+INSERT INTO `user_log` VALUES ('296', 'doLogin', '[Ljava.lang.Object;@73bb9f9a', '2015-06-27');
+INSERT INTO `user_log` VALUES ('297', 'doLogin', '[Ljava.lang.Object;@3d030630', '2015-06-27');
+INSERT INTO `user_log` VALUES ('298', 'doLogin', '[Ljava.lang.Object;@23941447', '2015-06-27');
+INSERT INTO `user_log` VALUES ('299', 'detailUser', '[Ljava.lang.Object;@1f4f8513', '2015-06-27');
+INSERT INTO `user_log` VALUES ('300', 'doLogin', '[Ljava.lang.Object;@2995be78', '2015-06-27');
+INSERT INTO `user_log` VALUES ('301', 'detailUser', '[Ljava.lang.Object;@1fc45e45', '2015-06-27');
+INSERT INTO `user_log` VALUES ('302', 'detailUser', '[Ljava.lang.Object;@6c798388', '2015-06-27');
+INSERT INTO `user_log` VALUES ('303', 'doLogin', '[Ljava.lang.Object;@24a43167', '2015-06-27');
+INSERT INTO `user_log` VALUES ('304', 'detailUser', '[Ljava.lang.Object;@198f4ae2', '2015-06-27');
+INSERT INTO `user_log` VALUES ('305', 'detailUser', '[Ljava.lang.Object;@26f2e503', '2015-06-27');
+INSERT INTO `user_log` VALUES ('306', 'doLogin', '[Ljava.lang.Object;@4ad307ed', '2015-06-27');
+INSERT INTO `user_log` VALUES ('307', 'doLogin', '[Ljava.lang.Object;@6d6ad44c', '2015-06-27');
+INSERT INTO `user_log` VALUES ('308', 'doLogin', '[Ljava.lang.Object;@12e5204', '2015-06-27');
+INSERT INTO `user_log` VALUES ('309', 'detailUser', '[Ljava.lang.Object;@5d2588cd', '2015-06-27');
+INSERT INTO `user_log` VALUES ('310', 'doLogin', '[Ljava.lang.Object;@d1b6cac', '2015-06-27');
+INSERT INTO `user_log` VALUES ('311', 'detailUser', '[Ljava.lang.Object;@57541100', '2015-06-27');
+INSERT INTO `user_log` VALUES ('312', 'doLogin', '[Ljava.lang.Object;@56b9a873', '2015-06-27');
+INSERT INTO `user_log` VALUES ('313', 'detailUser', '[Ljava.lang.Object;@7bd7d288', '2015-06-27');
+INSERT INTO `user_log` VALUES ('314', 'doLogin', '[Ljava.lang.Object;@2414c052', '2015-06-27');
+INSERT INTO `user_log` VALUES ('315', 'detailUser', '[Ljava.lang.Object;@38601d49', '2015-06-27');
+INSERT INTO `user_log` VALUES ('316', 'doLogin', '[Ljava.lang.Object;@48ec5a5d', '2015-06-27');
+INSERT INTO `user_log` VALUES ('317', 'detailUser', '[Ljava.lang.Object;@66488d41', '2015-06-27');
+INSERT INTO `user_log` VALUES ('318', 'doLogin', '[Ljava.lang.Object;@40bc2a86', '2015-06-27');
+INSERT INTO `user_log` VALUES ('319', 'detailUser', '[Ljava.lang.Object;@5b7fb110', '2015-06-27');
+INSERT INTO `user_log` VALUES ('320', 'doLogin', '[Ljava.lang.Object;@5dce8cc6', '2015-06-27');
+INSERT INTO `user_log` VALUES ('321', 'detailUser', '[Ljava.lang.Object;@3ce582d3', '2015-06-27');
+INSERT INTO `user_log` VALUES ('322', 'detailUser', '[Ljava.lang.Object;@47212e96', '2015-06-27');
+INSERT INTO `user_log` VALUES ('323', 'doLogin', '[Ljava.lang.Object;@5f0c5633', '2015-06-27');
+INSERT INTO `user_log` VALUES ('324', 'detailUser', '[Ljava.lang.Object;@3b4e0854', '2015-06-27');
+INSERT INTO `user_log` VALUES ('325', 'doLogin', '[Ljava.lang.Object;@58748e90', '2015-06-27');
+INSERT INTO `user_log` VALUES ('326', 'doLogin', '[Ljava.lang.Object;@53ddecd8', '2015-06-27');
+INSERT INTO `user_log` VALUES ('327', 'detailMe', '[Ljava.lang.Object;@2b055f2f', '2015-06-27');
+INSERT INTO `user_log` VALUES ('328', 'detailMe', '[Ljava.lang.Object;@7fd96fb0', '2015-06-27');
+INSERT INTO `user_log` VALUES ('329', 'doLogin', '[Ljava.lang.Object;@661a6677', '2015-06-27');
+INSERT INTO `user_log` VALUES ('330', 'doLogin', '[Ljava.lang.Object;@62b5a458', '2015-06-27');
+INSERT INTO `user_log` VALUES ('331', 'doLogin', '[Ljava.lang.Object;@710c8fbc', '2015-06-27');
+INSERT INTO `user_log` VALUES ('332', 'doLogin', '[Ljava.lang.Object;@4a88500', '2015-06-27');
+INSERT INTO `user_log` VALUES ('333', 'doLogin', '[Ljava.lang.Object;@2d52cf34', '2015-06-27');
+INSERT INTO `user_log` VALUES ('334', 'doLogin', '[Ljava.lang.Object;@46ae98ce', '2015-06-27');
+INSERT INTO `user_log` VALUES ('335', 'doLogin', '[Ljava.lang.Object;@43c3139c', '2015-06-27');
+INSERT INTO `user_log` VALUES ('336', 'doLogin', '[Ljava.lang.Object;@49e98589', '2015-06-27');
+INSERT INTO `user_log` VALUES ('337', 'doLogin', '[Ljava.lang.Object;@57b78fe7', '2015-06-27');
+INSERT INTO `user_log` VALUES ('338', 'doLogin', '[Ljava.lang.Object;@6dccc34c', '2015-06-27');
+INSERT INTO `user_log` VALUES ('339', 'doLogin', '[Ljava.lang.Object;@407a80a5', '2015-06-27');
+INSERT INTO `user_log` VALUES ('340', 'detailMe', '[Ljava.lang.Object;@388859e4', '2015-06-27');
+INSERT INTO `user_log` VALUES ('341', 'detailMe', '[Ljava.lang.Object;@65485153', '2015-06-27');
+INSERT INTO `user_log` VALUES ('342', 'detailMe', '[Ljava.lang.Object;@46756ba7', '2015-06-27');
+INSERT INTO `user_log` VALUES ('343', 'doLogin', '[Ljava.lang.Object;@b6fabce', '2015-06-28');
+INSERT INTO `user_log` VALUES ('344', 'getShuoshuos', '[Ljava.lang.Object;@719875e2', '2015-06-28');
+INSERT INTO `user_log` VALUES ('345', 'addShuoshuo', '[Ljava.lang.Object;@e838744', '2015-06-28');
+INSERT INTO `user_log` VALUES ('346', 'getShuoshuos', '[Ljava.lang.Object;@687bd356', '2015-06-28');
+INSERT INTO `user_log` VALUES ('347', 'doLogin', '[Ljava.lang.Object;@53529760', '2015-06-28');
+INSERT INTO `user_log` VALUES ('348', 'getShuoshuos', '[Ljava.lang.Object;@6b8f13f8', '2015-06-28');
+INSERT INTO `user_log` VALUES ('349', 'doLogin', '[Ljava.lang.Object;@407a80a5', '2015-06-28');
+INSERT INTO `user_log` VALUES ('350', 'doLogin', '[Ljava.lang.Object;@3af87759', '2015-06-28');
+INSERT INTO `user_log` VALUES ('351', 'doLogin', '[Ljava.lang.Object;@4dd3b786', '2015-06-28');
+INSERT INTO `user_log` VALUES ('352', 'doLogin', '[Ljava.lang.Object;@762bb4ab', '2015-06-28');
+INSERT INTO `user_log` VALUES ('353', 'doLogin', '[Ljava.lang.Object;@6812cf0a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('354', 'doLogin', '[Ljava.lang.Object;@407a52e4', '2015-06-28');
+INSERT INTO `user_log` VALUES ('355', 'doLogin', '[Ljava.lang.Object;@11d158e2', '2015-06-28');
+INSERT INTO `user_log` VALUES ('356', 'doLogin', '[Ljava.lang.Object;@eb0008f', '2015-06-28');
+INSERT INTO `user_log` VALUES ('357', 'doLogin', '[Ljava.lang.Object;@61bddbd2', '2015-06-28');
+INSERT INTO `user_log` VALUES ('358', 'doLogin', '[Ljava.lang.Object;@7d0cd6d8', '2015-06-28');
+INSERT INTO `user_log` VALUES ('359', 'doLogin', '[Ljava.lang.Object;@259d7a00', '2015-06-28');
+INSERT INTO `user_log` VALUES ('360', 'doLogin', '[Ljava.lang.Object;@191a2567', '2015-06-28');
+INSERT INTO `user_log` VALUES ('361', 'doLogin', '[Ljava.lang.Object;@cfb442c', '2015-06-28');
+INSERT INTO `user_log` VALUES ('362', 'doLogin', '[Ljava.lang.Object;@5b8c318', '2015-06-28');
+INSERT INTO `user_log` VALUES ('363', 'doLogin', '[Ljava.lang.Object;@62e48bd5', '2015-06-28');
+INSERT INTO `user_log` VALUES ('364', 'doLogin', '[Ljava.lang.Object;@6f8f31f6', '2015-06-28');
+INSERT INTO `user_log` VALUES ('365', 'doLogin', '[Ljava.lang.Object;@66090cca', '2015-06-28');
+INSERT INTO `user_log` VALUES ('366', 'doLogin', '[Ljava.lang.Object;@326d14e2', '2015-06-28');
+INSERT INTO `user_log` VALUES ('367', 'doLogin', '[Ljava.lang.Object;@e86c122', '2015-06-28');
+INSERT INTO `user_log` VALUES ('368', 'doLogin', '[Ljava.lang.Object;@4f7a2b5c', '2015-06-28');
+INSERT INTO `user_log` VALUES ('369', 'doLogin', '[Ljava.lang.Object;@4ac453ad', '2015-06-28');
+INSERT INTO `user_log` VALUES ('370', 'doLogin', '[Ljava.lang.Object;@1a438c25', '2015-06-28');
+INSERT INTO `user_log` VALUES ('371', 'doLogin', '[Ljava.lang.Object;@665785f3', '2015-06-28');
+INSERT INTO `user_log` VALUES ('372', 'doLogin', '[Ljava.lang.Object;@4121a0a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('373', 'doLogin', '[Ljava.lang.Object;@12df01ef', '2015-06-28');
+INSERT INTO `user_log` VALUES ('374', 'doLogin', '[Ljava.lang.Object;@60a877e9', '2015-06-28');
+INSERT INTO `user_log` VALUES ('375', 'doLogin', '[Ljava.lang.Object;@5a5a1f5e', '2015-06-28');
+INSERT INTO `user_log` VALUES ('376', 'doLogin', '[Ljava.lang.Object;@7f762a87', '2015-06-28');
+INSERT INTO `user_log` VALUES ('377', 'doLogin', '[Ljava.lang.Object;@55ed3f0b', '2015-06-28');
+INSERT INTO `user_log` VALUES ('378', 'doLogin', '[Ljava.lang.Object;@7781f9a0', '2015-06-28');
+INSERT INTO `user_log` VALUES ('379', 'doLogin', '[Ljava.lang.Object;@351acbea', '2015-06-28');
+INSERT INTO `user_log` VALUES ('380', 'doLogin', '[Ljava.lang.Object;@4d543f6f', '2015-06-28');
+INSERT INTO `user_log` VALUES ('381', 'doLogin', '[Ljava.lang.Object;@3fc79cc', '2015-06-28');
+INSERT INTO `user_log` VALUES ('382', 'doLogin', '[Ljava.lang.Object;@76aea23d', '2015-06-28');
+INSERT INTO `user_log` VALUES ('383', 'doLogin', '[Ljava.lang.Object;@45ed32ee', '2015-06-28');
+INSERT INTO `user_log` VALUES ('384', 'doLogin', '[Ljava.lang.Object;@a2cec89', '2015-06-28');
+INSERT INTO `user_log` VALUES ('385', 'doLogin', '[Ljava.lang.Object;@40f82932', '2015-06-28');
+INSERT INTO `user_log` VALUES ('386', 'doLogin', '[Ljava.lang.Object;@64708d5a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('387', 'doLogin', '[Ljava.lang.Object;@7da3b667', '2015-06-28');
+INSERT INTO `user_log` VALUES ('388', 'doLogin', '[Ljava.lang.Object;@7010e604', '2015-06-28');
+INSERT INTO `user_log` VALUES ('389', 'doLogin', '[Ljava.lang.Object;@357671df', '2015-06-28');
+INSERT INTO `user_log` VALUES ('390', 'doLogin', '[Ljava.lang.Object;@125a86c1', '2015-06-28');
+INSERT INTO `user_log` VALUES ('391', 'doLogin', '[Ljava.lang.Object;@b2139ef', '2015-06-28');
+INSERT INTO `user_log` VALUES ('392', 'doLogin', '[Ljava.lang.Object;@1809e56', '2015-06-28');
+INSERT INTO `user_log` VALUES ('393', 'doLogin', '[Ljava.lang.Object;@67fec267', '2015-06-28');
+INSERT INTO `user_log` VALUES ('394', 'doLogin', '[Ljava.lang.Object;@aca2ddb', '2015-06-28');
+INSERT INTO `user_log` VALUES ('395', 'doLogin', '[Ljava.lang.Object;@5ccb71f5', '2015-06-28');
+INSERT INTO `user_log` VALUES ('396', 'doLogin', '[Ljava.lang.Object;@19c2e2b0', '2015-06-28');
+INSERT INTO `user_log` VALUES ('397', 'doLogin', '[Ljava.lang.Object;@257abb7c', '2015-06-28');
+INSERT INTO `user_log` VALUES ('398', 'doLogin', '[Ljava.lang.Object;@3a25cee6', '2015-06-28');
+INSERT INTO `user_log` VALUES ('399', 'doLogin', '[Ljava.lang.Object;@39d4f0d8', '2015-06-28');
+INSERT INTO `user_log` VALUES ('400', 'doLogin', '[Ljava.lang.Object;@20919b4e', '2015-06-28');
+INSERT INTO `user_log` VALUES ('401', 'doLogin', '[Ljava.lang.Object;@4438ab5c', '2015-06-28');
+INSERT INTO `user_log` VALUES ('402', 'doLogin', '[Ljava.lang.Object;@10c9b19d', '2015-06-28');
+INSERT INTO `user_log` VALUES ('403', 'doLogin', '[Ljava.lang.Object;@7515f89a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('404', 'doLogin', '[Ljava.lang.Object;@6962794d', '2015-06-28');
+INSERT INTO `user_log` VALUES ('405', 'doLogin', '[Ljava.lang.Object;@68a43004', '2015-06-28');
+INSERT INTO `user_log` VALUES ('406', 'doLogin', '[Ljava.lang.Object;@e5c7e17', '2015-06-28');
+INSERT INTO `user_log` VALUES ('407', 'doLogin', '[Ljava.lang.Object;@16386e42', '2015-06-28');
+INSERT INTO `user_log` VALUES ('408', 'doLogin', '[Ljava.lang.Object;@1350751c', '2015-06-28');
+INSERT INTO `user_log` VALUES ('409', 'doLogin', '[Ljava.lang.Object;@5fd02924', '2015-06-28');
+INSERT INTO `user_log` VALUES ('410', 'doLogin', '[Ljava.lang.Object;@31771aa1', '2015-06-28');
+INSERT INTO `user_log` VALUES ('411', 'doLogin', '[Ljava.lang.Object;@6aab3cba', '2015-06-28');
+INSERT INTO `user_log` VALUES ('412', 'doLogin', '[Ljava.lang.Object;@60a49e7', '2015-06-28');
+INSERT INTO `user_log` VALUES ('413', 'doLogin', '[Ljava.lang.Object;@60cac1a0', '2015-06-28');
+INSERT INTO `user_log` VALUES ('414', 'doLogin', '[Ljava.lang.Object;@2b0efc41', '2015-06-28');
+INSERT INTO `user_log` VALUES ('415', 'doLogin', '[Ljava.lang.Object;@7ecadb3b', '2015-06-28');
+INSERT INTO `user_log` VALUES ('416', 'doLogin', '[Ljava.lang.Object;@30f347ce', '2015-06-28');
+INSERT INTO `user_log` VALUES ('417', 'doLogin', '[Ljava.lang.Object;@314a449f', '2015-06-28');
+INSERT INTO `user_log` VALUES ('418', 'detailMe', '[Ljava.lang.Object;@35d259c0', '2015-06-28');
+INSERT INTO `user_log` VALUES ('419', 'doLogin', '[Ljava.lang.Object;@3f1ea2e9', '2015-06-28');
+INSERT INTO `user_log` VALUES ('420', 'detailMe', '[Ljava.lang.Object;@5460fa10', '2015-06-28');
+INSERT INTO `user_log` VALUES ('421', 'doLogin', '[Ljava.lang.Object;@b63833d', '2015-06-28');
+INSERT INTO `user_log` VALUES ('422', 'doLogin', '[Ljava.lang.Object;@26ca372a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('423', 'doLogin', '[Ljava.lang.Object;@31668444', '2015-06-28');
+INSERT INTO `user_log` VALUES ('424', 'doLogin', '[Ljava.lang.Object;@2e751595', '2015-06-28');
+INSERT INTO `user_log` VALUES ('425', 'doLogin', '[Ljava.lang.Object;@6c81ea9a', '2015-06-28');
+INSERT INTO `user_log` VALUES ('426', 'detailMe', '[Ljava.lang.Object;@17057c25', '2015-06-28');
+INSERT INTO `user_log` VALUES ('427', 'doLogin', '[Ljava.lang.Object;@54fdcd95', '2015-06-28');
+INSERT INTO `user_log` VALUES ('428', 'doLogin', '[Ljava.lang.Object;@ff36af4', '2015-06-28');
+INSERT INTO `user_log` VALUES ('429', 'detailMe', '[Ljava.lang.Object;@6ced5ed8', '2015-06-28');
+INSERT INTO `user_log` VALUES ('430', 'doLogin', '[Ljava.lang.Object;@6d3d4c10', '2015-06-28');
+INSERT INTO `user_log` VALUES ('431', 'doLogin', '[Ljava.lang.Object;@577c76cd', '2015-06-28');
+INSERT INTO `user_log` VALUES ('432', 'doLogin', '[Ljava.lang.Object;@52f5a615', '2015-06-28');
+INSERT INTO `user_log` VALUES ('433', 'doLogin', '[Ljava.lang.Object;@633f6110', '2015-06-28');
+INSERT INTO `user_log` VALUES ('434', 'doLogin', '[Ljava.lang.Object;@7739df61', '2015-06-28');
+INSERT INTO `user_log` VALUES ('435', 'doLogin', '[Ljava.lang.Object;@48f2ad21', '2015-06-28');
+INSERT INTO `user_log` VALUES ('436', 'doLogin', '[Ljava.lang.Object;@d374f1c', '2015-06-28');
 
 -- ----------------------------
 -- Table structure for `user_organization`
@@ -529,24 +678,16 @@ CREATE TABLE `user_organization` (
   KEY `organizationid` (`organizationid`),
   CONSTRAINT `user_organization_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
   CONSTRAINT `user_organization_ibfk_2` FOREIGN KEY (`organizationid`) REFERENCES `organization` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_organization
 -- ----------------------------
-INSERT INTO `user_organization` VALUES ('1', '3', '5', '1');
-INSERT INTO `user_organization` VALUES ('2', '3', '6', '1');
-INSERT INTO `user_organization` VALUES ('3', '3', '7', '1');
-INSERT INTO `user_organization` VALUES ('4', '4', '7', '0');
-INSERT INTO `user_organization` VALUES ('5', '5', '8', '1');
-INSERT INTO `user_organization` VALUES ('11', '4', '7', '0');
-INSERT INTO `user_organization` VALUES ('12', '5', '6', '0');
-INSERT INTO `user_organization` VALUES ('13', '5', '5', '0');
-INSERT INTO `user_organization` VALUES ('14', '5', '7', '0');
-INSERT INTO `user_organization` VALUES ('15', '4', '6', '0');
-INSERT INTO `user_organization` VALUES ('16', '5', '6', '0');
-INSERT INTO `user_organization` VALUES ('17', '5', '7', '0');
-INSERT INTO `user_organization` VALUES ('18', '5', '7', '0');
+INSERT INTO `user_organization` VALUES ('25', '3', '13', '1');
+INSERT INTO `user_organization` VALUES ('27', '5', '13', '0');
+INSERT INTO `user_organization` VALUES ('28', '3', '14', '1');
+INSERT INTO `user_organization` VALUES ('29', '3', '15', '1');
+INSERT INTO `user_organization` VALUES ('30', '5', '14', '0');
 
 -- ----------------------------
 -- Table structure for `user_status`
