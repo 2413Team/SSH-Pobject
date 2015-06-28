@@ -74,9 +74,11 @@
 							<td><s:property value="#list.getAddress()"/></td>
 						</tr>
 					</table>
+					<!--  修改资料之后再做
 					<form action="ziliao_two.jsp">
 						<input type="submit" value=" 修 改 资 料" class="button_xiugai">
 					</form>
+					-->
 				</s:iterator>
 			</div>
 		</div>

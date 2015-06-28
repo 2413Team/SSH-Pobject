@@ -19,7 +19,8 @@ import com.sshpobject.service.UserLogService;
 @Aspect
 public class UserAspect {
 	
-	@Pointcut("execution(* com.sshpobject.service.UserService.*(..))")
+	@Pointcut("execution(* com.sshpobject.service.UserService.*(..))||execution(* com.sshpobject.service.OrganizationService.*(..))"
+			+ "||execution(* com.sshpobject.service.ShuoshuoService.*(..))||execution(* com.sshpobject.service.SixinService.*(..))")
 	public void myPoint(){};
 	
 	@After(value="myPoint()")
