@@ -28,10 +28,12 @@
 				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
-				<textarea name="Description" cols="75" rows="8"></textarea>
-				<br> <a href="#" class="first"> <img alt=""
-					src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
-				<input type="submit" value=" 发  表" class="button">
+				<form action="addShuoshuo.action" method="post">
+					<textarea name="shuoshuo.value" cols="75" rows="8" required></textarea>
+					<br> <a href="#" class="first"> <img alt=""
+						src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
+					<input type="submit" value=" 发  表" class="button">
+				</form>
 			</div>
 			<div class="list_k">
 				<ul>
@@ -44,7 +46,7 @@
 			</div>
 			<div class="detail_k">
 				<a href='#' class="first"><img src="pic/fanhui.png" /></a> <a
-					href="#" class="fanhui">返回我的组织</a>
+					href="getMyOrganization.action" class="fanhui">返回我的组织</a>
 				<form action="searchOrganization.action" method="post">
 					<input type="text" name="organization.name" class="text" /> <input
 						type="submit" class="submit" value="搜 索" />

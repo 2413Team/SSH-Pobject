@@ -34,12 +34,15 @@ public class LiuyanAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Map session=ActionContext.getContext().getSession();
 		Organization organization=new Organization();
-		if(request.getParameter("organizationid")!=null)
+		if(request.getParameter("organizationid")!=null){
 			organization.setId(Integer.parseInt(request.getParameter("organizationid")));
+			session.put("organization", organization);
+		}
 		else
 			organization=(Organization)session.get("organization");
 		liuyanList=liuyanService.getAllLiuyan(organization);
-		session.put("organization", liuyanList.get(0).getOrganization());
+		if(liuyanList.size()>0)
+			session.put("organization", liuyanList.get(0).getOrganization());
 		return SUCCESS;
 	}
 	

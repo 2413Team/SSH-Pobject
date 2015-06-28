@@ -28,10 +28,12 @@
 				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
-				<textarea name="Description" cols="75" rows="8"></textarea>
-				<br> <a href="#" class="first"> <img alt=""
-					src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
-				<input type="submit" value=" 发  表" class="button">
+				<form action="addShuoshuo.action" method="post">
+					<textarea name="shuoshuo.value" cols="75" rows="8" required></textarea>
+					<br> <a href="#" class="first"> <img alt=""
+						src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
+					<input type="submit" value=" 发  表" class="button">
+				</form>
 			</div>
 			<div class="list_k">
 				<ul>
@@ -67,7 +69,7 @@
 						</tr>
 						<tr>
 							<td align="center">联系电话:</td>
-							<td><s:property value="#list.getPhone"/></td>
+							<td><s:property value="#list.getPhone()"/></td>
 						</tr>
 						<tr>
 							<td align="center">联系地址:</td>

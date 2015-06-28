@@ -1,5 +1,6 @@
 package com.sshpobject.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,11 +54,23 @@ public class OrganizationAction extends ActionSupport {
 	public String getMyOrganization() throws Exception{
 		Map session=ActionContext.getContext().getSession();
 		User user=(User)session.get("user");
+		organizationList=new ArrayList<Organization>();
 		userList=organizationService.getMyOrganization(user);
 		if(userList.size()!=0)
 			return SUCCESS;
 		else
 			return "no";
+	}
+	
+	public String quitOrganization() throws Exception{
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		HttpServletRequest request = ServletActionContext.getRequest();
+		int organizationid=Integer.parseInt(request.getParameter("organizationid"));
+		organization=new Organization();
+		organization.setId(organizationid);
+		organizationService.quitOrganization(organization, user);
+		return SUCCESS;
 	}
 	
 

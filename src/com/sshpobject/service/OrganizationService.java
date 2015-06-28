@@ -43,9 +43,11 @@ public class OrganizationService {
 		return organizationDao.getMyOrganization(user);
 	}
 	
+	public void quitOrganization(Organization organization,User user){
+		organizationDao.quitOrganization(organization, user);
+	}
 	
-	
-	
+
 	public OrganizationDaoImpl getOrganizationDao() {
 		return organizationDao;
 	}

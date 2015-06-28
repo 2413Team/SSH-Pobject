@@ -18,7 +18,7 @@
         </action>
         <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
-    		<result name="success">/success.jsp</result>
+    		<result name="success" type="redirectAction">getMyOrganization</result>
     	</action>
     	<action name="searchOrganization" class="com.sshpobject.action.OrganizationAction" method="searchOrganization">
     		<result name="success">/organization_search.jsp</result>
@@ -29,6 +29,9 @@
     	<action name="getMyOrganization" class="com.sshpobject.action.OrganizationAction" method="getMyOrganization">
     		<result name="success">/organization_have.jsp</result>
     		<result name="no">/organization_donthave.jsp</result>
+    	</action>
+    	<action name="quitOrganization" class="com.sshpobject.action.OrganizationAction" method="quitOrganization">
+    		<result name="success" type="redirectAction">getMyOrganization</result>
     	</action>
         <!-- 私信相关 -->
         <action name="sendSixin" class="com.sshpobject.action.SixinAction" method="sendSixin">
@@ -46,7 +49,7 @@
         </action>
         <!-- 组织请求相关 -->
         <action name="sendRequest" class="com.sshpobject.action.OrganizationRequestAction" method="sendRequest">
-        	<result name="success">/loginsuccess.jsp</result>
+        	<result name="success" type="redirectAction">getShuoshuos</result>
         </action>
         <action name="haveRequest" class="com.sshpobject.action.OrganizationRequestAction" method="haveRequest">
         	<result name="success">/sixin_request.jsp</result>

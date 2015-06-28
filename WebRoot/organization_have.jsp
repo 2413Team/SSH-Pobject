@@ -28,10 +28,12 @@
 				<p><s:property value="#session.user.name" /></p>
 			</div>
 			<div class="txt_k">
-				<textarea name="Description" cols="75" rows="8"></textarea>
-				<br> <a href="#" class="first"> <img alt=""
-					src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
-				<input type="submit" value=" 发  表" class="button">
+				<form action="addShuoshuo.action" method="post">
+					<textarea name="shuoshuo.value" cols="75" rows="8" required></textarea>
+					<br> <a href="#" class="first"> <img alt=""
+						src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
+					<input type="submit" value=" 发  表" class="button">
+				</form>
 			</div>
 			<div class="list_k">
 				<ul>
@@ -48,7 +50,7 @@
 				<s:iterator value="userList" id="list">
 					<div class="detail_team">
 						<h1>-组织名</h1>
-						<a href="#">退出组织</a>
+						<a href="quitOrganization.action?organizationid=${list.organization.id}">退出组织</a>
 						<ul class="first">
 							<li>组织名：</li>
 							<li>创建人：</li>

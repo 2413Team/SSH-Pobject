@@ -12,4 +12,5 @@ public interface OrganizationDao {
 	public Organization detailOrganization(int organizationid);
 	public List<UserOrganization> detailOrganizationUser(int organizationid);
 	public List<UserOrganization> getMyOrganization(User user);
+	public void quitOrganization(Organization organization,User user);
 }

@@ -47,10 +47,12 @@ public class LiuyanDaoImpl implements LiuyanDao {
 		getSession();
 		Query query=sess.createQuery(sql);
 		list=query.list();
-		for(int i=0;i<list.size();i++){
-			String test=list.get(i).getOrganization().getName();
-			test=list.get(i).getUser().getName();
-			test=list.get(i).getValue();
+		if(list.size()>0){
+			for(int i=0;i<list.size();i++){
+				String test=list.get(i).getOrganization().getName();
+				test=list.get(i).getUser().getName();
+				test=list.get(i).getValue();
+			}
 		}
 		return list;
 	}

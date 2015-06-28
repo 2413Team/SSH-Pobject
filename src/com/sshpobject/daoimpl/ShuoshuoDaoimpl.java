@@ -46,8 +46,10 @@ public class ShuoshuoDaoimpl  implements ShuoshuoDao  {
 	public List<Shuoshuo> getAllShuoshuo(User user) {
 		getSessions();
 		List<UserOrganization> uoList=getUserOrganization(user);
+		List<Shuoshuo> shuoList=new ArrayList<Shuoshuo>();
 		uoList=getUserUser(uoList);
-		List<Shuoshuo> shuoList=getManyShuoshuo(uoList);
+		if(uoList.size()>0)
+			shuoList=getManyShuoshuo(uoList);
 		sess.close();
 		return shuoList;
 	}
@@ -68,16 +70,18 @@ public class ShuoshuoDaoimpl  implements ShuoshuoDao  {
 			Query query=sess.createQuery(sql);
 			userList.addAll(query.list());
 		}
-		//去除相同用户的字段
-		int flag=userList.get(0).getUser().getId();
-		for(int i=1;i<userList.size();i++){
-			if(userList.get(i).getUser().getId() == flag)
-			{
-				userList.remove(i);
-				i--;
+		if(userList.size()>0){
+			//去除相同用户的字段
+			int flag=userList.get(0).getUser().getId();
+			for(int i=1;i<userList.size();i++){
+				if(userList.get(i).getUser().getId() == flag)
+				{
+					userList.remove(i);
+					i--;
+				}
+				else 
+					flag=userList.get(i).getUser().getId();
 			}
-			else 
-				flag=userList.get(i).getUser().getId();
 		}
 		return userList;
 	}	
