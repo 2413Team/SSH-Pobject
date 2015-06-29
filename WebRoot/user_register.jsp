@@ -23,6 +23,7 @@
          <div class="content">
               <div class="fenge"></div>
                <div class="register">
+               <a href="user_login.jsp">返回登陆</a>
 			<form action="doRegister.action" method="post" name="registerForm"
 				onsubmit="return everyThingIsOk()">
 				<div id="shuru">
@@ -32,7 +33,7 @@
 				</div>
 				<br>
 				<div id="shuru">
-					<label>密&nbsp&nbsp码:</label> <input type="password"
+					<label>密&nbsp&nbsp&nbsp&nbsp码:</label> <input type="password"
 						name="user.password" required placeholder="请输入密码" class="height" />
 				</div>
 				<br>
@@ -43,7 +44,7 @@
 				</div>
 				<br>
 				<div id="shuru">
-					<label>姓&nbsp&nbsp名:</label> <input type="text" name="user.name"
+					<label>姓&nbsp&nbsp&nbsp&nbsp名:</label> <input type="text" name="user.name"
 						required placeholder="请输入真实姓名" class="height" />
 				</div>
 				<br>

@@ -5,8 +5,8 @@ body{font-size: 18px;  }
 a{text-decoration: none;}
 ul{ list-style:none;}
 
-.login_top{ width:1280px;height:133px;background:#73ddff;margin:0 auto;border-bottom:solid 2px #ffffff;margin-top:130px;}
-.login{ width:1280px;height:405px;background:#25ef41;margin:0 auto;}
+.login_top{ width:1280px;height:132px;background:url(../pic/login_s.jpg);;margin:0 auto;margin-top:130px;}
+.login{ width:1280px;height:364px;background:url(../pic/login_z.jpg);;margin:0 auto;}
 
 .login .logo img{margin:64px 0 0 109px;float:left;display:block;width:212px;height:249px;}
 
@@ -21,4 +21,4 @@ ul{ list-style:none;}
                                               float:right;;margin-right:93px;}
 .login form a{color:white;font-size:16px; }
 
-.login_bottom{ width:1280px;height:120px;background:#73ddff;margin:0 auto;border-top:solid 2px #ffffff;}
+.login_bottom{ width:1280px;height:138px;background:url(../pic/login_x.jpg);margin:0 auto;}
