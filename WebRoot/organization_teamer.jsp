@@ -55,7 +55,7 @@
 							<div class="img">
 								<img src="" />
 							</div>
-							<span><s:property value="#list.getName()"/></span> <a href="#">发送私信</a>
+							<span><s:property value="#list.getName()"/></span> <a href="sixin_send.jsp?getterid=${list.id}">发送私信</a>
 						</div>
 						<div class="right">
 							<ul class="top">

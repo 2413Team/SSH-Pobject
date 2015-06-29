@@ -87,7 +87,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
 			test=organizationList.get(i).getUser().getName();
 		}
 		distroy();
-		System.out.println("newList.size"+newList.size()+"organizationList.size"+organizationList.size());
 		for(int i=0;i<newList.size();i++){
 			newList.get(i).setUser(organizationList.get(i).getUser());
 		}
