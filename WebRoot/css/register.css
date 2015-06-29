@@ -9,8 +9,9 @@ ul{ list-style:none;}
 .content .fenge{height:60px;width:730px;background:#f5f5f5;margin:0 auto;}
 .content .register{width:730px;height:549px;background:#d5fcd6;margin:0 auto;border:solid 5px #b5fbb7;}
 
+.content .register a{color:#b2b5b2;font-size:14px;float:right;margin:15px 25px 0 0;}
 
-.register form{width:400px; margin-top:31px; margin-left:226px; font-size:16px}
+.register form{width:400px; margin-top:20px; margin-left:226px; font-size:16px}
 .register form #shuru{text-indent:3px; width:311px; height:32px; margin-top:23px; float:left;}
 .register form #shuru label{color:#b2b5b2;}
 .register form  .height{ height:32px; width:204px; }
