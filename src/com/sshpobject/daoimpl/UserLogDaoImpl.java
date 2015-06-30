@@ -28,7 +28,7 @@ public class UserLogDaoImpl implements UserLogDao {
 		String sql="FROM UserLog";
 		Query query=sess.createQuery(sql);
 		List<UserLog> loglist=query.list();
-		distroy();
+		sess.close();
 		return  loglist;
 	}
 

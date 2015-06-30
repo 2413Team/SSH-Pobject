@@ -86,7 +86,17 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String searchUserGroup() throws Exception{
+		if(user==null)
+			user=new User();
 		groupList=userService.searchUserGroup(user.getName());
+		return SUCCESS;
+	}
+	
+	public String deleteUser() throws Exception{
+		HttpServletRequest request = ServletActionContext.getRequest();
+		user=new User();
+		user.setId(Integer.parseInt(request.getParameter("userid")));
+		userService.deleteUser(user);
 		return SUCCESS;
 	}
 

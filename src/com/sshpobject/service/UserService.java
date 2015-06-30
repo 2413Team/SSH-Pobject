@@ -35,6 +35,10 @@ public class UserService {
 	public List<UserGroup> searchUserGroup(String key){
 		return userDao.searchUserGroup(key);
 	}
+	
+	public void deleteUser(User user){
+		userDao.deleteUser(user);
+	}
 
 	public UserDaoImpl getUserDao() {
 		return userDao;

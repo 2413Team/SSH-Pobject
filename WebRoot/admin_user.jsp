@@ -43,7 +43,7 @@
 							<td><s:property value="#list.getSex()"/></td>
 							<td><s:property value="#list.getUserGroup().getValues()"/></td>
 							<td><s:property value="#list.getUserStatus().getValues()"/></td>
-							<td><a href="">删除</a></td>
+							<td><a href="deleteUser.action?userid=${list.id }">删除</a></td>
 						</tr>
 					</s:iterator>
 				</table>

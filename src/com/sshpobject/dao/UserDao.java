@@ -13,4 +13,5 @@ public interface UserDao {
 	public List<UserOrganization> detailUser(User user);
 	public List<User> searchUser(String key);
 	public List<UserGroup> searchUserGroup(String key);
+	public void deleteUser(User user);
 }

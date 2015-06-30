@@ -18,6 +18,7 @@ public class UserDaoImpl implements UserDao {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
+	private OrganizationDaoImpl organizationDao;
 	@Override
 	public void doRegister(User user) {
 		getSession();
@@ -81,6 +82,41 @@ public class UserDaoImpl implements UserDao {
 		distroy();
 		return list;
 	}
+	//É¾³ýÓÃ»§
+	@Override
+	public void deleteUser(User user) {
+		deleteOrganization(user);
+		getSession();
+		deleteShuoshuo(user);
+		deleteSixin(user);
+		deleteEntity(user);
+		distroy();
+	}
+	
+	private void  deleteShuoshuo(User user){
+		String sql="DELETE Shuoshuo WHERE user.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteSixin(User user){
+		String sql="DELETE Sixin WHERE userByGetuserid.id="+user.getId()+" OR userBySetuserid.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteEntity(User user){
+		String sql="DELETE User WHERE id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteOrganization(User user){
+		List<UserOrganization> list=organizationDao.getMyOrganization(user);
+		for(int i=0;i<list.size();i++){
+			organizationDao.quitOrganization(list.get(i).getOrganization(), user);
+		}
+	}
 
 	public void getSession(){
 		sess=sf.openSession();
@@ -99,6 +135,16 @@ public class UserDaoImpl implements UserDao {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
+
+	public OrganizationDaoImpl getOrganizationDao() {
+		return organizationDao;
+	}
+
+	public void setOrganizationDao(OrganizationDaoImpl organizationDao) {
+		this.organizationDao = organizationDao;
+	}
+	
+	
 
 	
 }

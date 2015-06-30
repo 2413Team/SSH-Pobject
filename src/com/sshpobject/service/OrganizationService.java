@@ -47,10 +47,10 @@ public class OrganizationService {
 		organizationDao.quitOrganization(organization, user);
 	}
 	
-
 	public OrganizationDaoImpl getOrganizationDao() {
 		return organizationDao;
 	}
+	
 	public void setOrganizationDao(OrganizationDaoImpl organizationDao) {
 		this.organizationDao = organizationDao;
 	}

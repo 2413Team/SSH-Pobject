@@ -20,7 +20,7 @@
   
   <body>
   <%@include file="admin_frame.jsp" %>
-	<div class="main">
+	<div class="main" style="overflow: auto; height: 500px;">
 		<table border="1" cellspacing="0" cellpadding="0"
 			bordercolor="#d3d3d3" width="730px;">
 			<tr>
@@ -32,7 +32,7 @@
 			<s:iterator value="loglist" id="list">
 				<tr>
 					<td><s:property value="#list.getId()" /></td>
-					<td><s:property value="#list.getMethod" /></td>
+					<td><s:property value="#list.getMethod()" /></td>
 					<td><s:property value="#list.getVaule()" /></td>
 					<td><s:property value="#list.getDate()" /></td>
 				</tr>

@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <li><a href="admin_user.jsp">用户管理</a></li>
               <li><a href="admin_organization.jsp">组织管理</a></li>
               <li><a href="admin_group.jsp">群组管理</a></li>
-               <li><a href="admin_group.jsp">查看日志</a></li>
+               <li><a href="getLog.action">查看日志</a></li>
          </ul>
     </div>
   </body>

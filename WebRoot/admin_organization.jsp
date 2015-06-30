@@ -41,7 +41,7 @@
 							<td><s:property value="#list.getUser().getName()"/></td>
 							<td><s:property value="#list.getMembercount()"/></td>
 							<td><s:property value="#list.getOrganizationType().getValue()"/></td>
-							<td><a href="">删除</a></td>
+							<td><a href="quitOrganization.action?organizationid=${list.id}">删除</a></td>
 						</tr>
 					</s:iterator>
 				</table>
