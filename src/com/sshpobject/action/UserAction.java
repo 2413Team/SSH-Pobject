@@ -34,6 +34,7 @@ public class UserAction extends ActionSupport {
 			Date date = fmt.parse(birthday);
 			user.setBirthday(date);
 			session.put("user", user);
+			System.out.println("用户的群组:"+user.getUserGroup().getValues());
 			return SUCCESS;
 		}
 		else
