@@ -73,11 +73,15 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<UserGroup> searchUserGroup(String key) {
 		getSession();
-		String sql="FROM UserGroup WHERE values like '%"+key+"%'";
+		String sql;
+		if(key.equals(""))
+			sql="FROM UserGroup";
+		else
+			sql="FROM UserGroup WHERE values like '%"+key+"%'";
 		Query query=sess.createQuery(sql);
 		List<UserGroup> list=query.list();
 		for(int i=0;i<list.size();i++){
-			String test=list.get(i).getValues();
+			String test=list.get(i).getValue();
 		}
 		distroy();
 		return list;

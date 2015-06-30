@@ -83,5 +83,12 @@
          <action name="getLog" class="com.sshpobject.action.UserLogAction" method="getLog">
          	<result name="success">/admin_showlog.jsp</result>
          </action>
+         <!--  相关于用户群组 -->
+         <action name="addGroup" class="com.sshpobject.action.UserGroupAction" method="addGroup">
+         	<result name="success">/admin_group.jsp</result>
+         </action>
+         <action name="deleteGroup" class="com.sshpobject.action.UserGroupAction" method="deleteGroup">
+         	<result name="success">/admin_group.jsp</result>
+         </action>
    </package>
 </struts>    

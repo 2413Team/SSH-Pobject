@@ -133,5 +133,15 @@
 	<bean id="liuyanAction" class="com.sshpobject.action.LiuyanAction">
 		<property name="liuyanService" ref="liuyanService"></property>
 	</bean>
+	
+	<bean id="userGroupDao" class="com.sshpobject.daoimpl.UserGroupDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userGroupService" class="com.sshpobject.service.UserGroupService">
+		<property name="userGroupDao" ref="userGroupDao"></property>
+	</bean>
+	<bean id="userGroupAction" class="com.sshpobject.action.UserGroupAction">
+		<property name="userGroupService" ref="userGroupService"></property>
+	</bean>
 
 	</beans>

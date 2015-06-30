@@ -19,26 +19,27 @@
   
   <body>
     <%@ include file="admin_frame.jsp" %>
-    <div class="main">
-    	<form action="searchUserGroup.action"  method="post">
-					<input type="text" name="user.name" class="text" /> <input
-						type="submit" class="submit" value="搜 索" />
-			</form>
-				<table border="1" cellspacing="0" cellpadding="0"
-					bordercolor="#d3d3d3" width="730px;">
-					<tr>
-						<td>id</td>
-						<td>类型</td>
-						<td>操作</td>
-					</tr>
-					<s:iterator value="groupList" id="list">
-						<tr>
-							<td><s:property value="#list.getId()"/></td>
-							<td><s:property value="#list.getValues()"/></td>
-							<td><a href="">删除</a></td>
-						</tr>
-					</s:iterator>
-				</table>
-    </div>
-  </body>
+	<div class="main">
+		<form action="searchUserGroup.action" method="post">
+			<input type="text" name="user.name" class="text" /> <input
+				type="submit" class="submit" value="搜 索" />
+		</form>
+		<a href="admin_addgroup.jsp">添加群组</a>
+		<table border="1" cellspacing="0" cellpadding="0"
+			bordercolor="#d3d3d3" width="730px;">
+			<tr>
+				<td>id</td>
+				<td>类型</td>
+				<td>操作</td>
+			</tr>
+			<s:iterator value="groupList" id="list">
+				<tr>
+					<td><s:property value="#list.getId()" /></td>
+					<td><s:property value="#list.getValue()" /></td>
+					<td><a href="deleteGroup.action?groupid=${list.id }">删除</a></td>
+				</tr>
+			</s:iterator>
+		</table>
+	</div>
+</body>
 </html>

@@ -86,8 +86,6 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String searchUserGroup() throws Exception{
-		if(user==null)
-			user=new User();
 		groupList=userService.searchUserGroup(user.getName());
 		return SUCCESS;
 	}

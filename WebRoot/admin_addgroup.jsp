@@ -20,8 +20,9 @@
   <body>
     <%@ include file="admin_frame.jsp" %>
     <div class="main">
-    	<s:form>
-    		<s:textfield label=" 增加的群组名称：" labelposition="left" />
+    	<s:form action="addGroup.action" method="post">
+    		<s:textfield label=" 增加的群组名称：" labelposition="left" name="userGroup.value" />
+    		<s:submit value="提交"/>
     	</s:form>
     </div>
   </body>

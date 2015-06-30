@@ -12,7 +12,7 @@ public class UserGroup implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private String values;
+	private String value;
 	private Set users = new HashSet(0);
 
 	// Constructors
@@ -22,13 +22,13 @@ public class UserGroup implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public UserGroup(String values) {
-		this.values = values;
+	public UserGroup(String value) {
+		this.value = value;
 	}
 
 	/** full constructor */
-	public UserGroup(String values, Set users) {
-		this.values = values;
+	public UserGroup(String value, Set users) {
+		this.value = value;
 		this.users = users;
 	}
 
@@ -42,12 +42,12 @@ public class UserGroup implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getValues() {
-		return this.values;
+	public String getValue() {
+		return this.value;
 	}
 
-	public void setValues(String values) {
-		this.values = values;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public Set getUsers() {
