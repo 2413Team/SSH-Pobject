@@ -78,6 +78,7 @@ public class UserDaoImpl implements UserDao {
 		for(int i=0;i<list.size();i++){
 			String test=list.get(i).getValues();
 		}
+		distroy();
 		return list;
 	}
 

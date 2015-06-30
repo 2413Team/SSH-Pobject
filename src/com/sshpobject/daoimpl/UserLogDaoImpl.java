@@ -1,5 +1,8 @@
 package com.sshpobject.daoimpl;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,6 +22,18 @@ public class UserLogDaoImpl implements UserLogDao {
 		distroy();
 	}
 	
+	@Override
+	public List<UserLog> getLog() {
+		getSession();
+		String sql="FROM UserLog";
+		Query query=sess.createQuery(sql);
+		List<UserLog> loglist=query.list();
+		distroy();
+		return  loglist;
+	}
+
+
+
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();
