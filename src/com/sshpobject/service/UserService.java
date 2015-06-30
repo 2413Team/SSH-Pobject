@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sshpobject.daoimpl.UserDaoImpl;
 import com.sshpobject.model.User;
+import com.sshpobject.model.UserGroup;
 import com.sshpobject.model.UserOrganization;
 
 public class UserService {
@@ -25,6 +26,14 @@ public class UserService {
 	
 	public List<User> detailMe(User user){
 		return userDao.detailMe(user);
+	}
+	
+	public List<User> searchUser(String key){
+		return userDao.searchUser(key);
+	}
+	
+	public List<UserGroup> searchUserGroup(String key){
+		return userDao.searchUserGroup(key);
 	}
 
 	public UserDaoImpl getUserDao() {

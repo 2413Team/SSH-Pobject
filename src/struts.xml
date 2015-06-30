@@ -6,6 +6,7 @@
         <action name="doLogin" class="com.sshpobject.action.UserAction" method="doLogin">
             <result name="success" type="redirectAction">getShuoshuos</result>
             <result name="cantlogin">/user_login.jsp</result>
+            <result name="adminlogin">/admin_index.jsp</result>            
         </action>
         <action name="doRegister" class="com.sshpobject.action.UserAction" method="doRegister">
             <result name="success">/user_login.jsp</result>
@@ -16,12 +17,19 @@
         <action name="detailMe" class="com.sshpobject.action.UserAction" method="detailMe">
         	<result name="success">/user_ziliao.jsp</result>
         </action>
+        <action name="searchUser" class="com.sshpobject.action.UserAction" method="searchUser">
+        	<result name="success">/admin_user.jsp</result>
+        </action>
+        <action name="searchUserGroup" class="com.sshpobject.action.UserAction" method="searchUserGroup">
+        	<result name="success">/admin_group.jsp</result>
+        </action>
         <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
     		<result name="success" type="redirectAction">getMyOrganization</result>
     	</action>
     	<action name="searchOrganization" class="com.sshpobject.action.OrganizationAction" method="searchOrganization">
     		<result name="success">/organization_search.jsp</result>
+    		<result name="admin">/admin_organization.jsp</result>
     	</action>
     	<action name="detailOrganization" class="com.sshpobject.action.OrganizationAction" method="detailOrganization">
     		<result name="success">/organization_detail.jsp</result>

@@ -61,6 +61,26 @@ public class UserDaoImpl implements UserDao {
 		return query.list();
 	}
 
+	@Override
+	public List<User> searchUser(String key) {
+		getSession();
+		String sql="FROM User WHERE email like '%"+key+"%'";
+		Query query=sess.createQuery(sql);
+		return query.list();
+	}
+	
+	@Override
+	public List<UserGroup> searchUserGroup(String key) {
+		getSession();
+		String sql="FROM UserGroup WHERE values like '%"+key+"%'";
+		Query query=sess.createQuery(sql);
+		List<UserGroup> list=query.list();
+		for(int i=0;i<list.size();i++){
+			String test=list.get(i).getValues();
+		}
+		return list;
+	}
+
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();

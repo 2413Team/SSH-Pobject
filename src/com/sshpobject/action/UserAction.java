@@ -14,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sshpobject.model.User;
+import com.sshpobject.model.UserGroup;
 import com.sshpobject.model.UserOrganization;
 import com.sshpobject.service.UserService;
 
@@ -23,6 +24,7 @@ public class UserAction extends ActionSupport {
 	private User user;
 	private List<User> userlist;
 	private List<UserOrganization> uoList;
+	private List<UserGroup> groupList;
 
 	public String doLogin() throws Exception{		
 		List<User> userlist=userService.doLogin(user);
@@ -34,7 +36,8 @@ public class UserAction extends ActionSupport {
 			Date date = fmt.parse(birthday);
 			user.setBirthday(date);
 			session.put("user", user);
-			System.out.println("用户的群组:"+user.getUserGroup().getValues());
+			if(user.getUserGroup().getId() == 3)
+				return "adminlogin";
 			return SUCCESS;
 		}
 		else
@@ -56,7 +59,8 @@ public class UserAction extends ActionSupport {
 		user.setId(Integer.parseInt(request.getParameter("userid")));
 		uoList=userService.detailUser(user);
 		userlist=new ArrayList<User>();
-		userlist.add(uoList.get(0).getUser());
+		if(uoList.size()>0)
+			userlist.add(uoList.get(0).getUser());
 		return SUCCESS;
 	}
 	
@@ -75,7 +79,16 @@ public class UserAction extends ActionSupport {
 		userlist.set(0, user);
 		return SUCCESS;
 	}
-
+	
+	public String searchUser() throws Exception{
+		userlist=userService.searchUser(user.getName());
+		return SUCCESS;
+	}
+	
+	public String searchUserGroup() throws Exception{
+		groupList=userService.searchUserGroup(user.getName());
+		return SUCCESS;
+	}
 
 	public UserService getUserService() {
 		return userService;
@@ -115,6 +128,14 @@ public class UserAction extends ActionSupport {
 
 	public void setUoList(List<UserOrganization> uoList) {
 		this.uoList = uoList;
+	}
+
+	public List<UserGroup> getGroupList() {
+		return groupList;
+	}
+
+	public void setGroupList(List<UserGroup> groupList) {
+		this.groupList = groupList;
 	}
 	
 	

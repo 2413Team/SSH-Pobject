@@ -24,17 +24,15 @@
                 <img src="pic/admin_p.gif" />
                 <ul style="list-style:none;">
                      <li>当前时间：<%= new Date().toString() %></li>
-                     <li>${User.loginId}</li>
+                     <li><s:property value="#session.user.email" /></li>
                      <li>欢迎进入网站管理中心！</li>
                 </ul>
             </div>
             <div class="k3"></div>
             <div class="k4">
                 <ul style="list-style:none;">
-                     <li>登陆账号：<span>${User.loginId}</span></li>
-                        <li>真实姓名：<span>${User.name }</span></li>
-                        <li>邮箱：<span>${User.mail }</span></li>
-                        <li>IP地址：<span>216.192.168.400</span></li>
+                     <li>登陆账号：<span><s:property value="#session.user.email" /></span></li>
+                        <li>真实姓名：<s:property value="#session.user.name" /></span></li>
                         <li>你好</li>
             </div>
      </div>

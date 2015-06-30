@@ -26,18 +26,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <img src="pic/header_left.jpg"  />
         <ul style="list-style:none;">
              <li>当前用户：${LoginId} &nbsp;&nbsp;</li>
-             <li><a href="#">修改口令 &nbsp;&nbsp;</a></li>
-             <li><a href="index.jsp">退出系统</a></li>
+             <li><a href="user_login.jsp">退出系统</a></li>
         </ul>
     </div>
     
     <div class="nav">
          <ul style="list-style:none;">
-              <li><a href="admin_index.jsp">关于我们</a></li>
-              <li><a href="#">客户服务</a></li>
-              <li><a href="admin_book.jsp">图书管理</a></li>
-              <li><a href="admin_categories.jsp">图书种类管理</a></li>
+              <li><a href="admin_index.jsp">主页</a></li>
               <li><a href="admin_user.jsp">用户管理</a></li>
+              <li><a href="admin_organization.jsp">组织管理</a></li>
+              <li><a href="admin_group.jsp">群组管理</a></li>
+               <li><a href="admin_group.jsp">查看日志</a></li>
          </ul>
     </div>
   </body>
