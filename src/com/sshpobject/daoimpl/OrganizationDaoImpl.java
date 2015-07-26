@@ -96,7 +96,9 @@ public class OrganizationDaoImpl implements OrganizationDao {
 	@Override
 	public void quitOrganization(Organization organization, User user) {
 		getSession();
-		if(isCreater(organization, user))
+		if(user.getUserGroup().getId() == 3)
+			deleteAll(organization);
+		else if(isCreater(organization, user))
 			deleteAll(organization);
 		else
 			justQuit(organization, user);

@@ -64,6 +64,7 @@
 	
 	<bean id="userDao" class="com.sshpobject.daoimpl.UserDaoImpl" >
 	    <property name="sf" ref="sessionFactory"></property>
+	    <property name="organizationDao" ref="organizationDao"></property>
 	</bean>
 	<bean id="userService" class="com.sshpobject.service.UserService">
 		<property name="userDao" ref="userDao"></property>
@@ -76,6 +77,9 @@
 	</bean>
 	<bean id="userLogService" class="com.sshpobject.service.UserLogService">
 		<property name="dao" ref="userLogDao"></property>
+	</bean>
+	<bean id="userLogAction"  class="com.sshpobject.action.UserLogAction">
+		<property name="userLogService" ref="userLogService"></property>
 	</bean>
 	
 	<bean id="organizationDao" class="com.sshpobject.daoimpl.OrganizationDaoImpl">
@@ -129,4 +133,15 @@
 	<bean id="liuyanAction" class="com.sshpobject.action.LiuyanAction">
 		<property name="liuyanService" ref="liuyanService"></property>
 	</bean>
+	
+	<bean id="userGroupDao" class="com.sshpobject.daoimpl.UserGroupDaoImpl">
+		<property name="sf" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userGroupService" class="com.sshpobject.service.UserGroupService">
+		<property name="userGroupDao" ref="userGroupDao"></property>
+	</bean>
+	<bean id="userGroupAction" class="com.sshpobject.action.UserGroupAction">
+		<property name="userGroupService" ref="userGroupService"></property>
+	</bean>
+
 	</beans>

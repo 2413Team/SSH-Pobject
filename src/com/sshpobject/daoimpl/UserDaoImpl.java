@@ -18,6 +18,7 @@ public class UserDaoImpl implements UserDao {
 	private SessionFactory sf;
 	private Session sess;
 	private Transaction tx;
+	private OrganizationDaoImpl organizationDao;
 	@Override
 	public void doRegister(User user) {
 		getSession();
@@ -61,6 +62,66 @@ public class UserDaoImpl implements UserDao {
 		return query.list();
 	}
 
+	@Override
+	public List<User> searchUser(String key) {
+		getSession();
+		String sql="FROM User WHERE email like '%"+key+"%'";
+		Query query=sess.createQuery(sql);
+		return query.list();
+	}
+	
+	@Override
+	public List<UserGroup> searchUserGroup(String key) {
+		getSession();
+		String sql;
+		if(key.equals(""))
+			sql="FROM UserGroup";
+		else
+			sql="FROM UserGroup WHERE values like '%"+key+"%'";
+		Query query=sess.createQuery(sql);
+		List<UserGroup> list=query.list();
+		for(int i=0;i<list.size();i++){
+			String test=list.get(i).getValue();
+		}
+		distroy();
+		return list;
+	}
+	//É¾³ýÓÃ»§
+	@Override
+	public void deleteUser(User user) {
+		deleteOrganization(user);
+		getSession();
+		deleteShuoshuo(user);
+		deleteSixin(user);
+		deleteEntity(user);
+		distroy();
+	}
+	
+	private void  deleteShuoshuo(User user){
+		String sql="DELETE Shuoshuo WHERE user.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteSixin(User user){
+		String sql="DELETE Sixin WHERE userByGetuserid.id="+user.getId()+" OR userBySetuserid.id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteEntity(User user){
+		String sql="DELETE User WHERE id="+user.getId();
+		Query query=sess.createQuery(sql);
+		query.executeUpdate();
+	}
+	
+	private void deleteOrganization(User user){
+		List<UserOrganization> list=organizationDao.getMyOrganization(user);
+		for(int i=0;i<list.size();i++){
+			organizationDao.quitOrganization(list.get(i).getOrganization(), user);
+		}
+	}
+
 	public void getSession(){
 		sess=sf.openSession();
 		tx=sess.beginTransaction();
@@ -78,6 +139,16 @@ public class UserDaoImpl implements UserDao {
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
+
+	public OrganizationDaoImpl getOrganizationDao() {
+		return organizationDao;
+	}
+
+	public void setOrganizationDao(OrganizationDaoImpl organizationDao) {
+		this.organizationDao = organizationDao;
+	}
+	
+	
 
 	
 }

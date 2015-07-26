@@ -10,8 +10,8 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="values" type="java.lang.String">
-            <column name="values" length="50" not-null="true" />
+        <property name="value" type="java.lang.String">
+            <column name="value" length="50" not-null="true" />
         </property>
         <set name="users" inverse="true">
             <key>

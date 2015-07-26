@@ -45,6 +45,7 @@
 					<li><a href="getSixinS.action">我 的 私 信</a></li>
 				</ul>
 			</div>
+			
 			<div class="detail_k">
 				<s:iterator value="shuoList" id="list">
 					<div class="k1">
@@ -65,6 +66,7 @@
 					</div>
 				</s:iterator>
 			</div>
+			
 		</div>
 	</div>
 </body>

@@ -40,6 +40,10 @@ public class OrganizationAction extends ActionSupport {
 	
 	public String searchOrganization() throws Exception{
 		organizationList=organizationService.searchOrganization(organization.getName());
+		Map session=ActionContext.getContext().getSession();
+		User user=(User)session.get("user");
+		if(user.getUserGroup().getId() == 3)
+			return "admin";
 		return SUCCESS;
 	}
 
@@ -70,7 +74,10 @@ public class OrganizationAction extends ActionSupport {
 		organization=new Organization();
 		organization.setId(organizationid);
 		organizationService.quitOrganization(organization, user);
-		return SUCCESS;
+		if(user.getUserGroup().getId() == 3)
+			return "admin";
+		else
+			return SUCCESS;
 	}
 	
 
