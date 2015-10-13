@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           			</form>
           		</div>
           		<ul class="right">
-          			<li><a href="#">退出</a></li>
+          			<li><a href="user_login.jsp">退出</a></li>
           			<li><a href="#" style="background: url('pic/xinxibutton.png');"></a></li>
           			<li><a href="#" style="background: url('pic/shezhibutton.png');"></a></li>
           		</ul>
