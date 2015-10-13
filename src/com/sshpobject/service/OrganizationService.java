@@ -14,7 +14,6 @@ import com.sshpobject.model.UserOrganization;
 public class OrganizationService {
 	private OrganizationDaoImpl organizationDao;
 	public void addOrganization(Organization organization,UserOrganization  uo){
-		System.out.println("Ω¯»Î¡Àservice");
 		try {
 		DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
 		String strDate=fmt.format(new Date());

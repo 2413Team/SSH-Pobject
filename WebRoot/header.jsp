@@ -23,14 +23,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-          <div class="header">
-               <a href="index.jsp"  class="logo"><img alt="" src="pic/LOGO_lg.gif" /></a> 
-               
-               <div class="p">
-                <p >四川职业技术学院校友网</p>
-                <span>sichuanzhiyejishuxueyuanxiaoyuowang</span>
-                 </div>
-               
+          <div class="header">    
+          	<div class="content">
+          		<a class="logo" href="user_index.jsp"></a>
+          		<ul class="left">
+          			<li><a href="#" style="background: url('pic/homebutton.png');"></a></li>
+          			<li><a href="#" style="background: url('pic/zuzhibutton.png');"></a></li>
+          			<li><a href="#" style="background: url('pic/schoolbutton.png');"></a></li>
+          		</ul>
+          		<div class="sousuo">
+          			<form action="">
+          				<input type="text" class="sousuotext" placeholder="你要搜索什么" />
+          				<input type="submit" class="submit" value=" "/>
+          			</form>
+          		</div>
+          		<ul class="right">
+          			<li><a href="#">退出</a></li>
+          			<li><a href="#" style="background: url('pic/xinxibutton.png');"></a></li>
+          			<li><a href="#" style="background: url('pic/shezhibutton.png');"></a></li>
+          		</ul>
+          	</div>         
           </div>
   </body>
 </html>

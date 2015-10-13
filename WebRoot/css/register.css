@@ -1,28 +1,114 @@
+
 @CHARSET "UTF-8";
 
-*{margin:0;padding:0}
-body{ }
-a{text-decoration: none;}
-ul{ list-style:none;}
 
-.content{height:687px;width:1280px;margin:0 auto;background:#f5f5f5;}
-.content .fenge{height:60px;width:730px;background:#f5f5f5;margin:0 auto;}
-.content .register{width:730px;height:549px;background:#d5fcd6;margin:0 auto;border:solid 5px #b5fbb7;}
 
-.content .register a{color:#b2b5b2;font-size:14px;float:right;margin:15px 25px 0 0;}
+* {
+	margin: 0;
+	padding: 0
+}
 
-.register form{width:400px; margin-top:20px; margin-left:226px; font-size:16px}
-.register form #shuru{text-indent:3px; width:311px; height:32px; margin-top:23px; float:left;}
-.register form #shuru label{color:#b2b5b2;}
-.register form  .height{ height:32px; width:204px; }
-.register form  .Wdate{ height:32px; width:204px; }
+body {
+	font-size: 18px;
+	font-family: "微软雅黑";
+	background: url("../pic/registerbg.jpg") 100% 100%;
+}
 
-.register form  .sex{ width:250px; height:32px; margin-top:23px; float:left;}
-.register form  .sex label{color:#b2b5b2;}
-.register form  .sex p{float:right;margin-right:30px;color:#b2b5b2;}
+.all {
+	width: 80%;
+	margin: 0 auto;
+}
 
-.register form input.button{width:112px;height:45px; margin-top:21px; background:url(../pic/register_bt.jpg); color:#fff; font-size:18px; float: left;
-                                                    margin-left:82px;}
+#title {
+	margin-bottom: -20px;
+	color:#fff;
+}
 
-.register form span{font-size: 12px; color:red; float:left; margin-bottom:-16px;}
+.register {
+	width: 1080px;
+	height: 450px;
+	margin-left: 200px;
+}
 
+.register form {
+	width: 350px;
+	margin-top: 50px;
+	margin-left: 530px;
+	font-size: 16px;
+}
+
+.content{
+	width:1280px;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+.content .hello {
+	width: 351px;
+	height: 530px;
+	background: url("../pic/registerHello.png");
+	margin-top: 80px;
+	margin-left: 150px;
+	float: left;
+}
+
+.content .back{
+	margin-left:32px;
+	color:#fff;
+}
+
+.register form input#shuru {
+	text-indent: 3px;
+	width: 400px;
+	height: 40px;
+	margin-top: 30px;
+	float: left;
+}
+
+.register form input.yanzheng {
+	width: 100px;
+	float: left;
+	height: 25px
+}
+
+.register form .img {
+	width: 100px;
+	height: 32px;
+	float: right;
+}
+
+.register form input.button {
+	width: 400px;
+	height: 50px;
+	margin-top: 25px;
+	background-color: #00a7de;
+	border: 1px #0381aa solid;
+	color: #fff;
+	font-size: 12px;
+	float: left;
+}
+
+.register form input.sex {
+	margin-top: 30px;
+	color:#fff;	
+}
+
+.register form span {
+	font-size: 12px;
+	color: red;
+	float: left;
+	margin-bottom: -16px;
+}
+
+.register form table {
+	margin-bottom: -30px;
+	padding-top: 20px;
+}
+
+.hello {
+	width: 351px;
+	height: 530px;
+	background:url("../image/registerHello.png") bottom;
+	float: left;
+	margin-left: 400px;
+}

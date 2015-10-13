@@ -20,7 +20,6 @@
 
 <body>
 	<div class="content">
-		<div class="k"></div>
 		<div class="detail">
 			<div class="name_k">
 				<img alt="" src="pic/tx.jpg"><br>
