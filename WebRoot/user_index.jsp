@@ -41,7 +41,7 @@
 					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
 					<li><a href="detailMe.action">个 人 资 料</a></li>
 					<li><a href="haveRequest.action">我 的 请 求</a></li>
-					<li><a href="getSixinS.action">我 的 私 信</a></li>
+					<li><a href="getSixinS.action">我 的 私 聊</a></li>
 				</ul>
 			</div>
 			
