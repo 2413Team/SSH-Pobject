@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.content{
+	width:1280px;
+	height:100%;
+	margin: 0 auto;
+	margin-top:70px;
+}
+
+.content .left{
+	width:200px;
+	height: 100%;
+	margin-left:50px;
+	float: left;
+	border-right: 1px solid #eaeaea;
+}
+
+.content .left .userinformation {
+	width: 100%;
+	height: 100px;
+}
+
+.content .left .userinformation .touxiang{
+	width:40%;
+	height: 100%;
+	float: left;
+}
+
+.content .left .userinformation .touxiang img{
+	margin-left: 5px;
+	margin-top: 6px;
+}
+
+.content .left .userinformation .xinming{
+	width: 60%;
+	height: 100%;
+	float: left;
+	line-height: 50px;
+	text-align: center;
+}
+
+.content .left .leftlist{
+	margin-top:10px;
+}
+
+.content .left .leftlist li{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+}
+
+.content .left .leftlist a{
+	display: block;
+	width:100%;
+	height:100%;
+	color:black;
+}
+.content .left .leftlist a:HOVER{
+	background: #ededed;
+}
+
+.content .center{
+	width:550px;
+	height: 100%;
+	margin-left: 45px;
+	float: left;
+}
+
+.content .center .shuoshuofabu .text{
+	background: url("../pic/shuoshuofabubg.png") top repeat-x;
+	resize:none;
+	font-size:16px;
+	line-height:20px;
+	text-indent: 3px;
+}
+
+.content .center .shuoshuofabu .button{
+	float: right;
+	margin-top: 5px;
+	background: url(../pic/fb.jpg);
+	width: 79px;
+	height: 27px;
+}
+
+.content .center .shuoshuocontent{
+	width:100%;
+	height: 1000px;
+	margin-top:50px;
+}
+
+.content .center .shuoshuocontent .shuoshuos{
+	width: 100%;
+	border-top:1px solid #e3e3e3;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuosleft{
+	width:20%;
+	height:200px;
+	background: fuchsia;
+	float: left;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuosright{
+	width:80%;
+	height:200px;
+	background: blue;
+	float: right;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuosright .shuoshuostop{
+	width:100%;
+	height:60px;
+	background: red;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuosright .shuoshuosbuttom{
+	width:100%;
+	background:olive;
+}
+
+.content .right{
+	width:200px;
+	height: 100%;
+	margin-left: 50px;
+	background: fuchsia;
+	float: left;
+}

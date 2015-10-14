@@ -1,7 +1,4 @@
-
 @CHARSET "UTF-8";
-
-
 
 * {
 	margin: 0;
@@ -103,12 +100,4 @@ body {
 .register form table {
 	margin-bottom: -30px;
 	padding-top: 20px;
-}
-
-.hello {
-	width: 351px;
-	height: 530px;
-	background:url("../image/registerHello.png") bottom;
-	float: left;
-	margin-left: 400px;
 }

@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
           <div class="header">    
-          	<div class="content">
+          	<div class="headercontent">
           		<a class="logo" href="user_index.jsp"></a>
           		<ul class="left">
           			<li><a href="#" style="background: url('pic/homebutton.png');"></a></li>
