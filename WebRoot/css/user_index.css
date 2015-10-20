@@ -43,6 +43,10 @@
 	text-align: center;
 }
 
+.content .left .userinformation .xinming span{
+	line-height: 16px;
+	font-size: 12px;
+}
 .content .left .leftlist{
 	margin-top:10px;
 }
@@ -94,32 +98,61 @@
 
 .content .center .shuoshuocontent .shuoshuos{
 	width: 100%;
+	min-height:30px;
+	text-align: center;
+	margin-top:20px;
 	border-top:1px solid #e3e3e3;
 }
 
-.content .center .shuoshuocontent .shuoshuos .shuoshuosleft{
-	width:20%;
-	height:200px;
-	background: fuchsia;
+.content .center .shuoshuocontent .shuoshuos .shuoshuostop{
+	width:100%;
+	height:50px;
+	line-height: 50px;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuostouxiang{
 	float: left;
+	width: 50px;
+	height: 50px;
+	margin-left:15px;
+	margin-top:5px;
+	background: orange;
 }
 
-.content .center .shuoshuocontent .shuoshuos .shuoshuosright{
-	width:80%;
-	height:200px;
-	background: blue;
-	float: right;
+.content .center .shuoshuocontent .shuoshuos .shuoshuostop .shuoshuosusername{
+	float:left;
+	margin-left:25px;
+	margin-top:5px;
 }
 
-.content .center .shuoshuocontent .shuoshuos .shuoshuosright .shuoshuostop{
-	width:100%;
-	height:60px;
-	background: red;
+.content .center .shuoshuocontent .shuoshuos .shuoshuosbottom{
+	width:85%;
+	text-align:left;
+	margin-left: 85px;
+	margin-top: 15px;
 }
 
-.content .center .shuoshuocontent .shuoshuos .shuoshuosright .shuoshuosbuttom{
-	width:100%;
-	background:olive;
+.content .center .shuoshuocontent .shuoshuos .shuoshuosbottom .send {
+	z-index:2px;
+	position: relative;
+	width: 97%;
+	min-height: 35px;
+	background: #F8C301;
+	border-radius: 5px; /* 圆角 */
+	margin: auto 0;
+	text-indent: 1em;
+	line-height: 35px;
+}
+
+.content .center .shuoshuocontent .shuoshuos .shuoshuosbottom .send .arrow {
+	position: absolute;
+	top: 5px;
+	right: -16px; /* 圆角的位置需要细心调试哦 */
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border: solid 8px;
+	border-color: #fff #fff #fff #F8C301;
 }
 
 .content .right{
@@ -128,4 +161,6 @@
 	margin-left: 50px;
 	background: fuchsia;
 	float: left;
+}
+
 }

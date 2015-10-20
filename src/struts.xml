@@ -54,10 +54,9 @@
         </action>
         <!-- 说说相关 -->
         <action name="addShuoshuo"  class="com.sshpobject.action.ShuoshuoAction" method="addShuoshuo">
-        	<result name="success" type="redirectAction">getShuoshuos</result>
         </action>
         <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
-        	<result name="success">/user_index.jsp</result>
+        	<result name="success">/index.jsp</result>
         </action>
         <!-- 组织请求相关 -->
         <action name="sendRequest" class="com.sshpobject.action.OrganizationRequestAction" method="sendRequest">
