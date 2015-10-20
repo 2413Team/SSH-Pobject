@@ -15,7 +15,7 @@
         	<result name="success">/organization_teamer.jsp</result>
         </action>
         <action name="detailMe" class="com.sshpobject.action.UserAction" method="detailMe">
-        	<result name="success">/user_ziliao.jsp</result>
+        	<result name="success">/userDetail.jsp</result>
         </action>
         <action name="searchUser" class="com.sshpobject.action.UserAction" method="searchUser">
         	<result name="success">/admin_user.jsp</result>
@@ -24,7 +24,7 @@
         	<result name="success">/admin_group.jsp</result>
         </action>
         <action name="deleteUser" class="com.sshpobject.action.UserAction" method="deleteUser">
-        	<result name="success" >/admin_user.jsp</result>
+        	<result name="success" >/userDetail.jsp</result>
         </action>
         <!-- 组织相关 -->
     	<action name="addOrganization" class="com.sshpobject.action.OrganizationAction"  method="addOrganization">
