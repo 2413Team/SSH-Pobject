@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
           <div class="header">    
           	<div class="headercontent">
-          		<a class="logo" href="user_index.jsp"></a>
+          		<a class="logo" href="getShuoshuos.action"></a>
           		<ul class="left">
-          			<li><a href="#" style="background: url('pic/homebutton.png');"></a></li>
+          			<li><a href="getShuoshuos.action" style="background: url('pic/homebutton.png');"></a></li>
           			<li><a href="#" style="background: url('pic/zuzhibutton.png');"></a></li>
           			<li><a href="#" style="background: url('pic/schoolbutton.png');"></a></li>
           		</ul>

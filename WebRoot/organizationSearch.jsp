@@ -32,19 +32,20 @@
 		</div>
     
     <div class="bottom" >
-    		<p style="font-size: 32px; margin-top: 5px;">已经加入的组织</p>
-    		<s:if test="userList.size()!=0">
-			<s:iterator value="userList" id="list">			
-				<a href="detailOrganization.action?organizationid=${list.organization.id}"  class="orgblock" >
+    		<p style="font-size: 32px; margin-top: 5px;">查找结果</p>
+    		<s:if test="organizationList.size()!=0">
+			<s:iterator value="organizationList" id="list">			
+				<a href="#"  class="orgblock" >
 					<img alt="" src="pic/loginbg.jpg" style="width: 92%; height: 100px; margin-left:7px;margin-top:10px; display: block;">
-					<p style="font-size: 24px; text-indent: 15px;  line-height: 24px; padding-top: 15px;"><s:property value="#list.getOrganization().getName()"/></p>
-					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 30px; ">创建者:<s:property value="#list.getUser().getName()"/></p>
-					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 10px;">人数:<s:property value="#list.getOrganization().getMembercount()"/></p>
+					<p style="font-size: 24px; text-indent: 15px;  line-height: 24px; padding-top: 15px;"><s:property value="#list.getName()"/></p>
+					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 15px; ">创建者:<s:property value="#list.getUser().getName()"/></p>
+					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 10px; ">类型:<s:property value="#list.getOrganizationType().getValue()"/></p>
+					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 10px;">人数:<s:property value="#list.getMembercount()"/></p>
 				</a>
 			</s:iterator>
 			</s:if>
 			<s:else>
-				<p style="margin-top: 10px;">你还没有没加入过任何组织哦！快来加入一个吧！<a href="searchOrganization.action?organization.name=">查看组织</a></p>
+				<p style="margin-top: 10px;">你要找的组织并没有找到哦~换个试试？？<a href="#">查看组织</a></p>
 			</s:else>
 		</div>
    </div>

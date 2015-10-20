@@ -31,15 +31,15 @@
     		<result name="success" type="redirectAction">getMyOrganization</result>
     	</action>
     	<action name="searchOrganization" class="com.sshpobject.action.OrganizationAction" method="searchOrganization">
-    		<result name="success">/organization_search.jsp</result>
+    		<result name="success">/organizationSearch.jsp</result>
     		<result name="admin">/admin_organization.jsp</result>
     	</action>
     	<action name="detailOrganization" class="com.sshpobject.action.OrganizationAction" method="detailOrganization">
     		<result name="success">/organization_detail.jsp</result>
     	</action>
     	<action name="getMyOrganization" class="com.sshpobject.action.OrganizationAction" method="getMyOrganization">
-    		<result name="success">/organization_have.jsp</result>
-    		<result name="no">/organization_donthave.jsp</result>
+    		<result name="success">/organization.jsp</result>
+    		<result name="no">/organization.jsp</result>
     	</action>
     	<action name="quitOrganization" class="com.sshpobject.action.OrganizationAction" method="quitOrganization">
     		<result name="success" type="redirectAction">getMyOrganization</result>
