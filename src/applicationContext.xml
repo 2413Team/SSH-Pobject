@@ -109,6 +109,7 @@
 		<property name="shuoshuoDao" ref="shuoshuoDao"></property>	
 	</bean>
 	<bean id="shuoshuoAction" class="com.sshpobject.action.ShuoshuoAction">
+		<property name="organizationRequestService" ref="organizationRequestService"></property>
 		<property name="shuoshuoService" ref="shuoshuoService"></property>
 	</bean>
 	

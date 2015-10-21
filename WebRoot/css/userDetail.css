@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+body{
+	background: url(../pic/userDetailbg.jpg) repeat-x;
+}
+
+.content {
+	width: 1080px;
+	margin: 0 auto;
+	margin-top: 55px;
+}
+
+.content .table {
+	width: 100%;
+	height: 800px;
+}
+
+.content .table .idcard {
+	width: 400px;
+	height: 230px;
+	background: url('../pic/idcard.png');
+	margin: 50px 0 0 100px;
+	float: left;
+}
+
+.content .bottom .orgblock {
+	width: 200px;
+	height: 250px;
+	background: url("../pic/organizationbg.png");
+	float: left;
+	margin-right: 50px;
+	margin-top:30px;
+	display: block;
+	color:#fff;
+}

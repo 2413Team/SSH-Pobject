@@ -7,6 +7,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sshpobject.dao.UserDao;
 import com.sshpobject.model.User;
@@ -37,7 +39,9 @@ public class UserDaoImpl implements UserDao {
 		getSession();
 		String sql="FROM User WHERE email='"+user.getEmail()+"' AND password='"+user.getPassword()+"' AND userStatus.id=1";
 		Query query=sess.createQuery(sql);
-		return query.list();
+		List<User> userlist=query.list();
+		distroy();
+		return userlist;
 	}
 	
 	@Override

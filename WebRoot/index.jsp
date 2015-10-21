@@ -27,7 +27,7 @@
 					<img alt="" src="pic/touxiang.jpg">
 				</div>
 				<div class="xinming">
-					<a href="detailMe.action"><s:property value="#session.user.name" /></a> <br/>
+					<a href="detailUser.action?userid=${sessionScope.user.id}" style="color: #000;"><s:property value="#session.user.name" /></a> <br/>
 					<span><s:property value="#session.user.address" /></span>
 				</div>
 			</div>
@@ -36,9 +36,7 @@
 			<ul class="leftlist">
 				<li><a href="#">所有动态</a></li>
 				<li><a href="getMyOrganization.action">我的组织</a></li>
-				<li><a href="detailMe.action">个人资料</a></li>
-				<li><a href="#">我的请求</a></li>
-				<li><a href="#">我的私信</a></li>
+				<li><a href="detailUser.action?userid=${sessionScope.user.id}">个人资料</a></li>
 			</ul>
 		</div>
 		
@@ -69,7 +67,19 @@
 			</div>
 		</div>
 		<div class="right">
-					
+			<!-- 暂定做个请求模块~~~~ -->
+			<p style="font-size: 18px;">请求</p>
+			<div class="qingqiu" style="">
+				<s:iterator value="orList" id="list">
+					<div class="qingqiublock" >
+						<p style="width: 85%; margin-left:17px; margin-top:10px; float: left; font-size: 14px;"><s:property value="#list.getUser().getName()"/>申请加入您创建的组织【<s:property value="#list.getOrganization().getName()" />】，是否接受？</p>
+						<div style="float: right; margin-top: 15px; margin-right: 15px; ">
+							<a href="agreeRequest.action?organizationid=${list.organization.id}&userid=${list.user.id}&orid=${list.id}" style="color: orange;">接受</a>
+							<a href="disagreeRequest.action?organizationid=${list.organization.id}&userid=${list.user.id}&orid=${list.id}" style="color: orange;">拒绝</a>
+						</div>
+					</div>
+				</s:iterator>
+			</div>
 		</div>
 	</div>
 </body>

@@ -42,7 +42,6 @@ public class UserLogDaoImpl implements UserLogDao {
 	public void distroy(){
 		tx.commit();
 		sess.close();
-		sf.close();
 	}
 
 	public SessionFactory getSf() {

@@ -35,7 +35,7 @@
     		<p style="font-size: 32px; margin-top: 5px;">查找结果</p>
     		<s:if test="organizationList.size()!=0">
 			<s:iterator value="organizationList" id="list">			
-				<a href="#"  class="orgblock" >
+				<a href="sendRequest.action?organziationid=${list.id}"  class="orgblock" >
 					<img alt="" src="pic/loginbg.jpg" style="width: 92%; height: 100px; margin-left:7px;margin-top:10px; display: block;">
 					<p style="font-size: 24px; text-indent: 15px;  line-height: 24px; padding-top: 15px;"><s:property value="#list.getName()"/></p>
 					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 15px; ">创建者:<s:property value="#list.getUser().getName()"/></p>

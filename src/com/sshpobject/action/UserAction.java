@@ -59,8 +59,7 @@ public class UserAction extends ActionSupport {
 		user.setId(Integer.parseInt(request.getParameter("userid")));
 		uoList=userService.detailUser(user);
 		userlist=new ArrayList<User>();
-		if(uoList.size()>0)
-			userlist.add(uoList.get(0).getUser());
+		userlist=userService.detailMe(user);
 		return SUCCESS;
 	}
 	

@@ -12,7 +12,7 @@
             <result name="success">/user_login.jsp</result>
         </action>
         <action name="detailUser" class="com.sshpobject.action.UserAction" method="detailUser">
-        	<result name="success">/organization_teamer.jsp</result>
+        	<result name="success">userDetail.jsp</result>
         </action>
         <action name="detailMe" class="com.sshpobject.action.UserAction" method="detailMe">
         	<result name="success">/userDetail.jsp</result>
@@ -56,14 +56,14 @@
         <action name="addShuoshuo"  class="com.sshpobject.action.ShuoshuoAction" method="addShuoshuo">
         </action>
         <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
-        	<result name="success">/index.jsp</result>
+        	<result name="success" >/index.jsp</result>
         </action>
         <!-- 组织请求相关 -->
         <action name="sendRequest" class="com.sshpobject.action.OrganizationRequestAction" method="sendRequest">
         	<result name="success" type="redirectAction">getShuoshuos</result>
         </action>
         <action name="haveRequest" class="com.sshpobject.action.OrganizationRequestAction" method="haveRequest">
-        	<result name="success">/sixin_request.jsp</result>
+        	<result name="success">/index.jsp</result>
         </action>
         <action name="agreeRequest" class="com.sshpobject.action.OrganizationRequestAction" method="agreeRequest">
         	<result name="success">/sixin_request.jsp</result>

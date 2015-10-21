@@ -39,6 +39,7 @@ public class OrganizationRequestAction extends ActionSupport {
 		Map session=ActionContext.getContext().getSession();
 		User user=(User)session.get("user");
 		orList=organizationRequestService.haveRequest(user);
+		System.out.println("≤‚ ‘");
 		return SUCCESS;
 	}
 	

@@ -159,8 +159,19 @@
 	width:200px;
 	height: 100%;
 	margin-left: 50px;
-	background: fuchsia;
 	float: left;
 }
 
+.content .right .qingqiu {
+	width: 100%;
+	margin-top: 15px;
+	border-top: 1px solid #e3e3e3;
 }
+
+.content .right .qingqiu .qingqiublock {
+	width: 98%;
+	height: 120px;
+	margin: 0 auto;
+	background: url("../pic/requestbg.png");
+	margin-top: 25px;
+}}
