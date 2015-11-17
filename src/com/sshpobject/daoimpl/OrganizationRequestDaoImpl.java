@@ -126,7 +126,7 @@ public class OrganizationRequestDaoImpl implements OrganizationRequestDao {
 		distroy();
 	}
 	
-	//修改申请表agree字段为1
+	//修改申请表agree字段为0
 	private void setAgreeToNo(OrganizationRequest organizationRequest){
 		String sql="UPDATE OrganizationRequest SET agree=2  WHERE id="+organizationRequest.getId();
 		Query query=sess.createQuery(sql);

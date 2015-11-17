@@ -4,35 +4,16 @@ body{ width:1280px;height:1400px;margin:0 auto;}
 a{text-decoration: none;}
 ul{ list-style:none;}
 
-.content{width:1280px;height:1188px;margin:0 auto;background:#f5f5f5;}
+.content{width:1280px;height:1188px;margin:0 auto;}
 
-.content .k{width:1083px;height:65px;margin:0 auto;background:#f5f5f5;}
+.content .k{width:1083px;height:65px;margin:0 auto;}
 .content .detail{width:1083px;height:880px;margin:0 auto;background:#fafafa;}
 
-.content .detail  .name_k{width:232px;height:232px;padding:97px 0 0 74px;float:left;}
-.content .detail  .name_k img{width:158px;height:158px;margin-left:12px;}
-.content .detail  .name_k p{font-family:"华文新魏" ;font-size:30px;margin-left:64px;color:#d3d3d3;margin-top:15px;}
-
-.content .detail  .txt_k{width:776px;height:329px;float:left;}
-.content .detail  .txt_k textarea{font-size:16px;margin:97px 0 0 80px;}
-.content .detail  .txt_k  .first{margin:0 0 0 530px;}
-.content .detail  .txt_k  .second {color:#d3d3d3;padding-bottom:5px;}
-.content .detail  .txt_k   img{margin:17px 0 0 0;}
-.content .detail  .txt_k  .button{background:url(../pic/fb.jpg); width:79px; height:27px;color:#fff;font-size:14px;}
-
-.content .detail  .list_k{width:306px;height:550px;background:#fafafa;float:left;}
-.content .detail  .list_k ul{background:#9efca3;}
-.content .detail  .list_k ul li{float:top; line-height:60px;}
-.content .detail  .list_k ul li  a .first{background:#6ae670;}
-.content .detail  .list_k ul li a{display:block;text-align: center;color:white; font-size:23px;}
-.content .detail  .list_k ul li a:hover{background:#6ae670; }
-
-
-.content .detail  .detail_k{width:730px;height:490px;border:solid 1px #d3d3d3;float:left;background:#fafafa;font-size:24px;}
+.content .detail  .detail_k{width:730px;border:solid 1px #d3d3d3;float:left;background:#fafafa;font-size:24px;}
 .content .detail  .detail_k a.fanhui{font-size:14px;color:#828282;line-height:12px;float:left;margin-top:35px;margin-bottom:24px;font-weight:bolder;}
 .content .detail  .detail_k a.first{margin:30px 0px 0 0;display:block;height:19px;width:17px;float:left;margin-left:573px;}
-.content .detail  .detail_k .cy_detail{width:658px;height:380px;border-top:1px dashed #828282;margin:110px 0 0 32px;overflow: auto;}
-.content .detail  .detail_k .cy_detail .cy{width:651px;height:101px;background:#f1f1f1;margin:18px 0 0 6px;font-size:14px;color:#828282;float:left;}
-.content .detail  .detail_k .cy_detail .cy .tx{width:70px;height:70px;border:1px solid #828282;margin-left:6px;float:left;margin-top:13px;}
-.content .detail  .detail_k .cy_detail .cy span{margin:20px 0 0 18px;float:left;}
-.content .detail  .detail_k .cy_detail .cy a{margin:60px 0 0 26px;float:left;color:#828282;text-decoration: underline;;}
+.content .detail  .detail_k .cy_detail{width:658px;border-top:1px dashed #828282;margin:110px 0 0 32px;}
+.content .detail  .detail_k .cy_detail .cy{width:651px;height:101px;background:#f1f1f1;margin:9px 0 16px 6px;font-size:14px;color:#828282;float:left;}
+.content .detail  .detail_k .cy_detail .cy .tx{width:70px;height:70px;border:1px solid #828282;margin-left:6px;float:left;margin-top:13px; background: url("../pic/touxiang.jpg") no-repeat;}
+.content .detail  .detail_k .cy_detail .cy span{margin:10px 0 0 18px;float:left; width:300px; }
+.content .detail  .detail_k .cy_detail .cy a{margin:10px 26px 0 0;float:right;color:#828282;text-decoration: underline; }
