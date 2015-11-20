@@ -40,6 +40,6 @@ ul{ list-style:none;}
 
 
 .content .detail  .detail_k .liuyan_k .fasong{width:607px;height:79px;}
-.content .detail  .detail_k .liuyan_k .fasong  .text{width:490px;height:79px;text-indent: 24px;overflow: auto;float:left;}
+.content .detail  .detail_k .liuyan_k .fasong  .text{width:490px;height:79px; overflow: auto;float:left;}
 .content .detail  .detail_k .liuyan_k .fasong form .submit{width:78px;height:32px;background-image:url("../pic/bt_ss.png");color:white; margin:25px 0 0 20px;float:left;}
 

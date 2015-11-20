@@ -25,12 +25,19 @@
 		<div class="k"></div>
 		<div class="detail">
 			<div class="detail_k">
+				<p style="font-size: 18px; line-height: 45px; float: left; margin-left: 25px; margin-top: 15px;">
+					<img alt="" src="pic/xinxibutton.png" style="margin-top: 5px; float: left;">
+					发送私信
+				</p>
 				<div class="detail_bdm">
 					<s:form action="sendSixin.action">
 						收信人:
-						<input type="text" name="sixin.userByGetuserid.id" value="<%=request.getParameter("getterid")%>" style="border: none; background: none;"  readonly="readonly"  />
-						<s:textarea label="私信内容" labelposition="top" name="sixin.value" 	rows="15" cols="50" cssClass="sixin"/>
-						<s:submit value="发送" cssClass="submit"/>
+						<input type="text" name="sixin.userByGetuserid.id"
+							value="<%=request.getParameter("getterid")%>"
+							style="border: none; background: none;" readonly="readonly" />
+						<s:textarea label="私信内容" labelposition="top" name="sixin.value"
+							rows="15" cols="50" cssClass="sixin" />
+						<s:submit value="发送" cssClass="submit" />
 					</s:form>
 				</div>
 			</div>

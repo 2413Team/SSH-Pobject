@@ -13,6 +13,7 @@
         </action>
         <action name="detailUser" class="com.sshpobject.action.UserAction" method="detailUser">
         	<result name="success">userDetail.jsp</result>
+        	<result name="detailMe">detailme.jsp</result>
         </action>
         <action name="detailMe" class="com.sshpobject.action.UserAction" method="detailMe">
         	<result name="success">/userDetail.jsp</result>
@@ -54,6 +55,7 @@
         </action>
         <!-- 说说相关 -->
         <action name="addShuoshuo"  class="com.sshpobject.action.ShuoshuoAction" method="addShuoshuo">
+        	<result type="redirectAction">getShuoshuos</result>
         </action>
         <action name="getShuoshuos" class="com.sshpobject.action.ShuoshuoAction" method="getShuoshuos">
         	<result name="success" >/index.jsp</result>

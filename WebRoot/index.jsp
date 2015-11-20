@@ -5,7 +5,7 @@
 <html>
   <head>
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>欢迎来到校友网</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -34,12 +34,12 @@
 			
 			<!-- 这是用户信息下面的几个分支 -->
 			<ul class="leftlist">
-				<li><a href="#">所有动态</a></li>
+				<li><a href="getShuoshuos.action">所有动态</a></li>
 				<li><a href="getMyOrganization.action">我的组织</a></li>
 				<li><a href="detailUser.action?userid=${sessionScope.user.id}">个人资料</a></li>
 			</ul>
 		</div>
-		
+		<!-- 中间的说说模块 -->
 		<div class="center">
 			<form action="addShuoshuo.action" method="post" class="shuoshuofabu">
 				<textarea name="shuoshuo.value" cols="66" rows="4"  required class="text"></textarea> <br/>
@@ -66,6 +66,7 @@
 				</s:iterator>
 			</div>
 		</div>
+		
 		<div class="right">
 			<!-- 暂定做个请求模块~~~~ -->
 			<p style="font-size: 18px;">请求</p>

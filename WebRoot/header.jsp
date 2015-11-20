@@ -28,19 +28,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           		<a class="logo" href="getShuoshuos.action"></a>
           		<ul class="left">
           			<li><a href="getShuoshuos.action" style="background: url('pic/homebutton.png');"></a></li>
-          			<li><a href="#" style="background: url('pic/zuzhibutton.png');"></a></li>
-          			<li><a href="#" style="background: url('pic/schoolbutton.png');"></a></li>
+          			<li><a href="getMyOrganization.action" style="background: url('pic/zuzhibutton.png');"></a></li>
           		</ul>
           		<div class="sousuo">
-          			<form action="">
-          				<input type="text" class="sousuotext" placeholder="你要搜索什么" />
+          			<form action="searchOrganization.action">
+          				<input type="text"  class="sousuotext" placeholder="你要搜索什么" name="organization.name" />
           				<input type="submit" class="submit" value=" "/>
           			</form>
           		</div>
           		<ul class="right">
           			<li><a href="user_login.jsp">退出</a></li>
-          			<li><a href="#" style="background: url('pic/xinxibutton.png');"></a></li>
-          			<li><a href="#" style="background: url('pic/shezhibutton.png');"></a></li>
+          			<li><a href="getSixinS.action" style="background: url('pic/xinxibutton.png');"></a></li>
           		</ul>
           	</div>         
           </div>

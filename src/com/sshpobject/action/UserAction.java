@@ -56,11 +56,20 @@ public class UserAction extends ActionSupport {
 	public String detailUser() throws Exception{
 		user=new User();
 		HttpServletRequest request = ServletActionContext.getRequest();
+		Map session=ActionContext.getContext().getSession();
+		User me=(User)session.get("user");
 		user.setId(Integer.parseInt(request.getParameter("userid")));
 		uoList=userService.detailUser(user);
 		userlist=new ArrayList<User>();
 		userlist=userService.detailMe(user);
-		return SUCCESS;
+		if(userlist.get(0).getId()!=me.getId())
+		{
+			return SUCCESS;
+		}
+		else 
+		{
+			return "detailMe";
+		}
 	}
 	
 	public String detailMe() throws Exception{

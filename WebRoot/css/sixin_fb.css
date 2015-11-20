@@ -11,6 +11,6 @@ ul{ list-style:none;}
 .content .detail{width:1083px;height:880px;margin:0 auto;background:#fafafa;}
 
 .content .detail .detail_k{width:730px;height:490px;float:left;border:solid 1px #d3d3d3;overflow:auto;}
-.content .detail .detail_bdm{width:400px; height:300px; margin: 0 auto; margin-top:60px;}
-.content .detail .sixin{background: none; border: none;}
+.content .detail .detail_bdm{width:400px; height:300px; margin-top:60px; float: left;}
+.content .detail .sixin{border: 1px black solid;}
 .content .detail .submit{width:79px; height:27px;color:black;font-size:14px;}

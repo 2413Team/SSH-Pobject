@@ -55,6 +55,7 @@ public class UserDaoImpl implements UserDao {
 			String test=list.get(i).getOrganization().getName();
 			test=list.get(i).getUser().getName();
 		}
+		distroy();
 		return list;
 	}
 

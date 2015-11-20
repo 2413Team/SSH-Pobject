@@ -7,7 +7,7 @@
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'organization.jsp' starting page</title>
+    <title>欢迎来到校友网</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -35,12 +35,16 @@
     		<p style="font-size: 32px; margin-top: 5px;">已经加入的组织</p>
     		<s:if test="userList.size()!=0">
 			<s:iterator value="userList" id="list">			
-				<a href="detailOrganization.action?organizationid=${list.organization.id}"  class="orgblock" >
-					<img alt="" src="pic/loginbg.jpg" style="width: 92%; height: 100px; margin-left:7px;margin-top:10px; display: block;">
-					<p style="font-size: 24px; text-indent: 15px;  line-height: 24px; padding-top: 15px;"><s:property value="#list.getOrganization().getName()"/></p>
-					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 30px; ">创建者:<s:property value="#list.getUser().getName()"/></p>
-					<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 10px;">人数:<s:property value="#list.getOrganization().getMembercount()"/></p>
-				</a>
+				<div style="float: left; margin-right: 50px;">
+					<a href="detailOrganization.action?organizationid=${list.organization.id}"  class="orgblock" >
+						<img alt="" src="pic/loginbg.jpg" style="width: 92%; height: 100px; margin-left:7px;margin-top:10px; display: block;">
+						<p style="font-size: 24px; text-indent: 15px;  line-height: 24px; padding-top: 15px; overflow: hidden; height:24px;"><s:property value="#list.getOrganization().getName()"/></p>
+						<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 30px; ">创建者:<s:property value="#list.getUser().getName()"/></p>
+						<p style="font-size: 16px; text-indent: 15px; line-height: 16px; margin-top: 10px;">人数:<s:property value="#list.getOrganization().getMembercount()"/></p>
+					</a>
+					<a href="quitOrganization.action?organizationid=${list.organization.id}" style="float: right; display:block; margin-top: 100px; margin-left: -150px; color:#333;" href="quitOrganization.action?organizationid=${uolist.organization.id}" >退出组织</a>
+					<a href="getAllLiuyan.action?organizationid=${list.organization.id}" style="float: right; display:block; margin-top: 150px; margin-left: -50px; color:#333;" href="quitOrganization.action?organizationid=${uolist.organization.id}" >进入聊天室</a>
+				</div>
 			</s:iterator>
 			</s:if>
 			<s:else>

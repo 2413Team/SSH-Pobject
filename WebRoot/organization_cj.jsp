@@ -21,25 +21,11 @@
 	<div class="content">
 		<div class="k"></div>
 		<div class="detail">
-			<div class="name_k">
-				<img alt="" src="pic/tx.jpg"><br>
-				<p><s:property value="#session.user.name" /></p>
-			</div>
-			<div class="txt_k">
-				<form action="addShuoshuo.action" method="post">
-					<textarea name="shuoshuo.value" cols="75" rows="8" required></textarea>
-					<br> <a href="#" class="first"> <img alt=""
-						src="pic/photo.jpg"></a> <a href="#" class="second"> <b>照片</b></a>
-					<input type="submit" value=" 发  表" class="button">
-				</form>
-			</div>
 			<div class="list_k">
 				<ul>
 					<li><a href="getShuoshuos.action" class="first">所 有 动 态</a></li>
 					<li><a href="getMyOrganization.action">我 的 组 织</a></li>
 					<li><a href="detailMe.action">个 人 资 料</a></li>
-					<li><a href="haveRequest.action">我 的 请 求</a></li>
-					<li><a href="getSixinS.action">我 的 私 信</a></li>
 				</ul>
 			</div>
 			<div class="detail_k">
